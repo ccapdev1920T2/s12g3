@@ -20,7 +20,8 @@ var ReviewSchema = new mongoose.Schema({
     
     pubdate: {
         type: Date,
-        required: true
+        required: true,
+        default: Date.now
     },
 
     votes: {
@@ -52,6 +53,14 @@ var ReviewSchema = new mongoose.Schema({
     reviewText: {
         type: String,
         required: true
+    },
+    rPhoto:{
+        type: String,
+        required: false
+    },
+    rName:{
+        type: String,
+        required: false
     }
 
 });

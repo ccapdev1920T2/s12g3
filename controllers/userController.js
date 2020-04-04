@@ -58,31 +58,52 @@ const userController = {
 
         db.findOne(User, {isLoggedIn: true}, projection, function(result) {
             if(result != null) {
-                console.log("objectified result._id: " + ObjectId(result._id));
-                console.log("result._id: " +result._id);
-
+                // console.log("objectified result._id: " + ObjectId(result._id));
+                // console.log("result._id: " +result._id);
 
                 db.findMany(Review, {authorID: ObjectId(result._id)}, reviewProjection, function(reviewsResult){
                 
-                    console.log("object reviewsResult length: " + reviewsResult.length);
-                    console.log("result: " + result);
-                    console.log("reviewsResult: " + reviewsResult); 
+                    // console.log("object reviewsResult length: " + reviewsResult.length);
+                    // console.log("result: " + result);
+                    // console.log("reviewsResult: " + reviewsResult); 
 
-                    // if the user exists in the database
-                    // render the profile page with their details
-                
-                        var details = {
-                            uname: result.uname,
-                            ucity: result.ucity,
-                            utype: result.utype,
-                            ulikes: result.ulikes,
-                            reviewsRest: reviewsResult
-                        };
+                    var reviewsWithAuthor = reviewsResult;
+                    for(var i=0; i<reviewsResult.length; i++){
+                        var setRev = {
+                            rPhoto :result.upic,
+                            rName : result.uname,
+                            authorID :reviewsResult[i].authorID,
+                            restaurantID :reviewsResult[i].restaurantID,
+                            pubdate :  reviewsResult[i].pubdate,
+                            votes : reviewsResult[i].votes,
+                            foodrate : reviewsResult[i].foodrate,
+                            servicerate : reviewsResult[i].servicerate,
+                            envrate : reviewsResult[i].envrate,
+                            reviewText : reviewsResult[i].reviewText
+                        }
+                        // console.log("setRev: " + JSON.stringify(setRev));
+
+                        reviewsWithAuthor[i] = setRev;
                         
-                        console.log("details: " + JSON.stringify(details));
+                    }
 
-                        // render `../views/user.hbs`
-                        res.render('user', details);
+                    // console.log("reviewsWithAuthor: " + reviewsWithAuthor);
+                    
+                
+                                                var details = {
+                                                    upic: result.upic,
+                                                    uname: result.uname,
+                                                    ucity: result.ucity,
+                                                    utype: result.utype,
+                                                    ulikes: result.ulikes,
+                                                    reviewsRest: reviewsWithAuthor
+
+                                                };
+                                                
+                                                // console.log("details: " + JSON.stringify(details));
+
+                                                // render `../views/user.hbs`
+                                                res.render('user', details);
                     
                     
                 });
