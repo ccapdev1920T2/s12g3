@@ -20,6 +20,12 @@ const restaurantController = require('../controllers/restaurantController.js');
 // import module `useraccountsettingController` from `../controllers/useraccountsettingController.js`
 const useraccountsettingController = require('../controllers/useraccountsettingController.js');
 
+// import module `useraccountsettingController` from `../controllers/loginController.js`
+const loginController = require('../controllers/loginController.js');
+
+// import module `useraccountsettingController` from `../controllers/logoutController.js`
+const logoutController = require('../controllers/logoutController.js');
+
 const app = express();
 
 // set the folder `public` as folder containing static assets
@@ -51,7 +57,7 @@ app.use(express.static('public'));
 app.get('/restaurant', controller.getOneRestaurant);
 
 //goes to the HARDCODED restaurant page
-app.get('/home', homeController.getRestaurants);
+app.get('/home/:username', homeController.getRestaurants);
 
 //goes to a specific restaurant page
 app.get('/restaurant/:id', restaurantController.getRestaurant);
@@ -59,6 +65,14 @@ app.get('/restaurant/:id', restaurantController.getRestaurant);
 
 //goes to login page
 app.get('/login', controller.getLogin);
+
+//post to login page
+app.post('/login', loginController.postLogin);
+
+//logs out current logged in user
+app.get('/logout', logoutController.getLogout);
+
+app.post('/home/:uname', loginController.postLogin);
 
 //goes to register page
 // execute function getSignUp()

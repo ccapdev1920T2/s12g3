@@ -1,6 +1,6 @@
 // This script creates the database
-//NOTE in _id, "a" means restaurant, "b" means review, "c" means commentCollection, and "d" means user 
-// NOTE restaurant details and user details must be created first, then reviews, then comments.
+//NOTE in _id, "a" means restaurant, "b" means review,  and "d" means user 
+// NOTE restaurant details and user details must be created first, then reviews
 
 // always include the line after this as the 1st element when adding stuff
 // _id: ObjectId()
@@ -26,9 +26,6 @@ const reviewCollection = 'reviews';
 // to perform CRUD (Create, Read, Update, Delete) operations
 const userCollection = 'users';
 
-// name of the collection (table)
-// to perform CRUD (Create, Read, Update, Delete) operations
-const commentCollection = 'comments';
 
 // calls the function createDatabase()
 // defined in the `database` object in `./models/db.js`
@@ -54,6 +51,7 @@ mongodb.insertOne(restaurantCollection, restaurant1Details);
 // add user1
 var user1Details = {
     _id: ObjectId(),
+    isLoggedIn: false,
     upic: "BobJohnson.jpg",
     uname: "bobjohnson",
     email: "bobjohnson@gmail.com",
@@ -68,6 +66,7 @@ mongodb.insertOne(userCollection, user1Details);
 // add user2
 var user2Details = {
     _id: ObjectId(),
+    isLoggedIn: false,
     upic: "HaroldAnderson.jpg",
     uname: "haroldanderson",
     email: "haroldanderson@gmail.com",
@@ -108,11 +107,3 @@ var review2Details = {
 mongodb.insertOne(reviewCollection, review2Details);
 
 
-// adds  comment1 to review1
-var comment1Details = {
-    authorID: user2Details._id,
-    reviewID: review1Details._id,
-    date: new Date(),
-    commentText: "Try the mushroom soup next time"
-}
-mongodb.insertOne(commentCollection, comment1Details);

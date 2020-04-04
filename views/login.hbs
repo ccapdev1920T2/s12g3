@@ -10,19 +10,21 @@
 	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-<form method="post">
+<form method ="post" action = "/login">
 	<div class = "login">
 		<a href = "/"> <img src = "img/Logo.png" id = "foodicon"></a>
 		<h2>LET'S GET STARTED NOW </h2><br>
 		<h3>Sign In </h3>
 		<input     type = "text"
 				     id = "username"
-			placeholder = "Username"/><br>
+				   name = "uname"
+			placeholder = "Username" required/><br>
 		<p id="erroruser"></p><br>
 		<input     type = "password"
 					 id = "password"
-			placeholder = "Password"/><br>
-		<p id="errorpassword"></p><br><br><br>
+				   name = "pword"
+			placeholder = "Password" required/><br>
+		<p id="errorpassword">{{InvalidCredentialsError}}</p><br><br><br>
 		<input     type = "submit" 
 		          value = "LOG IN" 
 				     id = "login"><br>
@@ -33,8 +35,12 @@
 				onclick = "window.location.href = '/';"><br><br>
 		
 		<p>Don't have an account?<br> 
-		<strong><a href = "/register"> Sign Up Now</a></strong></p>
+		<strong><a href = "/register"> Sign Up Now</a></strong>
+		</p>
+		
+		
 	</div>    
+</form>
 	<script type = "text/javascript">
 		
 		function validUsername(user, val)

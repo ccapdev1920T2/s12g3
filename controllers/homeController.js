@@ -11,15 +11,25 @@ const homeController = {
 
     getRestaurants: function(req, res) {
 
-        Restaurant.find({}, function (err, restaurant){
 
-            // this console.log is for gebugging only
-            // console.log(restaurant);
+        db.findOne(User, {isLoggedIn: true}, 'uname', function(result){
             
-           res.render('home.hbs', {restaurant: restaurant}); 
-        })
+            Restaurant.find({}, function (err, restaurant){
+
+                // this console.log is for gebugging only
+                // console.log(restaurant);
+
+                console.log("result: " +result);
+
+
+                res.render('home.hbs', {restaurant: restaurant}); 
+            });
+        });
+
         
+    
         
+
     }
 
     

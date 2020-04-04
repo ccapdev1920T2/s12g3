@@ -37,14 +37,37 @@ const uasController = {
         var query = {uname: req.params.username};
         console.log("query: " + query);
         var projection = 'upic';
-        // calls the function findOne()
-        // defined in the `database` object in `../models/db.js`
-        // this function searches the collection `users`
-        // based on the value set in object `query`
-        // the third parameter is a string containing the fields to be returned
-        // the fourth parameter is a callback function
-        // this called when the database returns a value
-        // saved in variable `result`
+        
+        db.findOne(User, {isLoggedIn: true}, projection, function(result) {
+            console.log("result: " + result);
+            // if the user exists in the database
+            // render the profile page with their details
+            if(result != null) {
+                var details = {
+                    upic: result.upic,
+                    // ucity: result.email,
+                    // utype: result.pword,
+                    // ulikes: result.cpword
+                };
+                // render `../views/user.hbs`
+                res.render('useraccountsetting', details);
+            }
+            // if the user does not exist in the database
+            // render the error page
+            else {
+                // render `../views/error.hbs`
+                res.render('error');
+            }
+        });
+    },
+
+    // executed when the client sends an HTTP GET request `/useraccountsetting`
+    // as defined in `../routes/routes.js`
+    oldgetUAS: function (req, res) {
+        var query = {uname: req.params.username};
+        console.log("query: " + query);
+        var projection = 'upic';
+        
         db.findOne(User, query, projection, function(result) {
             console.log("result: " + result);
             // if the user exists in the database

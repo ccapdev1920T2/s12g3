@@ -15,7 +15,7 @@ const userController = {
        var query = {uname: req.params.username};
         console.log("query: " + query);
         // fields to be returned
-        var projection = 'uname email pword cpword';
+        var projection = 'isLoggedIn upic uname email gender pword ucity utype ulikes';
 
         // calls the function findOne()
         // defined in the `database` object in `../models/db.js`
@@ -33,9 +33,9 @@ const userController = {
             if(result != null) {
                 var details = {
                     uname: result.uname,
-                    ucity: result.email,
-                    utype: result.pword,
-                    ulikes: result.cpword
+                    ucity: result.ucity,
+                    utype: result.utype,
+                    ulikes: result.ulikes
                 };
                 
                 // render `../views/user.hbs`
