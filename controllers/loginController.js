@@ -26,14 +26,14 @@ const loginController = {
                         db.updateOne(User, {uname: uname}, {isLoggedIn: true});
                         res.render('loginsuccess',results);
                     }else{
-                        res.render('login', {InvalidCredentialsError: "Invalid Credentials!"});
+                        res.render('login', {uname: "Guest", InvalidCredentialsError: "Invalid Credentials!"});
                     }
                     
                 })
             }
             else{ //if SOMeONE is CURRENTLY logged in
                 var errormsg = "Someone is still logged in. Log out first pls";
-                res.render('error', {errormsg: errormsg});
+                res.render('error', {uname: "Guest" , errormsg: errormsg});
             }
 
         });

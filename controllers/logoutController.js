@@ -10,7 +10,8 @@ const logoutController = {
 
         db.updateOne(User, {isLoggedIn: true}, {isLoggedIn: false});
 
-        res.render('logout');
+        
+        res.render('logout', {uname: "Guest"});
 
     }
 

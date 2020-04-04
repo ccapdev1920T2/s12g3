@@ -1,27 +1,27 @@
 {
-  "name": "ccapdev-database",
+  "name": "s12g3",
   "version": "1.0.0",
-  "description": "MongoDB Tutorial for CCAPDEV1920T2",
+  "description": "Gourmeet Web Application for CCAPDEV1920T2 by Group 3",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "nodemon index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/arvention/ccapdev-database.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/arvention/ccapdev-database/issues"
-  },
-  "homepage": "https://github.com/arvention/ccapdev-database#readme",
   "dependencies": {
     "express": "^4.17.1",
     "hbs": "^4.1.0",
     "init": "^0.1.2",
     "mongodb": "^3.5.5",
     "mongoose": "^5.9.7"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccapdev1920T2/s12g3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ccapdev1920T2/s12g3/issues"
+  },
+  "homepage": "https://github.com/ccapdev1920T2/s12g3#readme"
 }

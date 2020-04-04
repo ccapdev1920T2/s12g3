@@ -113,7 +113,7 @@ app.get('/editreview', controller.getEditReview);
 app.get('/editcomment', controller.getEditComment);
 
 //goes to user profile page
-app.get('/user', controller.getUser);
+app.get('/user', userController.getUser);
 
 //goes to user profile page
 app.get('/user/:username', userController.getUserByUN);

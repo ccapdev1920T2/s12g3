@@ -14,16 +14,30 @@ const homeController = {
 
         db.findOne(User, {isLoggedIn: true}, 'uname', function(result){
             
+            
             Restaurant.find({}, function (err, restaurant){
+                if(result != null){
+                    var details = {
+                    restaurant: restaurant,
+                    uname: result.uname
+                    }
+                }else{
+                    var details = {
+                        restaurant: restaurant,
+                        uname: "Guest"
+                    }
+                }
+                
 
                 // this console.log is for gebugging only
                 // console.log(restaurant);
 
                 console.log("result: " +result);
+                res.render('home.hbs', details); 
 
+            }) 
+                
 
-                res.render('home.hbs', {restaurant: restaurant}); 
-            });
         });
 
         

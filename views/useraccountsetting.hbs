@@ -28,7 +28,7 @@
 			<div class = "left">
 				<img src="../img/{{upic}}" alt = "user" width = "100" id = "dpImg" />
 				<!-- <img src = "Images/doctor.png" alt = "user" width = "100" id = "dpImg"> -->
-				<input type="file" name="upic" id="file" accept="image/*">
+				<input type="file" name="upic" id="file" accept="image/*" >
 				<button id = "change-profile-img"> Change picture </button>
 				<h4> User Profile </h4>
 				<p> Manage Account </p>
@@ -39,14 +39,14 @@
 					<div class = "infodata">
 						<div class = "usname">
 							<h4>Username</h4>
-							<input type = "text" id = "name"
+							<input type = "text" id = "name" value = "{{uname}}"
 							name="uname">
 							<p id="erroruser"></p>
 						</div>
 						
 						<div class = "email">
 							<h4>Email</h4>
-							<input type = "email" id = "email"
+							<input type = "email" id = "email" value = "{{email}}"
 							name="email">
 							<p id="erroremail"></p>
 							<small>Format: abcd@email.com</small>
@@ -54,10 +54,11 @@
 						
 						<div class = "gender">
 							<h4>Gender</h4>
-							<select id = "sex" name="gender">
-								<option value="Choose">Choose an option </option>
+							<select id = "sex" name="gender"> 
 								<option value="Male">Male</option>
 								<option value="Female">Female</option>
+								
+								
 							</select>
 							<p id="errorgender"></p>
 						</div>
@@ -70,8 +71,8 @@
 						<div class = "password">
 							<h4>Old Password</h4>
 							<input type = "text" id = "pword"
-							name = "pword">
-							<p id="errorpassword"></p>	
+							name = "oldpword">
+							<p id="errorpassword">{{errormsg}}</p>	
 						</div>
 						
 						<div class = "newpassword">
