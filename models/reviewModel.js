@@ -14,7 +14,7 @@ var ReviewSchema = new mongoose.Schema({
 
     // authorID -> used to identify which restaurant the review is for
     authorID: {
-        type: String,
+        type: Object,
         required: true
     },
     
