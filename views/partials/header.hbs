@@ -1,0 +1,48 @@
+<!-- index header-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id =  "navbardesign">
+    <a class="navbar-brand" href="/"> <img src = "/img/logo.png" id = "web-logo"/></a>
+    <a class="navbar-brand" href="/" id = "web-name">GourMeet</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      </ul>
+
+      <ul class="navbar-nav mr-right nav-right-margin">
+          <button class="btn my-2" type="submit" id = "header-login" onclick="window.location.href = '/login';">login</button>     
+          <button class="btn btn-outline-light btn-light my-2" onclick="window.location.href = '/register';" id = "header-register" type="submit" >register</button>
+          <li class="nav-item active">
+            <div class="dropdown">
+              <a class="nav-link dropdown-toggle middlee" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Hello, Guest! {{uname}}
+              </a>
+              <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/user">Profile</a>
+                <a class="dropdown-item" href="/useraccountsetting">Account Settings</a>
+                <a class="dropdown-item" href="/login">logout</a>
+              </div>
+            </div>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+  <nav class="navbar navbar-expand-md navbar-dark  " style="background-color: #9E2121; height: 100px;">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2"></div>
+
+    <div class="navbar-collapse collapse w-100 order-2 order-md-0 dual-collapse2">
+      <!-- <a class="navbar-brand mx-auto" href="#">Navbar 2</a> -->
+        <!-- <li class="nav-item" > -->
+      <form class="form-inline my-2 my-lg-0" >
+        <input class="form-control mr-sm-1" type="search" placeholder="City" aria-label="Search">
+        <input class="form-control mr-sm-1" type="search" placeholder="Restaurant" aria-label="Search">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+      </form>
+        <!-- </li> -->
+    </div>
+
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2"></div>
+  </nav>
+<!-- END index header-->

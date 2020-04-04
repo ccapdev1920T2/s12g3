@@ -1,0 +1,185 @@
+body 
+{
+	background-image: url(../img/Background.png);
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.registeraccount
+{
+	position: relative;
+	background-color: white;
+    width: 26.66%;
+	height: auto;
+    margin: 40px 0px 36.66% 36.66%;
+    color: black;
+	padding: 1% 1% 1% 1%;
+	border-radius: 5px;
+}
+
+.login
+{
+	position: relative;
+	background-color: white;
+    width: 26.66%;
+	height: auto;
+    margin: 40px 0px 36.66% 36.66%;
+    color: black;
+	padding: 1% 1% 1% 1%;
+	border-radius: 5px;
+}
+
+h2
+{
+	text-align: center;
+	color: #191970;
+	font-weight: bold;
+	font-family: Arial;
+	margin-top: 0px;
+}
+
+h3
+{
+	text-align: center;
+	color: #191970;
+	font-weight: bold;
+	font-family: Arial;
+}
+
+p
+{
+	text-align:center;
+	font-family: Arial;
+	font-size: 16px;
+}
+
+#foodicon
+{
+	position: relative;
+	width: 25%;
+	height: 25%;
+	border-color: #EFEFEF;
+	margin: 0% 37.5% 0% 37.5%;
+	position: relative;
+}
+
+#username
+{
+	position: relative;
+	width: 90% ;
+    border: ridge;
+    border-radius: 3px;
+	margin: 0% 1% 0% 1%;
+    padding: 10px;
+}
+
+#password
+{
+	position: relative;
+	width: 90% ;
+    border: ridge;
+    border-radius: 3px;
+	margin: 0% 1% 0% 1%;
+    padding: 10px;
+}
+
+#cpassword
+{
+	position: relative;
+	width: 90% ;
+    border: ridge;
+    border-radius: 3px;
+	margin: 0% 1% 0% 1%;
+    padding: 10px;
+}
+
+#email
+{
+	position: relative;
+	width: 90% ;
+    border: ridge;
+    border-radius: 3px;
+	margin: 0% 1% 0% 1%;
+    padding: 10px;
+}
+
+#signup
+{
+	width: 90%;
+	height: 40px;
+	border:1px  solid #007bff;
+	border-radius: 3px;
+	font-weight: bold;
+	font-family: Arial;
+	background:#007bff;
+	color:#fff;
+	margin: 0% 5% 0% 5%;
+}
+
+#guest
+{
+	width: 90%;
+	height: 40px;
+	border:1px  solid #007bff;
+	border-radius: 3px;
+	font-weight: bold;
+	font-family: Arial;
+	background:#007bff;
+	color:#fff;
+	margin: 0% 5% 0% 5%;
+}
+
+#erroruser
+{
+	color: #FF0000;
+	font-weight: 700;
+	font-size: 12px;
+	text-align: left;
+	margin-left: 10px;
+}
+
+#erroremail
+{
+	color: #FF0000;
+	font-weight: 700;
+	font-size: 12px;
+	text-align: left;
+	margin-left: 10px;
+}
+
+#errorpassword
+{
+	color: #FF0000;
+	font-weight: 700;
+	font-size: 12px;
+	text-align: left;
+	margin-left: 10px;
+}
+
+#errorcpassword
+{
+	color: #FF0000;
+	font-weight: 700;
+	font-size: 12px;
+	text-align: left;
+	margin-left: 10px;
+}
+
+#or
+{
+	font-size: 14px;
+	color: gray;
+}
+
+#login
+{
+	width: 90%;
+	height: 40px;
+	border:1px  solid #007bff;
+	border-radius: 3px;
+	font-weight: bold;
+	font-family: Arial;
+	background:#007bff;
+	color:#fff;
+	margin: 0% 5% 0% 5%;
+}

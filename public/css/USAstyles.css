@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
+	background: #f3f3f3;
+}
+
+h1 {
+	text-align: center;
+	font-size: 32px;
+	margin-right: 500px;
+}
+
+.containerinfo {
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 870px;
+	height: 600px;
+	display: flex;
+	box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+}
+	
+.containerinfo .left {
+	width: 30%;
+	padding: 30px 25px;
+	background: linear-gradient(to right, #993333, #9e2121);
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	text-align: center;
+	color:#fff;
+}
+
+.containerinfo .left img {
+	margin-top: 40px;
+	width: 150px;
+	height: 150px;
+	margin-bottom: 20px;
+	border-radius: 100%;
+}
+
+.containerinfo .left button {
+	width: 200px;
+	height: 40px;
+	border:1px  solid #A0A0A0;
+	border-radius: 3px;
+	font-weight: bold;
+	background:#A0A0A0;
+	color:#fff;
+	font-size: 16px;
+	margin-bottom: 130px;
+}
+
+.containerinfo .left h4 {
+	margin-bottom: 10px;
+	font-size: 32px;
+}
+
+.containerinfo .left p {
+	font-size: 20px;
+}
+
+.containerinfo .right_data {
+	width: 70%;
+	background: #fff;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding: 30px 25px;
+}
+
+.containerinfo .right_data .right_Information,
+.containerinfo .right_data .Password {
+	margin-bottom: 60px;
+}
+
+.containerinfo .right_data .Password, 
+.containerinfo .right_data .save-cancel-button {
+	margin-bottom: 120px;
+}
+
+.containerinfo .right_data .right_Information h3,
+.containerinfo .right_data .Password h3 {
+	margin-bottom: 15px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #e0e0e0;
+	color: #353c4e;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.containerinfo .right_data .right_Information small {
+	color: #B8B8B8;
+}
+
+.containerinfo .right_data .infodata, 
+.containerinfo .right_data .passworddata, 
+.containerinfo .right_data .button-data {
+	display: flex;
+	justify-content: space-between;
+}
+
+.containerinfo .right_data .infodata .usname, 
+.containerinfo .right_data .passworddata .password {
+	width: 80%;
+}
+
+.containerinfo .right_data .infodata .usname h4, 
+.containerinfo .right_data .passworddata .password h4{
+	color: #353c4e;
+	margin-bottom: 5px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.containerinfo .right_data .infodata .email, 
+.containerinfo .right_data_data .passworddata .newpassword {
+	width: 80%;
+}
+
+.containerinfo .right_data .infodata .email h4, 
+.containerinfo .right_data .passworddata .newpassword h4{
+	color: #353c4e;
+	margin-bottom: 5px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.containerinfo .right_data .infodata .gender h4, 
+.containerinfo .right_data .passworddata .cnfrmdpasswrd h4{
+	color: #353c4e;
+	margin-bottom: 5px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#name {
+	width: 180px;
+	height: 30px;
+    border: ridge;
+    border-radius: 3px;
+    outline: 0;
+}
+
+#email {
+	width: 180px;
+	height: 30px;
+    border: ridge;
+    border-radius: 3px;
+    outline: 0;
+	margin-bottom: -100px;
+}
+
+#pword {
+	width: 180px;
+	height: 30px;
+    border: ridge;
+    border-radius: 3px;
+    outline: 0;
+}
+
+#npassword {
+	width: 180px;
+	height: 30px;
+    border: ridge;
+    border-radius: 3px;
+    outline: 0;
+	margin-right: 10px;
+}
+
+#cnpassword {
+	width: 180px;
+	height: 30px;
+    border: ridge;
+    border-radius: 3px;
+    outline: 0;
+}
+
+#sex {
+	width: 180px;
+	height: 30px;
+    border: ridge;
+    border-radius: 3px;
+    outline: 0;
+}
+
+#file {
+	width: 170px;
+	height: 20px;
+	border:1px  solid #9e2121;
+	border-radius: 3px;
+	font-weight: bold;
+	background:red;
+	color:#fff;
+	font-size: 12px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+#save {
+	width: 200px;
+	height: 40px;
+	border:1px  solid #9e2121;
+	border-radius: 3px;
+	font-weight: bold;
+	background:#9e2121;
+	color:#fff;
+	font-size: 16px;
+	margin-bottom: 130px;
+}
+
+#save:hover {
+	background-color: #E0321E;
+	color: white;
+	border-color:  #E0321E;
+}
+
+#cancel {
+	width: 200px;
+	height: 40px;
+	border:1px  solid #9e2121;
+	border-radius: 3px;
+	font-weight: bold;
+	background:#9e2121;
+	color:#fff;
+	font-size: 16px;
+	margin-bottom: 130px;
+}
+
+#cancel:hover {
+	background-color: #E0321E;
+	color: white;
+	border-color:  #E0321E;
+}
+
+#erroruser
+{
+	color: #FF0000;
+	font-weight: 700;
+	font-size: 12px;
+	text-align: left;
+	margin-left: 10px;
+}
+
+#erroremail
+{
+	color: #FF0000;
+	font-weight: 700;
+	font-size: 12px;
+	text-align: left;
+	margin-left: 10px;
+}
+
+#errorgender
+{
+	color: #FF0000;
+	font-weight: 700;
+	font-size: 12px;
+	text-align: left;
+	margin-left: 10px;
+}
+
+#errorpassword
+{
+	color: #FF0000;
+	font-weight: 700;
+	font-size: 12px;
+	text-align: left;
+	margin-left: 10px;
+}
+
+#errornewpassword
+{
+	color: #FF0000;
+	font-weight: 700;
+	font-size: 12px;
+	text-align: left;
+	margin-left: 10px;
+}
+
+#errorcpassword
+{
+	color: #FF0000;
+	font-weight: 700;
+	font-size: 12px;
+	text-align: left;
+	margin-left: 10px;
+}
+
+#login-header:hover {
+	background-color: #9E2121;
+	color: white;
+	border-color: #9E2121;
+}
+
+#register-header:hover {
+	background-color: white;
+	color: black;
+}
+
+

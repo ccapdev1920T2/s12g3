@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Log In Website</title>
+	<link rel="stylesheet" href="css/RLStyle.css">
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<form method="post">
+	<div class = "login">
+		<a href = "/"> <img src = "img/Logo.png" id = "foodicon"></a>
+		<h2>LET'S GET STARTED NOW </h2><br>
+		<h3>Sign In </h3>
+		<input     type = "text"
+				     id = "username"
+			placeholder = "Username"/><br>
+		<p id="erroruser"></p><br>
+		<input     type = "password"
+					 id = "password"
+			placeholder = "Password"/><br>
+		<p id="errorpassword"></p><br><br><br>
+		<input     type = "submit" 
+		          value = "LOG IN" 
+				     id = "login"><br>
+		<p id = "or">or <p>
+		<input 	  type  = "button"
+				  value = "CONTINUE AS GUEST"
+					 id = "guest"
+				onclick = "window.location.href = '/';"><br><br>
+		
+		<p>Don't have an account?<br> 
+		<strong><a href = "/register"> Sign Up Now</a></strong></p>
+	</div>    
+	<script type = "text/javascript">
+		
+		function validUsername(user, val)
+		{
+		valid = val;
+			if (user.val() == ""){
+			valid = false;
+				$('#username').css({
+							'border' : '1.5px solid #FF0000'
+				})
+				$('#erroruser').text('* username is required');
+			}
+			else {
+				$('#username').css({
+							'border' : '1px solid #DDDDDD'
+				})
+				$('#erroruser').text("");
+            }
+            return valid;
+		}
+		
+		function validPassword(pword, val)
+		{
+		var valid = val;
+			if(pword.val() == '') 
+			{
+                valid = false;
+				$('#password').css({
+							'border' : '1.5px solid #FF0000'
+				})
+				$('#errorpassword').text('* password is required');
+			}
+			else {
+				$('#password').css({
+							'border' : '1px solid #DDDDDD'
+				})
+				$('#errorpassword').text("");
+            }
+            return valid;
+		}
+		
+		$("#login").click(function(){
+		var valid = true;
+		valid = validUsername($("#username"), valid);
+		valid = validPassword($("#password"), valid);
+		});
+
+	</script>
+</body>
+</html>

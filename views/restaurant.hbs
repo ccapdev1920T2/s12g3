@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<head>
+	<title>{{rName}}</title>
+    
+  <link rel="stylesheet" type="text/css" href="../css/index.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+
+<body >
+
+  {{!-- THE HEADER BUT IN PARTIALS --}}
+  {{> header}}
+
+<div id="feed">
+    <div id = "feed-content">
+      <img src="../img/{{rPhoto}}" class = "feed-content-photo" />
+      <div id="feed-content-right"> 
+        <h1 class = "restaurant-name">{{rName}}</h1>
+        <h1 class = "restaurant-branch">{{rCity}}</h1>
+        <h1 class="restaurant-type-cuisine">{{rType}} | {{rCuisine}} </h1>
+        <h1 class="restaurant-serves">Serves: {{rServes}}</h1>
+      </div>
+
+      <div id="feed-content-overall-rate">
+        <img  src="../img/red-star.png" width = "30px" height = "30px" /> 
+        <h1 class = "overall-rate">{{rOverallRate}}/10</h1>
+      </div>
+    </div>
+
+    <!-- ratings overview the one on the right -->
+    <div id="ratings-overview">
+      <table name = "ratings overview" class="ratings-overview">
+        <tr>
+          <td class="ro-food">Food</td>
+          <td class="ro-food-rating">{{rAveFoodRate}}/10</td>
+        </tr>
+
+        <tr>
+          <td class="ro-service">Service</td>
+          <td class="ro-service-rating">{{rAveServiceRate}}/10</td>
+        </tr>
+
+        <tr>
+          <td class="ro-environment">Environment</td>
+          <td class="ro-service-rating">{{rAveEnvironmentRate}}/10</td>
+        </tr>
+      </table>
+    </div>
+    <!-- END ratings overview the one on the right -->
+
+    
+<!-- add review form -->
+  <div id = "add-review-pane">
+    <div id="add-review-header">
+      <h2>Write a Review</h2>
+    </div>
+    
+    <div id="add-review-main">
+      <div id="add-review-left">
+
+      </div>
+
+
+      <div id="add-review-right">
+
+        <form name="add-review-form">
+          <div id="add-review-slider-container" class = "padding-10">
+              <table>
+                <tr>
+                  <td><label for="foodRatingInputName">Food Rating</label></td>
+                  <td><output name="foodRatingOutputName" id="foodRatingOutputID">1</output></td>
+                  
+                  <td><label for="foodRatingInputName">Service Rating</label></td>
+                  <td><output name="serviceRatingOutputName" id="serviceRatingOutputID">1</output></td>
+                  
+                  <td><label for="foodRatingInputName">Environment Rating</label></td>
+                  <td><output name="environmentRatingOutputName" id="environmentRatingOutputID">1</output></td>
+
+                </tr>
+
+                <tr>
+                  <td class="ratings-slider" colspan="2">
+                    <input type="range" class = "slider" name="foodRatingInputName" id="foodRatingInputID" value="1" min="1" max="10" oninput="foodRatingOutputID.value = foodRatingInputID.value">
+                  </td>
+                  <td  class="ratings-slider" colspan="2">
+                    <input type="range" class = "slider" name="serviceRatingInputName" id="serviceRatingInputID" value="1" min="1" max="10" oninput="serviceRatingOutputID.value = serviceRatingInputID.value">
+                  </td>
+                  <td   class="ratings-slider" colspan="2">
+                    <input type="range" class = "slider" name="environmentRatingInputName" id="environmentRatingInputID" value="1" min="1" max="10" oninput="environmentRatingOutputID.value = environmentRatingInputID.value">
+                  </td>
+                </tr>
+
+            </table>
+                  
+
+          </div>
+          <div id = "add-review-text">
+            <textarea rows = "5" cols = "60" name = "add-review-text-name" placeholder="Describe your experience... (optional)"></textarea>
+
+          </div>
+          <button type="button" class="btn add-review-button" id= "register-header" style=" background-color: #9E2121; color: white">Publish Review</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+<!-- END add review form -->
+
+{{!-- REVIEWS BUT IN PARTIAL
+    {{> reviewsInResto}} --}}
+<!-- container for the reviews-entry (reviews) -->
+    <div id="reviews"> 
+      <h1>Reviews</h1>
+      {{#each restReviews}}<br>
+      <div id = "reviews-entry">
+        <!-- the header of the review -->
+            <div id = "entryheader">
+                <img class = "userphoto up-med" src="../img/{{uPhoto}}" />
+                <table name = "review-entry-name-date" class="entryheaderdateandname">
+                <tr>
+                    <td  class = "entryheadername" name="reviewer-name"><a href= "/user">{{uName}}</a></td>
+                    <td  class = "overall-rating" name="overall-rating" rowspan="2">Overall Review: {{rOverallRate}}/10</td>
+                    <td class="headerbuttons"> 
+                      <button type="button" class="btn" onclick="window.open('/editreview' ,'name','width=1000,height=400');")>
+                        <img class = "btn-edit invert"src="../img/edit_icon.png"/> 
+                      </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class = "entryheaderdate" name="review-date">{{pubdate}}</td>
+                    <td class="headerbuttons">
+                      <button type="button" class="btn ">
+                        <img class = "btn-edit invert"src="../img/delete_icon.png"/> 
+                      </button>
+                    </td>
+                </tr>
+                </table>
+            </div>
+        <!-- END the header of the review -->
+        
+        <div id = "review-entry-main">
+
+              <div id="updownvotes" class="">
+                <input type="image" src="../img/up-arrow.png" />
+                <p class = num-votes>{{votes}}</p>
+                <input type="image" src="../img/down-arrow.png" />
+              </div>  
+          
+          <div id ="review-entry-right">
+
+              <!-- the 3 category ratings -->
+              <div id = "ratings">
+                <table name = "review-entry-name-date" class="review-ratings">
+                  <tr>
+                    <td  class = "review-food-rating" name="review-food-rating" >Food: {{foodrate}}/10</td>
+                    <td class = "review-service-rating" name="review-service-rating">Service: {{servicerate}}/10</td>
+                    <td class = "review-environment-rating" name="review-environment-rating">Environment: {{envrate}}/10</td>
+                  </tr>
+                </table>
+              </div>
+              <!-- END the 3 category ratings -->
+
+              <div id = "review-text">
+                {{reviewText}}
+
+              </div>
+          </div>
+
+        </div>
+      </div>
+    {{/each}}
+    </div>
+    <!-- END container for the reviews-entry (reviews) -->
+
+</div>
+
+<script type = "text/javascript">
+  $("#send-comment").click(function(){
+      $("#appended-comments".append("<p>"+ $("#addcomment-input".val()+" <p>"))
+        
+        );
+  });
+</script>
+</body>
+</html>
+
+
+
+

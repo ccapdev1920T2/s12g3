@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/USAstyles.css">
+    <title>User Account Setting</title>
+	
+	<!-- css for navbar -->
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
+</head>
+<body>
+
+ {{!-- THE HEADER BUT IN PARTIALS --}}
+  {{> header}}
+
+  
+	<h1>Account Setting </h1>
+
+	<form method="post">
+		<div class = "containerinfo">
+			<div class = "left">
+				<img src="../img/{{upic}}" alt = "user" width = "100" id = "dpImg" />
+				<!-- <img src = "Images/doctor.png" alt = "user" width = "100" id = "dpImg"> -->
+				<input type="file" name="upic" id="file" accept="image/*">
+				<button id = "change-profile-img"> Change picture </button>
+				<h4> User Profile </h4>
+				<p> Manage Account </p>
+			</div>
+			<div class = "right_data">
+				<div class = "right_Information">
+				<h3> User Information</h3>
+					<div class = "infodata">
+						<div class = "usname">
+							<h4>Username</h4>
+							<input type = "text" id = "name"
+							name="uname">
+							<p id="erroruser"></p>
+						</div>
+						
+						<div class = "email">
+							<h4>Email</h4>
+							<input type = "email" id = "email"
+							name="email">
+							<p id="erroremail"></p>
+							<small>Format: abcd@email.com</small>
+						</div>
+						
+						<div class = "gender">
+							<h4>Gender</h4>
+							<select id = "sex" name="gender">
+								<option value="Choose">Choose an option </option>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+							</select>
+							<p id="errorgender"></p>
+						</div>
+					</div>
+				</div>
+				
+				<div class = "Password">
+				<h3> Reset Password</h3>
+					<div class = "passworddata">
+						<div class = "password">
+							<h4>Old Password</h4>
+							<input type = "text" id = "pword"
+							name = "pword">
+							<p id="errorpassword"></p>	
+						</div>
+						
+						<div class = "newpassword">
+							<h4>New Password</h4>
+							<input type = "text" id = "npassword"
+							name="npword">
+							<p id="errornewpassword">
+						</div>
+						
+						<div class = "cnfrmdpasswrd">
+							<h4>Confirm New Password</h4>
+							<input type = "text" id = "cnpassword"
+							name="cnpword">
+							<p id="errorcpassword"></p>
+						</div>
+					</div>
+				</div>
+				
+				<div class = "save-cancel-button">
+					<div class = "button-data">
+						<div class = "cancelbutton">
+							<input type = "button" id = "cancel" onclick="window.location.href = '/';" value = "CANCEL">
+						</div>
+						
+						<div class = "savebutton">
+							<input type = "submit" id = "save" value = "SAVE">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>	
+	<script type = "text/javascript">
+		function validUsername(usname, val)
+		{
+		var valid = val;
+			if(usname.val() == '') 
+			{
+                valid = false;
+				$('#name').css({
+							'border' : '1.5px solid #FF0000'
+				})
+				$('#erroruser').text('* username is required');
+			}
+			else {
+				$('#name').css({
+							'border' : '1px solid #DDDDDD'
+				})
+				$('#erroruser').text("");
+            }
+            return valid;
+		}
+		
+		function validEmail(emlname, val)
+		{
+		var valid = val;
+			if(emlname.val() == '') 
+			{
+                valid = false;
+				$('#email').css({
+							'border' : '1.5px solid #FF0000'
+				})
+				$('#erroremail').text('* email is required');
+			}
+			else {
+				$('#email').css({
+							'border' : '1px solid #DDDDDD'
+				})
+				$('#erroremail').text("");
+            }
+            return valid;
+		}
+		
+		function validGender(gndr, val)
+		{
+		var valid = val;
+			if(gndr.val() != 'Male' && gndr.val() != 'Female') 
+			{
+                valid = false;
+				$('#sex').css({
+							'border' : '1.5px solid #FF0000'
+				})
+				$('#errorgender').text('* gender is required');
+			}
+			else {
+				$('#sex').css({
+							'border' : '1px solid #DDDDDD'
+				})
+				$('#errorgender').text("");
+            }
+            return valid;
+		}
+		
+		function validPassword(pwname, val)
+		{
+		var valid = val;
+			if(pwname.val() == '') 
+			{
+                valid = false;
+				$('#pword').css({
+							'border' : '1.5px solid #FF0000'
+				})
+				$('#errorpassword').text('* password is required');
+			}
+			else {
+				$('#pword').css({
+							'border' : '1px solid #DDDDDD'
+				})
+				$('#errorpassword').text("");
+            }
+            return valid;
+		}
+		
+		function validNewPassword(npwname, val)
+		{
+		var valid = val;
+			if(npwname.val() == '') 
+			{
+                valid = false;
+				$('#npassword').css({
+							'border' : '1.5px solid #FF0000'
+				})
+				$('#errornewpassword').text('* new password is required');
+			}
+			else {
+				$('#npassword').css({
+							'border' : '1px solid #DDDDDD'
+				})
+				$('#errornewpassword').text("");
+            }
+            return valid;
+		}
+		
+		function validCPassword(cpwname, val)
+		{
+		var valid = val;
+			if(cpwname.val() == '') 
+			{
+                valid = false;
+				$('#cnpassword').css({
+							'border' : '1.5px solid #FF0000'
+				})
+				$('#errorcpassword').text('* confirmed password is required');
+			}
+			else {
+				$('#cnpassword').css({
+							'border' : '1px solid #DDDDDD'
+				})
+				$('#errorcpassword').text("");
+            }
+            return valid;
+		}
+		
+		function checkEmail(chkemail, val) {
+            var valid = val;
+            var atIndex = chkemail.val().indexOf('@');
+            var dotIndex = chkemail.val().lastIndexOf('.');
+
+            if(atIndex == -1 || dotIndex == -1 || atIndex > dotIndex) {
+                valid = false;
+                $('#email').css({
+							'border' : '1.5px solid #FF0000'
+				})
+				$('#erroremail').text('* Invalid email format');
+			}
+			else {
+				$('#email').css({
+							'border' : '1px solid #DDDDDD'
+				})
+				$('#erroremail').text("");
+            }
+            return valid;
+        }
+		
+		function passwordEqual(npword, cpword, val) {
+            var valid = val;
+
+            if(npword.val() != cpword.val()) {
+                valid = false;
+                $('#npassword').css({
+							'border' : '1.5px solid #FF0000'
+				})
+                $('#cnpassword').css({
+							'border' : '1.5px solid #FF0000'
+				})
+                $('#errorcpassword').text('* new password and confirmed password do not match');
+            } 
+            return valid;
+        }
+		
+		$("#save").click(function(event){
+		var valid = true;
+		valid = validUsername($("#name"), valid);
+		valid = validEmail($("#email"), valid);
+		valid = validGender($("#sex"), valid);
+		valid = validPassword($("#pword"), valid);
+		valid = validNewPassword($("#npassword"), valid);
+		valid = validCPassword($("#cnpassword"), valid);	
+			if (valid) {
+			valid = checkEmail($("#email"), valid);
+			}
+		valid = passwordEqual($("#npassword"), $("#cnpassword"), valid);
+			if (!valid){
+				event.preventDefault();
+			}
+	
+		});
+		
+		$("#change-profile-img").click(function(event){
+			event.preventDefault();
+			var file = $("#file");
+            if (file.prop('files') && file.prop('files')[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $("#dpImg").attr("src", e.target.result)
+                }
+                reader.readAsDataURL(file.prop('files')[0]);
+            }
+		});
+		
+	</script>
+	
+</body>
+</html>
