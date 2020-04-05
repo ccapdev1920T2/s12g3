@@ -44,75 +44,100 @@ const restaurantController = {
 
                 db.findMany(Reviews, reviewsQuery, reviewProjection, function(resultreview) {
                 //for debuging only. checks value of resultreview
-                // console.log("resultreview: " + resultreview);
+                
                     
-                console.log("object resultreview length: " + resultreview.length);
+                    console.log("object resultreview length: " + resultreview.length);
+
+                    var resrevlen = resultreview.length;
+                    // var reviewsWithAuthor = resultreview;
+                    for(var i=0; i<resrevlen; i++){
+                        
+                        
+                        var reviewAuthorQuery = { _id: ObjectId(resultreview[i].authorID) };
+                        var reviewAuthorProjection = '_id uname upic email   ';
+
+                        
+                        console.log("resultreview: " + resultreview[i].authorID);
+                        
+                      
+                        var    authorID = resultreview[i].authorID;
+                        var    restaurantID =resultreview[i].restaurantID;
+                        var    pubdate =  resultreview[i].pubdate;
+                        var    votes = resultreview[i].votes;
+                        var    foodrate = resultreview[i].foodrate;
+                        var    servicerate = resultreview[i].servicerate;
+                        var    envrate = resultreview[i].envrate;
+                        var    reviewText = resultreview[i].reviewText;
+                    
+                       
+                       
+                        db.findOne(Users, reviewAuthorQuery, reviewAuthorProjection, function(reviewAuthorResult){
+                            
+                            console.log("revPhoto: "+ reviewAuthorResult.upic);
+                            var reviewsWithAuthor = resultreview;
+                            var setRev = {
+                                rPhoto : reviewAuthorResult.upic,
+                                rName : reviewAuthorResult.uname,
+                                authorID : authorID,
+                                restaurantID :restaurantID,
+                                pubdate :  pubdate,
+                                votes : votes,
+                                foodrate : foodrate,
+                                servicerate : servicerate,
+                                envrate : envrate,
+                                reviewText : reviewText
+                            }
+                            reviewsWithAuthor[i] = setRev;
+                        
+                            console.log("setRev:" + JSON.stringify(setRev));
+                            console.log("reviewsWithAuthor: " +reviewsWithAuthor);
+                            console.log(i+" inside dbOne "+resrevlen);
+                            if(resultreview != null && result !=null) {
+
+                                //  if result != null
+                                var restoDetails = {
+                                        uname: headername,
+                                        rPhoto: result.rPhoto,
+                                        rName: result.rName,
+                                        rCity: result.rCity,
+                                        rType: result.rType,
+                                        rCuisine: result.rCuisine,
+                                        rServes: result.rServes,
+                                        rOverallRate: result.rOverallRate,
+                                        restReviews: reviewsWithAuthor
+                                };
+
+                                result = restoDetails;
+                                console.log("result: " + JSON.stringify(result));
+
+                                console.log(i+" | "+resrevlen);
+
+                                if(i == resrevlen ){
+                                    console.log("!!!!!!!!!!!!!!!!!!!!");
+                                    res.render('restaurant', restoDetails);
+                                }
+                                
+                                
+                                //for debugging, to check the content of restoDetails
+                                // console.log("restoDetailsString: " + JSON.stringify(restoDetails));
+        
+                                // render `../views/restaurant.hbs`
+                                // res.render('restaurant', restoDetails);
+                            }
+                            // if the user does not exist in the database
+                            // render the error page
+                            else 
+                            {
+                                    // render `../views/error.hbs`
+                                    res.render('error');
+                            }  
+                        });
+                    }
+                    
+                })
 
                 
-                    console.log("resultreview.authorID" + resultreview);
-                    var reviewAuthorQuery = { _id: ObjectId(resultreview.authorID) };
-                    var reviewAuthorProjection = '_id uname upic email   ';
-    
-                    
-    
-                    console.log("reviewAuthorQuery: "+JSON.stringify(reviewAuthorQuery));
-                    db.findOne(Users, reviewAuthorQuery, reviewAuthorProjection, function(reviewAuthorResult){
-    
-                        console.log("reviewAuthorResult: " +reviewAuthorResult);
-                        // var review;
-                        // var restoDetails;
-                        if(resultreview != null && result !=null) {
-                            // if resultreview != null 
-                            //  var review = {
-                            //      authorID : resultreview.authorID,
-                            //      restaurantID : resultreview.restaurantID,
-                            //      pubdate : resultreview.pubdate,
-                            //      votes  : resultreview.votes,
-                            //      foodrate : resultreview.foodrate,
-                            //      servicerate : resultreview.servicerate,
-                            //      envrate : resultreview.envrate,
-                            //      reviewText: resultreview.reviewText
-                            //  };
-    
-                            resultReview={
-                                reviewAuthor: reviewAuthorResult
-                            }
-    
-                            //  if result != null
-                            var restoDetails = {
-                                    uname: headername,
-                                    rPhoto: result.rPhoto,
-                                    rName: result.rName,
-                                    rCity: result.rCity,
-                                    rType: result.rType,
-                                    rCuisine: result.rCuisine,
-                                    rServes: result.rServes,
-                                    rOverallRate: result.rOverallRate,
-                                    restReviews: resultreview,
-                                    
-                                    
-                                    
-                            };
-    
-                            //for debugging, to check the content of restoDetails
-                            console.log("restoDetailsString: " + JSON.stringify(restoDetails));
-    
-                            // render `../views/restaurant.hbs`
-                            res.render('restaurant', restoDetails);
-                        }
-                        // if the user does not exist in the database
-                        // render the error page
-                        else 
-                        {
-                                // render `../views/error.hbs`
-                                res.render('error');
-                        }  
-    
-                    });
-                });
             });
-
-
         })
             
 
