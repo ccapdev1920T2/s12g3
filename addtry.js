@@ -81,7 +81,7 @@ mongodb.insertOne(userCollection, user2Details);
 //add review1 created by user1 to restaurant1
 var review1Details = {
     _id: ObjectId(),
-    authorID: user1Details._id,
+    authorID: user2Details._id,
     restaurantID: restaurant1Details._id,
     pubdate: new Date('2020-04-02'),
     votes: 12,
@@ -95,7 +95,7 @@ mongodb.insertOne(reviewCollection, review1Details);
 //add review2 created by user1 to restaurant1
 var review2Details = {
     _id: ObjectId(),
-    authorID: user1Details._id,
+    authorID: user2Details._id,
     restaurantID: restaurant1Details._id,
     pubdate: new Date('2020-03-26'),
     votes: 40,

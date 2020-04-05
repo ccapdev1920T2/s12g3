@@ -18,6 +18,10 @@ const ObjectId = require('mongodb').ObjectID;
 // when a client requests for `signup` paths in the server
 const restaurantController = {
 
+    deleteReview: function(req, res){
+        res.redirect('/');
+    },
+
     getRestaurant: function (req, res) {
         // query where `idNum` is equal to URL parameter `idNum`
         var query = {_id: req.params.id};
@@ -42,100 +46,113 @@ const restaurantController = {
                 var reviewProjection = '_id authorID restaurantID pubdate votes  foodrate servicerate envrate reviewText';
                 var reviewsQuery = {restaurantID: ObjectId(req.params.id)}; //check reviews and check for a review with restaurantID same as the ObjectId(req.params.id)
 
-                db.findMany(Reviews, reviewsQuery, reviewProjection, function(resultreview) {
-                //for debuging only. checks value of resultreview
-                
+                    db.findMany(Reviews, reviewsQuery, reviewProjection, function(resultreview) {
+                        
+                   
                     
-                    console.log("object resultreview length: " + resultreview.length);
+                    // if(resultreview == !null){
+                        console.log("object resultreview length: " + resultreview.length);
 
-                    var resrevlen = resultreview.length;
-                    // var reviewsWithAuthor = resultreview;
-                    for(var i=0; i<resrevlen; i++){
-                        
-                        
-                        var reviewAuthorQuery = { _id: ObjectId(resultreview[i].authorID) };
-                        var reviewAuthorProjection = '_id uname upic email   ';
-
-                        
-                        console.log("resultreview: " + resultreview[i].authorID);
-                        
-                      
-                        var    authorID = resultreview[i].authorID;
-                        var    restaurantID =resultreview[i].restaurantID;
-                        var    pubdate =  resultreview[i].pubdate;
-                        var    votes = resultreview[i].votes;
-                        var    foodrate = resultreview[i].foodrate;
-                        var    servicerate = resultreview[i].servicerate;
-                        var    envrate = resultreview[i].envrate;
-                        var    reviewText = resultreview[i].reviewText;
-                    
-                       
-                       
-                        db.findOne(Users, reviewAuthorQuery, reviewAuthorProjection, function(reviewAuthorResult){
+                        var resrevlen = resultreview.length;
+                        // var reviewsWithAuthor = resultreview;
+                        for(var i=0; i<resrevlen; i++){
                             
-                            console.log("revPhoto: "+ reviewAuthorResult.upic);
-                            var reviewsWithAuthor = resultreview;
-                            var setRev = {
-                                rPhoto : reviewAuthorResult.upic,
-                                rName : reviewAuthorResult.uname,
-                                authorID : authorID,
-                                restaurantID :restaurantID,
-                                pubdate :  pubdate,
-                                votes : votes,
-                                foodrate : foodrate,
-                                servicerate : servicerate,
-                                envrate : envrate,
-                                reviewText : reviewText
-                            }
-                            reviewsWithAuthor[i] = setRev;
+                            
+                            var reviewAuthorQuery = { _id: ObjectId(resultreview[i].authorID) };
+                            var reviewAuthorProjection = '_id uname upic email   ';
+
+                            
+                            console.log("resultreview: " + resultreview[i].authorID);
+                            
                         
-                            console.log("setRev:" + JSON.stringify(setRev));
-                            console.log("reviewsWithAuthor: " +reviewsWithAuthor);
-                            console.log(i+" inside dbOne "+resrevlen);
-                            if(resultreview != null && result !=null) {
-
-                                //  if result != null
-                                var restoDetails = {
-                                        uname: headername,
-                                        rPhoto: result.rPhoto,
-                                        rName: result.rName,
-                                        rCity: result.rCity,
-                                        rType: result.rType,
-                                        rCuisine: result.rCuisine,
-                                        rServes: result.rServes,
-                                        rOverallRate: result.rOverallRate,
-                                        restReviews: reviewsWithAuthor
-                                };
-
-                                result = restoDetails;
-                                console.log("result: " + JSON.stringify(result));
-
-                                console.log(i+" | "+resrevlen);
-
-                                if(i == resrevlen ){
-                                    console.log("!!!!!!!!!!!!!!!!!!!!");
-                                    res.render('restaurant', restoDetails);
+                            var    authorID = resultreview[i].authorID;
+                            var    restaurantID =resultreview[i].restaurantID;
+                            var    pubdate =  resultreview[i].pubdate;
+                            var    votes = resultreview[i].votes;
+                            var    foodrate = resultreview[i].foodrate;
+                            var    servicerate = resultreview[i].servicerate;
+                            var    envrate = resultreview[i].envrate;
+                            var    reviewText = resultreview[i].reviewText;
+                        
+                        
+                        
+                            db.findOne(Users, reviewAuthorQuery, reviewAuthorProjection, function(reviewAuthorResult){
+                                
+                                console.log("revPhoto: "+ reviewAuthorResult.upic);
+                                var reviewsWithAuthor = resultreview;
+                                var setRev = {
+                                    rPhoto : reviewAuthorResult.upic,
+                                    rName : reviewAuthorResult.uname,
+                                    authorID : authorID,
+                                    restaurantID :restaurantID,
+                                    pubdate :  pubdate,
+                                    votes : votes,
+                                    foodrate : foodrate,
+                                    servicerate : servicerate,
+                                    envrate : envrate,
+                                    reviewText : reviewText
                                 }
-                                
-                                
-                                //for debugging, to check the content of restoDetails
-                                // console.log("restoDetailsString: " + JSON.stringify(restoDetails));
-        
-                                // render `../views/restaurant.hbs`
-                                // res.render('restaurant', restoDetails);
-                            }
-                            // if the user does not exist in the database
-                            // render the error page
-                            else 
-                            {
-                                    // render `../views/error.hbs`
-                                    res.render('error');
-                            }  
-                        });
-                    }
-                    
-                })
+                                reviewsWithAuthor[i] = setRev;
+                            
+                                console.log("setRev:" + JSON.stringify(setRev));
+                                console.log("reviewsWithAuthor: " +reviewsWithAuthor);
+                                console.log(i+" inside dbOne "+resrevlen);
+                                if(resultreview != null && result !=null) {
 
+                                    //  if result != null
+                                    var restoDetails = {
+                                            uname: headername,
+                                            rPhoto: result.rPhoto,
+                                            rName: result.rName,
+                                            rCity: result.rCity,
+                                            rType: result.rType,
+                                            rCuisine: result.rCuisine,
+                                            rServes: result.rServes,
+                                            rOverallRate: result.rOverallRate,
+                                            restReviews: reviewsWithAuthor
+                                    };
+
+                                    result = restoDetails;
+                                    console.log("result: " + JSON.stringify(result));
+
+                                    console.log(i+" | "+resrevlen);
+
+                                    if(i == resrevlen ){
+                                        console.log("!!!!!!!!!!!!!!!!!!!!");
+                                        res.render('restaurant', restoDetails);
+                                    }
+                                    
+                                    
+                                    //for debugging, to check the content of restoDetails
+                                    // console.log("restoDetailsString: " + JSON.stringify(restoDetails));
+            
+                                    // render `../views/restaurant.hbs`
+                                    // res.render('restaurant', restoDetails);
+                                }
+                                // if the user does not exist in the database
+                                // render the error page
+                                else 
+                                {
+                                        // render `../views/error.hbs`
+                                        res.render('error');
+                                }  
+                            });
+                        }
+                    // }else{
+                    //     var restoDetails = {
+                    //         uname: headername,
+                    //         rPhoto: result.rPhoto,
+                    //         rName: result.rName,
+                    //         rCity: result.rCity,
+                    //         rType: result.rType,
+                    //         rCuisine: result.rCuisine,
+                    //         rServes: result.rServes,
+                    //         rOverallRate: result.rOverallRate
+                    //     };
+
+                    //     res.render('restaurant', restoDetails);
+                    // }
+                })
                 
             });
         })

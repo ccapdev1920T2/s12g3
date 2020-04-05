@@ -136,10 +136,13 @@
                 </tr>
                 <tr>
                     <td class = "entryheaderdate" id = "entryheaderdate" name="review-date">{{pubdate}}</td>
-                    <td class="headerbuttons">
-                      <button type="button" class="btn ">
-                        <img class = "btn-edit invert"src="../img/delete_icon.png"/> 
-                      </button>
+                    <td class="headerbuttons"> 
+                      {{!-- <form method="delete"> --}}
+                        <button type="button" class="btn" onClick="window.location.href = '/restaurant/delete/{{_id}}';" >
+                          <img class = "btn-edit invert"src="../img/delete_icon.png"/> 
+                        </button>
+                      {{!-- </form> --}}
+                      
                     </td>
                 </tr>
                 </table>

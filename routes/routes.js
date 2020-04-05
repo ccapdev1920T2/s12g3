@@ -26,6 +26,9 @@ const loginController = require('../controllers/loginController.js');
 // import module `useraccountsettingController` from `../controllers/logoutController.js`
 const logoutController = require('../controllers/logoutController.js');
 
+// import module `deleteControllerController` from `../controllers/deleteController.js`
+const deleteController = require('../controllers/deleteController.js');
+
 const app = express();
 
 // set the folder `public` as folder containing static assets
@@ -61,6 +64,8 @@ app.get('/home/:username', homeController.getRestaurants);
 
 //goes to a specific restaurant page
 app.get('/restaurant/:id', restaurantController.getRestaurant);
+
+app.get('/restaurant/delete/:reviewID', deleteController.deleteReview);
 
 
 //goes to login page
