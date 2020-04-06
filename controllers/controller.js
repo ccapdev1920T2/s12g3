@@ -208,10 +208,10 @@ const controller = {
         });
     },
 
-    getEditReview: function(req, res) {
-        res.render('reviewedit.hbs', {
-        });
-    },
+    // getEditReview: function(req, res) {
+    //     res.render('reviewedit.hbs', {
+    //     });
+    // },
 
     getEditComment: function(req, res) {
         res.render('commentedit.hbs', {
@@ -257,12 +257,7 @@ const controller = {
                 ]
             
         });
-    }
-
-
-
-    
-    
+    }    
 }
 
 // exports the object `controller` (defined above)

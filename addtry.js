@@ -5,11 +5,6 @@
 // always include the line after this as the 1st element when adding stuff
 // _id: ObjectId()
 
-
-
-
-
-
 // import module from `./models/db.js`
 const mongodb = require('./models/mongodb.js');
 const ObjectId = require('mongodb').ObjectID;
@@ -26,12 +21,9 @@ const reviewCollection = 'reviews';
 // to perform CRUD (Create, Read, Update, Delete) operations
 const userCollection = 'users';
 
-
 // calls the function createDatabase()
 // defined in the `database` object in `./models/db.js`
 mongodb.createDatabase();
-
-
 
 // creates a restaurant with _id = "r1"
 // containing Photo name, restaurant name, city location, type of restaurant, Cuisine, Serves and overall rate.
@@ -43,9 +35,9 @@ var restaurant1Details= {
     rType: "Casual Restaurant",
     rCuisine: "Italian",
     rServes: "Pasta, Pizza, Salad, Pastry",
-    rOverallRate: 10.0
-        
+    rOverallRate: 10.0  
 };
+
 mongodb.insertOne(restaurantCollection, restaurant1Details);
 
 // add user1
@@ -61,6 +53,7 @@ var user1Details = {
     utype: "Italian",
     ulikes: "Pasta, Soup, Barbeque, Seafood"
 }
+
 mongodb.insertOne(userCollection, user1Details);
 
 // add user2
@@ -76,13 +69,14 @@ var user2Details = {
     utype: "Indian",
     ulikes: "Curry, Roti"
 }
+
 mongodb.insertOne(userCollection, user2Details);
 
 //add review1 created by user1 to restaurant1
 var review1Details = {
     _id: ObjectId(),
     authorID: user2Details._id,
-    restaurantID: restaurant1Details._id,
+    restaurantID: ObjectId(restaurant1Details._id).toString(),
     pubdate: new Date('2020-04-02'),
     votes: 12,
     foodrate: 10,
@@ -90,13 +84,14 @@ var review1Details = {
     envrate: 8,
     reviewText: "My wife and I had our last dinner here more than a year ago. My wife and I just remembered the place. The food did not disappoint! Frazzled Cook, especially their Truffle Pasta, is her new favourite. I am from the South but will definitely eat here again!" 
 };
+
 mongodb.insertOne(reviewCollection, review1Details);
 
 //add review2 created by user1 to restaurant1
 var review2Details = {
     _id: ObjectId(),
     authorID: user2Details._id,
-    restaurantID: restaurant1Details._id,
+    restaurantID: ObjectId(restaurant1Details._id).toString(),
     pubdate: new Date('2020-03-26'),
     votes: 40,
     foodrate: 10,
@@ -104,6 +99,7 @@ var review2Details = {
     envrate: 10,
     reviewText: " I love everything that has something to do with this restaurant. :)" 
 };
+
 mongodb.insertOne(reviewCollection, review2Details);
 
 

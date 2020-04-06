@@ -1,4 +1,3 @@
-
 // import module `database` from `../models/db.js`
 const db = require('../models/db.js');
 
@@ -35,8 +34,6 @@ const registerController = {
             uname: uname,
             email: email,
             pword: pword
-            //,
-            //cpword: cpword
         });
 
         // upon adding a user to the database,
@@ -44,9 +41,8 @@ const registerController = {
         // defined in `../routes/routes.js`
         // passing values using URL
         // which calls getSuccess() method defined in `./successController.js`
-        res.redirect('/');
+        res.redirect('/login');
     }
-
 }
 
 // exports the object `signupController` (defined above)

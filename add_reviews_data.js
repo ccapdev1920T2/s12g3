@@ -7,7 +7,6 @@ const db = require('./models/db.js');
 // import module from `./models/db.js`
 const mongodb = require('./models/mongodb.js');
 
-
 // name of the collection (table)
 // to perform CRUD (Create, Read, Update, Delete) operations
 const collection = 'reviews';
@@ -15,7 +14,6 @@ const collection = 'reviews';
 // calls the function createDatabase()
 // defined in the `database` object in `./models/db.js`
 mongodb.createDatabase();
-
 
 // creates an object
 // containing Photo name, restaurant name, city location, type of restaurant, Cuisine, Serves and overall rate.

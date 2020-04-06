@@ -55,7 +55,6 @@ const loginController = {
 
                 User.findOne({uname: uname}, projection, function(err, results) {
                     var cpword = results.pword;
-                    console.log("ZHUPEI");
                     if (pword != cpword){
                         res.render('error');
                     }

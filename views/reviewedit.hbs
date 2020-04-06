@@ -27,7 +27,7 @@
 
       <div id="add-review-right">
 
-        <form name="add-review-form">
+        <form method = "post" action = "/editreview">
           <div id="add-review-slider-container" class = "padding-10">
               <table>
                 <tr>
@@ -44,13 +44,13 @@
 
                 <tr>
                   <td class="ratings-slider" colspan="2">
-                    <input type="range" class = "slider" name="foodRatingInputName" id="foodRatingInputID" value="1" min="1" max="10" oninput="foodRatingOutputID.value = foodRatingInputID.value">
+                    <input type="range" class = "slider" name="foodrate" id="foodRatingInputID" value="1" min="1" max="10" oninput="foodRatingOutputID.value = foodRatingInputID.value">
                   </td>
                   <td  class="ratings-slider" colspan="2">
-                    <input type="range" class = "slider" name="serviceRatingInputName" id="serviceRatingInputID" value="1" min="1" max="10" oninput="serviceRatingOutputID.value = serviceRatingInputID.value">
+                    <input type="range" class = "slider" name="servicerate" id="serviceRatingInputID" value="1" min="1" max="10" oninput="serviceRatingOutputID.value = serviceRatingInputID.value">
                   </td>
                   <td   class="ratings-slider" colspan="2">
-                    <input type="range" class = "slider" name="environmentRatingInputName" id="environmentRatingInputID" value="1" min="1" max="10" oninput="environmentRatingOutputID.value = environmentRatingInputID.value">
+                    <input type="range" class = "slider" name="envrate" id="environmentRatingInputID" value="1" min="1" max="10" oninput="environmentRatingOutputID.value = environmentRatingInputID.value">
                   </td>
                 </tr>
 
@@ -59,16 +59,42 @@
 
           </div>
           <div id = "add-review-text">
-            <textarea rows = "5" cols = "60" name = "add-review-text-name" placeholder="Describe your experience... (optional)"></textarea>
-
+            <textarea rows = "5" cols = "60" name = "reviewText" id = "reviewText" placeholder="Describe your experience... (optional)"></textarea>
+            <p id = "errorreview"></p>
           </div>
-          <button type="button" class="btn add-review-button" id= "register-header" style=" background-color: #9E2121; color: white">Publish Review</button>
+          <button type="submit" class="btn add-review-button" id= "register-header">Publish Review</button>
         </form>
 
       </div>
     </div>
   </div>
 <!-- END add review form -->
+
+<script type = "text/javascript">
+  function validReview(review, val)
+		{
+		valid = val;
+			if (review.val() == ""){
+			valid = false;
+				$('#reviewText').css({
+							'border' : '1.5px solid #FF0000'
+				})
+				$('#errorreview').text('* review is required');
+			}
+			else {
+				$('#reviewText').css({
+							'border' : '1px solid #DDDDDD'
+				})
+				$('#errorreview').text("");
+            }
+            return valid;
+		}
+
+  $("#register-header").click(function(){
+		var valid = true;
+		valid = validReview($("#reviewText"), valid);
+	});
+</script>
 
 </body>
 </html>

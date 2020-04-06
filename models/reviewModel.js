@@ -3,21 +3,21 @@ var mongoose = require('mongoose');
 
 // defines the schema for collection `users`
 var ReviewSchema = new mongoose.Schema({
-    // uPhoto: {
-    //     type: String,
-    //     required: true
-    // },
-    // uName: {
-    //     type: String,
-    //     required: true
-    // },
-
     // authorID -> used to identify which restaurant the review is for
     authorID: {
         type: Object,
         required: true
     },
-    
+    restaurantID: {
+        type: String,
+        required: true,
+    },
+
+    authoruname: {
+        type: String,
+        required: true
+    },
+
     pubdate: {
         type: Date,
         required: true,
@@ -50,14 +50,17 @@ var ReviewSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+
     reviewText: {
         type: String,
         required: true
     },
+
     rPhoto:{
         type: String,
         required: false
     },
+
     rName:{
         type: String,
         required: false
@@ -68,4 +71,4 @@ var ReviewSchema = new mongoose.Schema({
 // when another script exports from this file
 // This model executes CRUD operations
 // to collection `users` -> plural of the argument `User`
-module.exports = mongoose.model('reviews', ReviewSchema);
+module.exports = mongoose.model('review', ReviewSchema);

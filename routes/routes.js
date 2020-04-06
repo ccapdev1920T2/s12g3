@@ -1,4 +1,3 @@
-
 // import module `express`
 const express = require('express');
 
@@ -11,20 +10,23 @@ const homeController = require('../controllers/homeController.js')
 // import module `registerController` from `../controllers/registerController.js`
 const registerController = require('../controllers/registerController.js');
 
-// import module `userController` from `../controllers/userController.js`
-const userController = require('../controllers/userController.js');
-
-// import module `restaurantController` from `../controllers/restaurantController.js`
-const restaurantController = require('../controllers/restaurantController.js');
-
-// import module `useraccountsettingController` from `../controllers/useraccountsettingController.js`
-const useraccountsettingController = require('../controllers/useraccountsettingController.js');
-
 // import module `useraccountsettingController` from `../controllers/loginController.js`
 const loginController = require('../controllers/loginController.js');
 
 // import module `useraccountsettingController` from `../controllers/logoutController.js`
 const logoutController = require('../controllers/logoutController.js');
+
+// import module `userController` from `../controllers/userController.js`
+const userController = require('../controllers/userController.js');
+
+// import module `useraccountsettingController` from `../controllers/useraccountsettingController.js`
+const useraccountsettingController = require('../controllers/useraccountsettingController.js');
+
+// import module `restaurantController` from `../controllers/restaurantController.js`
+const restaurantController = require('../controllers/restaurantController.js');
+
+// import module `restaurantController` from `../controllers/reviewEditController.js`
+const reviewEditController = require('../controllers/reviewEditController.js');
 
 // import module `deleteControllerController` from `../controllers/deleteController.js`
 const deleteController = require('../controllers/deleteController.js');
@@ -52,12 +54,33 @@ app.use(express.static('public'));
 
 //module.exports = app;
 
-
 //goes to homepage
 //app.get('/', controller.getRestaurants);
 
+//goes to login page
+app.get('/login', controller.getLogin);
+
 //goes to the HARDCODED restaurant page
 app.get('/restaurant', controller.getOneRestaurant);
+
+//goes to review page
+//app.get('/review', controller.getReview);
+
+//goes to edit review page
+//app.get('/editreview', controller.getEditReview);
+
+app.get('/editreview', reviewEditController.getReviewEdit);
+app.post('/editreview', reviewEditController.postReviewEdit);
+
+app.post('/restaurant', restaurantController.postReview);
+
+app.get('/restaurant', restaurantController.getReview);
+
+//post to login page
+app.post('/login', loginController.postLogin);
+
+//goes to the HARDCODED restaurant page
+app.post('/home/:uname', loginController.postLogin);
 
 //goes to the HARDCODED restaurant page
 app.get('/home/:username', homeController.getRestaurants);
@@ -65,19 +88,12 @@ app.get('/home/:username', homeController.getRestaurants);
 //goes to a specific restaurant page
 app.get('/restaurant/:id', restaurantController.getRestaurant);
 
+//goes to a specific restaurant page to delete review
+//reviewID is the ObjectID of the review. Used to identify what review is being deleted
 app.get('/restaurant/delete/:reviewID', deleteController.deleteReview);
-
-
-//goes to login page
-app.get('/login', controller.getLogin);
-
-//post to login page
-app.post('/login', loginController.postLogin);
 
 //logs out current logged in user
 app.get('/logout', logoutController.getLogout);
-
-app.post('/home/:uname', loginController.postLogin);
 
 //goes to register page
 // execute function getSignUp()
@@ -107,15 +123,6 @@ app.post('/useraccountsetting', useraccountsettingController.postUAS);
 app.get('/useraccountsetting/:username', useraccountsettingController.getUAS);
 
 app.post('/useraccountsetting/:username', useraccountsettingController.postUAS);
-
-//goes to review page
-app.get('/review', controller.getReview);
-
-//goes to edit review page
-app.get('/editreview', controller.getEditReview);
-
-//goes to edit comment page
-app.get('/editcomment', controller.getEditComment);
 
 //goes to user profile page
 app.get('/user', userController.getUser);

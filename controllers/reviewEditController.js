@@ -1,59 +1,58 @@
 // import module `database` from `../models/db.js`
 const db = require('../models/db.js');
-// import module `User` from `../models/UserModel.js`
-const User = require('../models/userModel.js');
-// defines an object which contains functions executed as callback
-// when a client requests for `signup` paths in the server
 
-const uasController = {
-    postUAS: function(req, res){
+// import module `restaurant` from `../models/userModel.js`
+const Users = require('../models/userModel.js');
+
+// import module `User` from `../models/reviewModel.js`
+const Review = require('../models/reviewModel.js');
+
+const reviewEditController = {
+    postReviewEdit: function(req, res){
        
         //finds currently logged in user
-        db.findOne(User, {isLoggedIn: true}, 'uname pword', function(result) {
+        db.findOne(Users, {isLoggedIn: true}, 'uname', function(result) {
             var update = {
                 // left is column/field name; right is value/data
-                upic : req.body.upic,
-                uname : req.body.uname,
-                email : req.body.email,
-                pword : req.body.npword,
-                gender : req.body.gender
-            
+                foodrate: req.body.foodrate,
+                servicerate: req.body.servicerate,
+                envrate: req.body.envrate,
+                reviewText: req.body.reviewText
             }
 
             console.log("update: " + result);
             console.log("uname: " + result.uname);
-            console.log("result.pword: " + result.pword);
-            console.log("update.pword: " + update.pword);
+            console.log("foodrate: " + result.foodrate);
+            console.log("result.reviewText: " + result.reviewText);
+            console.log("update.reviewText: " + update.reviewText);
 
-            if(result.pword == req.body.oldpword){
-                db.updateOne(User, {uname : result.uname}, update);
-                res.redirect('/');
-            }else{
-
+            if(result.reviewText == req.body.reviewText){
+                db.updateOne(Review, {uname : result.uname}, update);
+                res.redirect('/review');
+            }
+            else{
                 var update = {
                     // left is column/field name; right is value/data
-                    upic : req.body.upic,
-                    uname : req.body.uname,
-                    email : req.body.email,
-                    pword : req.body.npword,
-                    gender : req.body.gender,
-                    errormsg: "Old Password Incorrect"
+                    foodrate: req.body.foodrate,
+                    servicerate: req.body.servicerate,
+                    envrate: req.body.envrate,
+                    reviewText: req.body.reviewText,
+                    errormsg: "Review Text is Required"
                 }
-
-                res.render('useraccountsetting', update );
+                res.render('reviewedit', update );
             }
         })
     },
 
     // executed when the client sends an HTTP GET request `/useraccountsetting`
     // as defined in `../routes/routes.js`
-    getUAS: function (req, res) {
+    getReviewEdit: function (req, res) {
 
 
-        var query = {uname: req.params.username};
+        /*var query = {uname: req.params.username};
         console.log("query: " + query);
         
-        var projection = 'upic uname email gender pword ucity type ulikes';
+        var projection = 'foodrate, servicerate, envrate, reviewText';
         
         db.findOne(User, {isLoggedIn: true}, projection, function(result) {
             console.log("result: " + result);
@@ -61,15 +60,16 @@ const uasController = {
             // render the profile page with their details
             if(result != null) {
                 // render `../views/user.hbs`
-                res.render('useraccountsetting', result);
+                res.render('reviewedit', result);
             }
             // if the user does not exist in the database
             // render the error page
             else {
                 // render `../views/error.hbs`
-                res.render('error', {uname: "Guest",errormsg:"No user is logged in. Login first please."});
+                res.render('error', {uname: "Guest",errormsg:"No Input in Review"});
             }
-        });
+        });*/
+        res.render('reviewedit');
     },
 
     
@@ -77,10 +77,10 @@ const uasController = {
 
     // executed when the client sends an HTTP GET request `/useraccountsetting`
     // as defined in `../routes/routes.js`
-    oldgetUAS: function (req, res) {
+    oldgetReviewEdit: function (req, res) {
         var query = {uname: req.params.username};
         console.log("query: " + query);
-        var projection = 'upic';
+        var projection = 'reviewText';
         
         db.findOne(User, query, projection, function(result) {
             console.log("result: " + result);
@@ -88,13 +88,13 @@ const uasController = {
             // render the profile page with their details
             if(result != null) {
                 var details = {
-                    upic: result.upic,
+                    reviewText: result.reviewText,
                     // ucity: result.email,
                     // utype: result.pword,
                     // ulikes: result.cpword
                 };
                 // render `../views/user.hbs`
-                res.render('useraccountsetting', details);
+                res.render('reviewedit', details);
             }
             // if the user does not exist in the database
             // render the error page
@@ -108,4 +108,4 @@ const uasController = {
 
 // exports the object `signupController` (defined above)
 // when another script exports from this file
-module.exports = uasController;
+module.exports = reviewEditController;

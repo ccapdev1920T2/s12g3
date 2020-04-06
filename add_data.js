@@ -18,7 +18,6 @@ const collection = 'restaurants';
 // defined in the `database` object in `./models/db.js`
 mongodb.createDatabase();
 
-
 // creates an object
 // containing Photo name, restaurant name, city location, type of restaurant, Cuisine, Serves and overall rate.
 var rest_Info = {
@@ -28,8 +27,7 @@ var rest_Info = {
     rType: "Casual Restaurant",
     rCuisine: "Italian",
     rServes: "Pasta, Pizza, Salad, Pastry",
-    rOverallRate: 10.0
-        
+    rOverallRate: 10.0    
 };
 
 // calls the function insertOne()
@@ -87,6 +85,4 @@ var rest_Info = {
 // defined in the `database` object in `./models/db.js`
 // stores the object `user` in the collection (table) `rest_info`
 mongodb.insertOne(collection, rest_Info);
-
-
 // module.exports = add_data;

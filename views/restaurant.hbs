@@ -40,17 +40,17 @@
       <table name = "ratings overview" class="ratings-overview">
         <tr>
           <td class="ro-food">Food</td>
-          <td class="ro-food-rating">{{rAveFoodRate}}/10</td>
+          <td class="ro-food-rating" name = "foodrate">{{rAveFoodRate}}/10</td>
         </tr>
 
         <tr>
           <td class="ro-service">Service</td>
-          <td class="ro-service-rating">{{rAveServiceRate}}/10</td>
+          <td class="ro-service-rating" name = "servicerate">{{rAveServiceRate}}/10</td>
         </tr>
 
         <tr>
           <td class="ro-environment">Environment</td>
-          <td class="ro-service-rating">{{rAveEnvironmentRate}}/10</td>
+          <td class="ro-service-rating" name = "envrate">{{rAveEnvironmentRate}}/10</td>
         </tr>
       </table>
     </div>
@@ -71,7 +71,7 @@
 
       <div id="add-review-right">
 
-        <form name="add-review-form">
+        <form method = "post" action = "/restaurant">
           <div id="add-review-slider-container" class = "padding-10">
               <table>
                 <tr>
@@ -88,13 +88,13 @@
 
                 <tr>
                   <td class="ratings-slider" colspan="2">
-                    <input type="range" class = "slider" name="foodRatingInputName" id="foodRatingInputID" value="1" min="1" max="10" oninput="foodRatingOutputID.value = foodRatingInputID.value">
+                    <input type="range" class = "slider" name="foodrate" id="foodRatingInputID" value="1" min="1" max="10" oninput="foodRatingOutputID.value = foodRatingInputID.value" required>
                   </td>
                   <td  class="ratings-slider" colspan="2">
-                    <input type="range" class = "slider" name="serviceRatingInputName" id="serviceRatingInputID" value="1" min="1" max="10" oninput="serviceRatingOutputID.value = serviceRatingInputID.value">
+                    <input type="range" class = "slider" name="servicerate" id="serviceRatingInputID" value="1" min="1" max="10" oninput="serviceRatingOutputID.value = serviceRatingInputID.value" required>
                   </td>
                   <td   class="ratings-slider" colspan="2">
-                    <input type="range" class = "slider" name="environmentRatingInputName" id="environmentRatingInputID" value="1" min="1" max="10" oninput="environmentRatingOutputID.value = environmentRatingInputID.value">
+                    <input type="range" class = "slider" name="envrate" id="environmentRatingInputID" value="1" min="1" max="10" oninput="environmentRatingOutputID.value = environmentRatingInputID.value" required>
                   </td>
                 </tr>
 
@@ -103,10 +103,11 @@
 
           </div>
           <div id = "add-review-text">
-            <textarea rows = "5" cols = "60" name = "add-review-text-name" placeholder="Describe your experience... (optional)"></textarea>
-
+            <textarea rows = "5" cols = "60" name = "reviewText"  id = "reviewText" placeholder="Describe your experience... " required></textarea>
+            <p id="errorreview"></p><br>
           </div>
-          <button type="button" class="btn add-review-button" id= "register-header" style=" background-color: #9E2121; color: white">Publish Review</button>
+          <input type="hidden" name="restaurantID" value="{{restoID}}" />
+          <button type="submit" class="btn add-review-button" id= "register-header">Publish Review</button>
         </form>
 
       </div>
@@ -123,7 +124,7 @@
       <div id = "reviews-entry">
         <!-- the header of the review -->
             <div id = "entryheader">
-                <img class = "userphoto up-med" src="../img/{{revPhoto}}" />
+                <img class = "userphoto up-med" src="../img/{{rPhoto}}" />
                 <table name = "review-entry-name-date" class="entryheaderdateandname">
                 <tr>
                     <td  class = "entryheadername" name="reviewer-name"><a href= "/user">{{revName}}</a></td>
@@ -192,8 +193,29 @@
         );
   });
 
- 
+  function validReview(review, val)
+		{
+		valid = val;
+			if (review.val() == ""){
+			valid = false;
+				$('#reviewText').css({
+							'border' : '1.5px solid #FF0000'
+				})
+				$('#errorreview').text('* review is required');
+			}
+			else {
+				$('#reviewText').css({
+							'border' : '1px solid #DDDDDD'
+				})
+				$('#errorreview').text("");
+            }
+            return valid;
+		}
 
+  $("#register-header").click(function(){
+		var valid = true;
+		valid = validReview($("#reviewText"), valid);
+	});
 </script>
 </body>
 </html>

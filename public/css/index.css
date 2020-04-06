@@ -502,6 +502,7 @@ td.entryheadername, .entryheadername a {
 td.entryheaderdate {
   width:260px;
   color: white;
+  font-size: 12px;
 }
 
 td.overall-rating{
@@ -819,6 +820,30 @@ button.small-button {
 .add-comment-tf {
   padding-left: 20px;
   border-radius: 10px;
+}
+
+#register-header {
+  margin-top: -20px;
+  background-color: #9E2121; 
+  color: white;
+  border-color: #9E2121;
+}
+
+/* restaurant.hbs */
+#register-header:hover {
+  background-color:#E0321E;
+  color:white;
+  border-color: #E0321E;
+}
+
+#errorreview
+{
+	color: #FF0000;
+	font-weight: 700;
+	font-size: 12px;
+  text-align: left;
+  margin-top: -15px;
+	margin-left: 10px;
 }
 
 /* END for the reviews in restaurant page */
