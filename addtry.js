@@ -3,7 +3,7 @@
 // NOTE restaurant details and user details must be created first, then reviews
 
 // always include the line after this as the 1st element when adding stuff
-// _id: ObjectId()
+// _id: ObjectId() 
 
 // import module from `./models/db.js`
 const mongodb = require('./models/mongodb.js');
