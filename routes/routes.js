@@ -69,8 +69,11 @@ app.get('/restaurant', controller.getOneRestaurant);
 //goes to edit review page
 //app.get('/editreview', controller.getEditReview);
 
-app.get('/editreview', reviewEditController.getReviewEdit);
+// app.get('/editreview', reviewEditController.getReviewEdit);
+app.get('/editreview/:reviewID', reviewEditController.getReviewEdit);
 app.post('/editreview', reviewEditController.postReviewEdit);
+
+
 
 app.post('/restaurant', restaurantController.postReview);
 

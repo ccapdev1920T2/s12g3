@@ -8,6 +8,10 @@ var ReviewSchema = new mongoose.Schema({
         type: Object,
         required: true
     },
+    reviewID:{
+        type: String,
+        required: false
+    },
     restaurantID: {
         type: String,
         required: true,

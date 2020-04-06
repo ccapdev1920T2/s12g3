@@ -25,7 +25,7 @@ const userCollection = 'users';
 // defined in the `database` object in `./models/db.js`
 mongodb.createDatabase();
 
-// creates a restaurant with _id = "r1"
+
 // containing Photo name, restaurant name, city location, type of restaurant, Cuisine, Serves and overall rate.
 var restaurant1Details= {
     _id: ObjectId(),
@@ -39,6 +39,20 @@ var restaurant1Details= {
 };
 
 mongodb.insertOne(restaurantCollection, restaurant1Details);
+
+// containing Photo name, restaurant name, city location, type of restaurant, Cuisine, Serves and overall rate.
+var restaurant2Details= {
+    _id: ObjectId(),
+    rPhoto: "sunnies-cafe.jpg",
+    rName: "Sunnies Cafe",
+    rCity: "Makati City",
+    rType: "Cafe",
+    rCuisine: "Italian",
+    rServes: "Coffee, Salad, Pastry",
+    rOverallRate: 10.0 
+};
+
+mongodb.insertOne(restaurantCollection, restaurant2Details);
 
 // add user1
 var user1Details = {

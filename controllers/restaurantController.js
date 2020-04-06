@@ -71,7 +71,7 @@ const restaurantController = {
          
         db.findOne(Users, {isLoggedIn: true}, 'uname', function(loggedUserResult){
 
-            console.log("loggedUserResult: " + loggedUserResult);
+            // console.log("loggedUserResult: " + loggedUserResult);
             if(loggedUserResult == null){
                 var headername = "Guest";
             }else{
@@ -80,47 +80,46 @@ const restaurantController = {
 
             db.findOne(Restaurant, query, projection, function(result) {
                 
-                console.log("result: " + result);
+                // console.log("result: " + result);
 
                 // fields to be returned
                 var reviewProjection = '_id authorID restaurantID pubdate votes  foodrate servicerate envrate reviewText';
                 var reviewsQuery = {restaurantID: ObjectId(req.params.id)}; //check reviews and check for a review with restaurantID same as the ObjectId(req.params.id)
 
                 db.findMany(Reviews, reviewsQuery, reviewProjection, function(resultreview) {
-                        
-                    if(resultreview != null && result !=null) {
 
-                        //  if result != null
-                        var restoDetails = {
-                            restoID:  req.params.id,
+                        if(resultreview != null && result !=null) {
 
-                            uname: headername,
-                            rPhoto: result.rPhoto,
-                            rName: result.rName,
-                            rCity: result.rCity,
-                            rType: result.rType,
-                            rCuisine: result.rCuisine,
-                            rServes: result.rServes,
-                            rOverallRate: result.rOverallRate,
-                            restReviews: resultreview
-                        };
+                            //  if result != null
+                            var restoDetails = {
+                                restoID:  req.params.id,
 
-                        result = restoDetails;
-                        console.log("result: " + JSON.stringify(result));
+                                uname: headername,
+                                rPhoto: result.rPhoto,
+                                rName: result.rName,
+                                rCity: result.rCity,
+                                rType: result.rType,
+                                rCuisine: result.rCuisine,
+                                rServes: result.rServes,
+                                rOverallRate: result.rOverallRate,
+                                restReviews: resultreview
+                            };
+
+                            result = restoDetails;
+                            // console.log("result: " + JSON.stringify(result));
 
 
+                                
+                            // console.log("!!!!!!!!!!!!!!!!!!!!");
+                            res.render('restaurant', restoDetails);
                             
-                        console.log("!!!!!!!!!!!!!!!!!!!!");
-                        res.render('restaurant', restoDetails);
-                        
-                    }
-                    else 
-                    {
-                        // render `../views/error.hbs`
-                        res.render('error');
-                    }  
-                        
-                    
+                        }
+                        else 
+                        {
+                            // render `../views/error.hbs`
+                            res.render('error');
+                        }  
+
                 })
         
             });

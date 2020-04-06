@@ -7,40 +7,48 @@ const Users = require('../models/userModel.js');
 // import module `User` from `../models/reviewModel.js`
 const Review = require('../models/reviewModel.js');
 
+//for ObjectId(_id), used to get the Object type of the retrieved _id
+const ObjectId = require('mongodb').ObjectID;
+
 const reviewEditController = {
     postReviewEdit: function(req, res){
-       
+
         //finds currently logged in user
         db.findOne(Users, {isLoggedIn: true}, 'uname', function(result) {
-            var update = {
-                // left is column/field name; right is value/data
-                foodrate: req.body.foodrate,
-                servicerate: req.body.servicerate,
-                envrate: req.body.envrate,
-                reviewText: req.body.reviewText
-            }
 
-            console.log("update: " + result);
-            console.log("uname: " + result.uname);
-            console.log("foodrate: " + result.foodrate);
-            console.log("result.reviewText: " + result.reviewText);
-            console.log("update.reviewText: " + update.reviewText);
+            db.findOne(Review, {_id: ObjectId(req.body.reviewID)}, 'reviewText', function(reviewResult){
 
-            if(result.reviewText == req.body.reviewText){
-                db.updateOne(Review, {uname : result.uname}, update);
-                res.redirect('/review');
-            }
-            else{
-                var update = {
-                    // left is column/field name; right is value/data
-                    foodrate: req.body.foodrate,
-                    servicerate: req.body.servicerate,
-                    envrate: req.body.envrate,
-                    reviewText: req.body.reviewText,
-                    errormsg: "Review Text is Required"
+                if(reviewResult.reviewText != req.body.reviewText){
+
+                    var update = {
+                        // left is column/field name; right is value/data
+                        foodrate: req.body.foodrate,
+                        servicerate: req.body.servicerate,
+                        envrate: req.body.envrate,
+                        reviewText: req.body.reviewText
+                    }
+
+                    console.log("enter ==");
+                    db.updateOne(Review, {_id : ObjectId(reviewResult._id)}, update);
+                    // window.close();
+                    // res.redirect('/restaurant/'+req.body.reviewID);
                 }
-                res.render('reviewedit', update );
-            }
+                else{
+                    var update = {
+                        // left is column/field name; right is value/data
+                        foodrate: req.body.foodrate,
+                        servicerate: req.body.servicerate,
+                        envrate: req.body.envrate,
+                        reviewText: req.body.reviewText,
+                        errormsg: "Review Text is Required"
+                    }
+                    res.render('reviewedit', update );
+                }
+
+            })
+
+                    
+
         })
     },
 
@@ -49,27 +57,8 @@ const reviewEditController = {
     getReviewEdit: function (req, res) {
 
 
-        /*var query = {uname: req.params.username};
-        console.log("query: " + query);
-        
-        var projection = 'foodrate, servicerate, envrate, reviewText';
-        
-        db.findOne(User, {isLoggedIn: true}, projection, function(result) {
-            console.log("result: " + result);
-            // if the user exists in the database
-            // render the profile page with their details
-            if(result != null) {
-                // render `../views/user.hbs`
-                res.render('reviewedit', result);
-            }
-            // if the user does not exist in the database
-            // render the error page
-            else {
-                // render `../views/error.hbs`
-                res.render('error', {uname: "Guest",errormsg:"No Input in Review"});
-            }
-        });*/
-        res.render('reviewedit');
+        var id = req.params.reviewID;
+        res.render('reviewedit', {reviewID: id});
     },
 
     

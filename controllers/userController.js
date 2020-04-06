@@ -53,22 +53,18 @@ const userController = {
     getUser: function(req, res){
         // fields to be returned
         var projection = '_id isLoggedIn upic uname email gender pword ucity utype ulikes';
-        var reviewProjection = '_id authorID restaurantID pubdate votes foodrate servicerate envrate reviewText';
+        var reviewProjection = '_id reviewID authorID restaurantID pubdate votes foodrate servicerate envrate reviewText';
 
 
         db.findOne(User, {isLoggedIn: true}, projection, function(result) {
             if(result != null) {
-                // console.log("objectified result._id: " + ObjectId(result._id));
-                // console.log("result._id: " +result._id);
 
                 db.findMany(Review, {authorID: ObjectId(result._id)}, reviewProjection, function(reviewsResult){
                 
-                    // console.log("object reviewsResult length: " + reviewsResult.length);
-                    // console.log("result: " + result);
-                    // console.log("reviewsResult: " + reviewsResult); 
 
                     var reviewsWithAuthor = reviewsResult;
                     for(var i=0; i<reviewsResult.length; i++){
+
                         var setRev = {
                             rPhoto :result.upic,
                             rName : result.uname,
@@ -79,31 +75,31 @@ const userController = {
                             foodrate : reviewsResult[i].foodrate,
                             servicerate : reviewsResult[i].servicerate,
                             envrate : reviewsResult[i].envrate,
-                            reviewText : reviewsResult[i].reviewText
+                            reviewText : reviewsResult[i].reviewText,
+                            reviewID: reviewsResult[i]._id
+
                         }
                         // console.log("setRev: " + JSON.stringify(setRev));
+                        console.log("reviewsResult._id: " + reviewsResult[i]._id);
+                        db.updateOne(Review, {_id: reviewsResult[i]._id}, setRev);
 
                         reviewsWithAuthor[i] = setRev;
-                        
                     }
 
-                    // console.log("reviewsWithAuthor: " + reviewsWithAuthor);
-                    
-                
-                                                var details = {
-                                                    upic: result.upic,
-                                                    uname: result.uname,
-                                                    ucity: result.ucity,
-                                                    utype: result.utype,
-                                                    ulikes: result.ulikes,
-                                                    reviewsRest: reviewsWithAuthor
+                    var details = {
+                        upic: result.upic,
+                        uname: result.uname,
+                        ucity: result.ucity,
+                        utype: result.utype,
+                        ulikes: result.ulikes,
+                        reviewsRest: reviewsWithAuthor
 
-                                                };
-                                                
-                                                // console.log("details: " + JSON.stringify(details));
+                    };
 
-                                                // render `../views/user.hbs`
-                                                res.render('user', details);
+                    console.log("check: " + JSON.stringify(details));
+
+                    // render `../views/user.hbs`
+                    res.render('user', details);
                     
                     
                 });
