@@ -12,7 +12,7 @@ var UserSchema = new mongoose.Schema({
         type: String,
         required: false,
         // get: v => `${global}${v}`,
-        default: "doctor.jpg"
+        default: "UserIcon.png"
     },
     uname: {
         type: String,
@@ -29,13 +29,7 @@ var UserSchema = new mongoose.Schema({
     pword: {
         type: String,
         required: true
-    }
-    ,
-    /*cpword: {
-        type: String,
-        required: true,
-        // match: pword
-    },*/
+    },
     ucity: {
         type: String,
         required: false
@@ -48,7 +42,6 @@ var UserSchema = new mongoose.Schema({
         type: String,
         required: false
     }
-
 
 });
 

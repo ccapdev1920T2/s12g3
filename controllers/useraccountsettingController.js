@@ -6,40 +6,62 @@ const User = require('../models/userModel.js');
 // when a client requests for `signup` paths in the server
 
 const uasController = {
+
     postUAS: function(req, res){
-       
         //finds currently logged in user
-        db.findOne(User, {isLoggedIn: true}, 'uname pword', function(result) {
+        db.findOne(User, {isLoggedIn: true}, 'upic uname pword ucity utype ulikes', function(result) {
+
+            var upicture = req.body.upic;
+            if(upicture == "") 
+                upicture = result.upic;
+
+            var oldpass = req.body.oldpword;
+            var newpword = req.body.npword;    
+            if(newpword == "") 
+                newpword = result.pword;
+
+            var fcity = req.body.ucity;
+            if((req.body.npword != "" || req.body.cnpword != "") && fcity == "") 
+                fcity = result.ucity;
+
+            var ftype = req.body.utype;
+            if((req.body.npword != "" || req.body.cnpword != "") && ftype == "") 
+                ftype = result.utype;
+
+            var flikes = req.body.ulikes;
+            if((req.body.npword != "" || req.body.cnpword != "") && flikes == "") 
+                flikes = result.ulikes;
+
             var update = {
                 // left is column/field name; right is value/data
-                upic : req.body.upic,
+                upic : upicture,
                 uname : req.body.uname,
+                ucity: fcity,
+                utype: ftype,
+                ulikes: flikes,
                 email : req.body.email,
-                pword : req.body.npword,
+                pword : newpword,
                 gender : req.body.gender
-            
             }
 
             console.log("update: " + result);
-            console.log("uname: " + result.uname);
-            console.log("result.pword: " + result.pword);
-            console.log("update.pword: " + update.pword);
 
-            if(result.pword == req.body.oldpword){
+            if(result.pword == oldpass){
                 db.updateOne(User, {uname : result.uname}, update);
                 res.redirect('/');
             }else{
-
                 var update = {
                     // left is column/field name; right is value/data
                     upic : req.body.upic,
                     uname : req.body.uname,
+                    ucity : req.body.ucity, 
+                    utype : req.body.utype,
+                    ulikes : req.body.ulikes,
                     email : req.body.email,
                     pword : req.body.npword,
                     gender : req.body.gender,
                     errormsg: "Old Password Incorrect"
                 }
-
                 res.render('useraccountsetting', update );
             }
         })
@@ -48,8 +70,6 @@ const uasController = {
     // executed when the client sends an HTTP GET request `/useraccountsetting`
     // as defined in `../routes/routes.js`
     getUAS: function (req, res) {
-
-
         var query = {uname: req.params.username};
         console.log("query: " + query);
         
@@ -72,12 +92,10 @@ const uasController = {
         });
     },
 
-    
-
-
     // executed when the client sends an HTTP GET request `/useraccountsetting`
     // as defined in `../routes/routes.js`
     oldgetUAS: function (req, res) {
+
         var query = {uname: req.params.username};
         console.log("query: " + query);
         var projection = 'upic';
@@ -104,6 +122,7 @@ const uasController = {
             }
         });
     }
+    
 }
 
 // exports the object `signupController` (defined above)

@@ -1,7 +1,6 @@
 // import module `mongoose`
 var mongoose = require('mongoose');
 
-
 // defines the schema for collection `restaurants`
 var RestaurantSchema = new mongoose.Schema({
     rPhoto: {

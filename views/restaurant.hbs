@@ -18,13 +18,14 @@
 
   {{!-- THE HEADER BUT IN PARTIALS --}}
   {{> header}}
+  {{> searchbar}}
 
 <div id="feed">
     <div id = "feed-content">
       <img src="../img/{{rPhoto}}" class = "feed-content-photo" />
       <div id="feed-content-right"> 
         <h1 class = "restaurant-name">{{rName}}</h1>
-        <h1 class = "restaurant-branch">{{rCity}}</h1>
+        <h1 class = "restaurant-branch">{{rCity}} City</h1>
         <h1 class="restaurant-type-cuisine">{{rType}} | {{rCuisine}} </h1>
         <h1 class="restaurant-serves">Serves: {{rServes}}</h1>
       </div>
@@ -127,7 +128,7 @@
                 <img class = "userphoto up-med" src="../img/{{rPhoto}}" />
                 <table name = "review-entry-name-date" class="entryheaderdateandname">
                 <tr>
-                    <td  class = "entryheadername" name="reviewer-name"><a href= "/user">{{revName}}</a></td>
+                    <td  class = "entryheadername" name="reviewer-name"><a href= "/user">{{rName}}</a></td>
                     <td  class = "overall-rating" name="overall-rating" rowspan="2">Overall Review: {{rOverallRate}}/10</td>
                     <td class="headerbuttons"> 
                       <button type="button" class="btn" onclick="window.open('/editreview/{{_id}}' ,'name','width=1000,height=400');">
@@ -187,12 +188,6 @@
 </div>
 
 <script type = "text/javascript">
-  $("#send-comment").click(function(){
-      $("#appended-comments".append("<p>"+ $("#addcomment-input".val()+" <p>"))
-        
-        );
-  });
-
   function validReview(review, val)
 		{
 		valid = val;

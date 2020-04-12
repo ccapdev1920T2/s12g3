@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var ReviewSchema = new mongoose.Schema({
     // authorID -> used to identify which restaurant the review is for
     authorID: {
-        type: Object,
+        type: String,
         required: true
     },
     reviewID:{
@@ -16,29 +16,24 @@ var ReviewSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-
     authoruname: {
         type: String,
         required: true
     },
-
     pubdate: {
         type: Date,
         required: true,
         default: Date.now
     },
-
     votes: {
         type: Number,
         required: true,
         default: 0
     },
-
     // rOverallRate: {
     //     type: Number,
     //     required: true
     // },
-
     // v is this suppuse to be string v
     foodrate: {
         type: Number,
@@ -54,17 +49,14 @@ var ReviewSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-
     reviewText: {
         type: String,
         required: true
     },
-
     rPhoto:{
         type: String,
         required: false
     },
-
     rName:{
         type: String,
         required: false

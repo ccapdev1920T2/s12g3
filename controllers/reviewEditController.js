@@ -46,9 +46,6 @@ const reviewEditController = {
                 }
 
             })
-
-                    
-
         })
     },
 
@@ -60,9 +57,6 @@ const reviewEditController = {
         var id = req.params.reviewID;
         res.render('reviewedit', {reviewID: id});
     },
-
-    
-
 
     // executed when the client sends an HTTP GET request `/useraccountsetting`
     // as defined in `../routes/routes.js`

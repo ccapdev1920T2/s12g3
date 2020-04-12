@@ -43,8 +43,8 @@ const registerController = {
         // which calls getSuccess() method defined in `./successController.js`
         res.redirect('/login');
     }
-}
 
+}
 // exports the object `signupController` (defined above)
 // when another script exports from this file
 module.exports = registerController;

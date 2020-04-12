@@ -31,7 +31,7 @@ var restaurant1Details= {
     _id: ObjectId(),
     rPhoto: "cones-on-head.jpg",
     rName: "Spicy Heat",
-    rCity: "Manila City",
+    rCity: "Manila",
     rType: "Casual Restaurant",
     rCuisine: "Italian",
     rServes: "Pasta, Pizza, Salad, Pastry",
@@ -45,7 +45,7 @@ var restaurant2Details= {
     _id: ObjectId(),
     rPhoto: "sunnies-cafe.jpg",
     rName: "Sunnies Cafe",
-    rCity: "Makati City",
+    rCity: "Makati",
     rType: "Cafe",
     rCuisine: "Italian",
     rServes: "Coffee, Salad, Pastry",
@@ -89,7 +89,9 @@ mongodb.insertOne(userCollection, user2Details);
 //add review1 created by user1 to restaurant1
 var review1Details = {
     _id: ObjectId(),
-    authorID: user2Details._id,
+    authorID: ObjectId(user2Details._id).toString(),
+    rName: user2Details.uname,
+    rPhoto: user2Details.upic,
     restaurantID: ObjectId(restaurant1Details._id).toString(),
     pubdate: new Date('2020-04-02'),
     votes: 12,
@@ -104,7 +106,9 @@ mongodb.insertOne(reviewCollection, review1Details);
 //add review2 created by user1 to restaurant1
 var review2Details = {
     _id: ObjectId(),
-    authorID: user2Details._id,
+    authorID: ObjectId(user2Details._id).toString(),
+    rName: user2Details.uname,
+    rPhoto: user2Details.upic,
     restaurantID: ObjectId(restaurant1Details._id).toString(),
     pubdate: new Date('2020-03-26'),
     votes: 40,

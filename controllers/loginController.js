@@ -28,7 +28,6 @@ const loginController = {
                     }else{
                         res.render('login', {uname: "Guest", InvalidCredentialsError: "Invalid Credentials!"});
                     }
-                    
                 })
             }
             else{ //if SOMeONE is CURRENTLY logged in
@@ -76,9 +75,7 @@ const loginController = {
                 var errormsg = "Someone is still logged in. Log out first pls";
                 res.render('error', {errormsg: errormsg});
             }
-
         });
-
     }
 
 }

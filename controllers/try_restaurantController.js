@@ -112,26 +112,10 @@ const restaurantController = {
                  });
             }
                 
-                        
-
-                 
-                 
+                     
             });
-
-
-             
-
-            
-
          });
-
-
-
-
-
      }
-
-     
 }
 
 // exports the object `controller` (defined above)

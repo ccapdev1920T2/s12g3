@@ -19,9 +19,8 @@
 
  {{!-- THE HEADER BUT IN PARTIALS --}}
   {{> header}}
+  {{> reddivider}}
 
-  
-	<h1>Account Setting </h1>
 
 	<form method="post">
 		<div class = "containerinfo">
@@ -33,6 +32,7 @@
 				<h4> User Profile </h4>
 				<p> Manage Account </p>
 			</div>
+			
 			<div class = "right_data">
 				<div class = "right_Information">
 				<h3> User Information</h3>
@@ -48,8 +48,8 @@
 							<h4>Email</h4>
 							<input type = "email" id = "email" value = "{{email}}"
 							name="email">
-							<p id="erroremail"></p>
 							<small>Format: abcd@email.com</small>
+							<p id="erroremail"></p>
 						</div>
 						
 						<div class = "gender">
@@ -57,14 +57,35 @@
 							<select id = "sex" name="gender"> 
 								<option value="Male">Male</option>
 								<option value="Female">Female</option>
-								
-								
 							</select>
 							<p id="errorgender"></p>
 						</div>
 					</div>
 				</div>
 				
+				<div class = "about_user">
+				<h3> About</h3>
+					<div class = "aboutdata">
+						<div class = "address">
+							<h4>City Live </h4>
+							<input type = "text" id = "user_address" name = "ucity">
+							<p id="erroraddress"></p>	
+						</div>
+						
+						<div class = "cuisine">
+							<h4>Cuisine</h4>
+							<input type = "text" id = "user_cuisine" name="utype">
+							<p id="errorcuisine">
+						</div>
+						
+						<div class = "likes">
+							<h4>Likes</h4>
+							<input type = "text" id = "user_likes" name="ulikes">
+							<p id="errorlikes"></p>
+						</div>
+					</div>
+				</div>
+
 				<div class = "Password">
 				<h3> Reset Password</h3>
 					<div class = "passworddata">
@@ -72,6 +93,7 @@
 							<h4>Old Password</h4>
 							<input type = "text" id = "pword"
 							name = "oldpword">
+							<p id = "pcontxt">Old passord required for update regardless</p>
 							<p id="errorpassword">{{errormsg}}</p>	
 						</div>
 						
@@ -90,7 +112,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<div class = "save-cancel-button">
 					<div class = "button-data">
 						<div class = "cancelbutton">
@@ -165,7 +187,67 @@
             }
             return valid;
 		}
+		/*
+		function validAddress(address, npass, cpass, val)
+		{
+		var valid = val;
+			if(address.val() == '' && (npass.val() == '' || cpass.val() == '')) 
+			{
+                valid = false;
+				$('#user_address').css({
+							'border' : '1.5px solid #FF0000'
+				})
+				$('#erroraddress').text('* city location is required');
+			}
+			else {
+				$('#user_address').css({
+							'border' : '1px solid #DDDDDD'
+				})
+				$('#erroraddress').text("");
+            }
+            return valid;
+		}
+
+		function validCuisine(cuisine, npass, cpass, val)
+		{
+		var valid = val;
+			if(cuisine.val() == '' && (npass.val() == '' || cpass.val() == '')) 
+			{
+                valid = false;
+				$('#user_cuisine').css({
+							'border' : '1.5px solid #FF0000'
+				})
+				$('#errorcuisine').text('* cuisine is required');
+			}
+			else {
+				$('#user_cuisine').css({
+							'border' : '1px solid #DDDDDD'
+				})
+				$('#errorcuisine').text("");
+            }
+            return valid;
+		}
 		
+		function validLikes(likes, npass, cpass, val)
+		{
+		var valid = val;
+			if(likes.val() == '' && (npass.val() == '' || cpass.val() == '')) 
+			{
+                valid = false;
+				$('#user_likes').css({
+							'border' : '1.5px solid #FF0000'
+				})
+				$('#errorlikes').text('* food likes is required');
+			}
+			else {
+				$('#user_likes').css({
+							'border' : '1px solid #DDDDDD'
+				})
+				$('#errorlikes').text("");
+            }
+            return valid;
+		}*/
+
 		function validPassword(pwname, val)
 		{
 		var valid = val;
@@ -186,10 +268,10 @@
             return valid;
 		}
 		
-		function validNewPassword(npwname, val)
+		function validNewPassword(npwname, cpwname, val)
 		{
 		var valid = val;
-			if(npwname.val() == '') 
+			if(npwname.val() == '' && cpwname.val() != '') 
 			{
                 valid = false;
 				$('#npassword').css({
@@ -206,10 +288,10 @@
             return valid;
 		}
 		
-		function validCPassword(cpwname, val)
+		function validCPassword(npwname, cpwname, val)
 		{
 		var valid = val;
-			if(cpwname.val() == '') 
+			if(cpwname.val() == '' && npwname.val() != '') 
 			{
                 valid = false;
 				$('#cnpassword').css({
@@ -268,9 +350,12 @@
 		valid = validUsername($("#name"), valid);
 		valid = validEmail($("#email"), valid);
 		valid = validGender($("#sex"), valid);
+		//valid = validAddress($("#user_address"), $("#npassword"), $("#cnpassword"), valid);
+		//valid = validCuisine($("#user_cuisine"), $("#npassword"), $("#cnpassword"), valid);
+		//valid = validLikes($("#user_likes"), $("#npassword"), $("#cnpassword"), valid);
 		valid = validPassword($("#pword"), valid);
-		valid = validNewPassword($("#npassword"), valid);
-		valid = validCPassword($("#cnpassword"), valid);	
+		valid = validNewPassword($("#npassword"), $("#cnpassword"), valid);
+		valid = validCPassword($("#npassword"), $("#cnpassword"), valid);
 			if (valid) {
 			valid = checkEmail($("#email"), valid);
 			}

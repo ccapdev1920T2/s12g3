@@ -1,4 +1,3 @@
-
 // import module `mongodb`
 const mongodb = require('mongodb');
 
