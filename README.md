@@ -16,4 +16,5 @@ git clone https://github.com/arvention/ccapdev-mongoose
 app listening at port 9090
 Connected to: mongodb://localhost:27017/database
 ```
+7. Login using username: haroldanderson and password: pass123
 
