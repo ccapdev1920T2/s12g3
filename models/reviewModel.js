@@ -16,6 +16,10 @@ var ReviewSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    restaurantName:{    //
+        type: String,
+        required: false
+    },
     authoruname: {
         type: String,
         required: true

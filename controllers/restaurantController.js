@@ -34,6 +34,7 @@ const restaurantController = {
             var restaurantID = req.body.restaurantID; 
             var rPhoto = result.upic;
             var rName = result.uname;
+            var restaurantName = req.body.restaurantName;
 
             console.log("result.upic" + result.upic);
 
@@ -45,6 +46,7 @@ const restaurantController = {
                 envrate: envrate,
                 reviewText: reviewText,
                 restaurantID: restaurantID,
+                restaurantName: restaurantName,
                 rPhoto: rPhoto,
                 rName: rName
             });
@@ -120,7 +122,7 @@ const restaurantController = {
             }
             // for search
             else {
-
+                
                 if(req.query.city != '' && req.query.restaurant != ''){
                     //if both restaurant name and city is entered
                     Restaurant.find({rCity : req.query.city, rName : req.query.restaurant}, function (err, restaurantResult){

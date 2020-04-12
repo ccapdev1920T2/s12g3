@@ -55,7 +55,7 @@ const userController = {
     getUser: function(req, res){
         // fields to be returned
         var projection = '_id isLoggedIn upic uname email gender pword ucity utype ulikes';
-        var reviewProjection = '_id reviewID authorID restaurantID pubdate votes foodrate servicerate envrate reviewText rName rPhoto';
+        var reviewProjection = '_id reviewID  authorID restaurantID restaurantName pubdate votes foodrate servicerate envrate reviewText rName rPhoto';//
 
 
         db.findOne(User, {isLoggedIn: true}, projection, function(result) {
@@ -72,6 +72,7 @@ const userController = {
                                 rName : result.uname,
                                 authorID :reviewsResult[i].authorID,
                                 restaurantID :reviewsResult[i].restaurantID,
+                                restaurantName: reviewsResult[i].restaurantName, //
                                 pubdate :  reviewsResult[i].pubdate,
                                 votes : reviewsResult[i].votes,
                                 foodrate : reviewsResult[i].foodrate,

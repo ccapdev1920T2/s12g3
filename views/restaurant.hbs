@@ -107,7 +107,10 @@
             <textarea rows = "5" cols = "60" name = "reviewText"  id = "reviewText" placeholder="Describe your experience... " required></textarea>
             <p id="errorreview"></p><br>
           </div>
+          {{!-- gets restaurant ID --}}
           <input type="hidden" name="restaurantID" value="{{restoID}}" />
+          {{!-- gets restaurant name --}}
+          <input type="hidden" name="restaurantName" value="{{rName}}" /> 
           <button type="submit" class="btn add-review-button" id= "register-header">Publish Review</button>
         </form>
 
