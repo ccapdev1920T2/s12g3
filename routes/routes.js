@@ -1,9 +1,6 @@
 // import module `express`
 const express = require('express');
 
-// import module `controller` from `../controllers/controller.js`
-const controller = require('../controllers/controller.js')
-
 // import module `homeCntroller` from `../controllers/controller.js`
 const homeController = require('../controllers/homeController.js')
 
@@ -43,10 +40,8 @@ app.use(express.static('public'));
 
 
 //CONTROLLER.JS
-//goes to login page
-app.get('/login', controller.getLogin);
-//goes to the HARDCODED restaurant page
-app.get('/restaurant', controller.getOneRestaurant);
+
+
 
 
 //REVIEWEDITCONTROLLER.JS
@@ -66,6 +61,8 @@ app.post('/restaurant', restaurantController.postReview);
 
 
 //LOGINCONTROLLER.JS
+//goes to login page
+app.get('/login', loginController.getLogin);
 //post to login page
 app.post('/login', loginController.postLogin);
 //goes to the HARDCODED restaurant page

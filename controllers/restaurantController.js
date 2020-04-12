@@ -122,7 +122,7 @@ const restaurantController = {
             }
             // for search
             else {
-                
+
                 if(req.query.city != '' && req.query.restaurant != ''){
                     //if both restaurant name and city is entered
                     Restaurant.find({rCity : req.query.city, rName : req.query.restaurant}, function (err, restaurantResult){
