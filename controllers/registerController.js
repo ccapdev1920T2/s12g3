@@ -42,7 +42,30 @@ const registerController = {
         // passing values using URL
         // which calls getSuccess() method defined in `./successController.js`
         res.redirect('/login');
+    },
+
+    //checks if the email is already in the system. for validation.
+    getCheckEmail: function (req, res) {
+        var email = req.query.email;
+
+        db.findOne(User, {email: email}, 'email', function(result){
+            res.send(result);
+            
+        });
+
+    },
+
+    //checks if the username is already in the system. for validation
+    getCheckUsername: function (req, res){
+        var uname = req.query.uname;
+
+        db.findOne(User, {uname: uname}, 'uname', function(result){
+            res.send(result);
+            
+        });
+
     }
+
 
 }
 // exports the object `signupController` (defined above)

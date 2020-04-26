@@ -74,6 +74,8 @@ app.post('/home/:uname', loginController.postLogin);
 app.get('/', homeController.getRestaurants);
 //goes to the HARDCODED restaurant page
 app.get('/home/:username', homeController.getRestaurants);
+// gets uname, upic, _id of current logged in.
+app.get('/getCurrentUser', homeController.getCurrentUser);
 
 
 //DELETECONTROLLER.JS
@@ -92,6 +94,10 @@ app.get('/logout', logoutController.getLogout);
 app.get('/register', registerController.getSignUp);
 //post to register page
 app.post('/register', registerController.postSignUp);
+//validates if email already exist in the db
+app.get('/getCheckEmail', registerController.getCheckEmail);
+//validates if uname already exist in the db
+app.get('/getCheckUsername', registerController.getCheckUsername);
 
 
 //USERACCOUNTSETTINGCONTROLLER.JS

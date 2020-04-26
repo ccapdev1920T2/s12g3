@@ -5,7 +5,6 @@ body {
   height: 1024px;
 }
 
-
 #navbardesign {
   height: 100px;
 }
@@ -66,7 +65,6 @@ body {
   margin-top: 50px;
   margin-left: 50px;
   z-index: 999;
-
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -76,50 +74,38 @@ body {
   position: relative;
   width: 900px;
   height: 300px;
-
   margin: 20px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-
   text-decoration: none;
-
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-
 }  
 
 #add-review-header{
-
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-
-
 
 #add-review-header h2{
   height:50px;
   width:900px;
   padding: 10px;
   padding-left: 20px;;
-
   background-color:#9E2121;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-
   font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 30px;
-    vertical-align: middle;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 30px;
+  vertical-align: middle;
   color:white;
   text-align: center;
-
-
 }
 
 #add-review-main {
@@ -134,14 +120,12 @@ body {
 #add-review-left {
   width: 100px;
   height:100%;
-
 }
 
 #add-review-right {
   position: relative;
   width: 800px;
   height: 100%;
-
 }
 
 #add-review-slider-container{
@@ -149,32 +133,23 @@ body {
   width:750px;
   left:25px;
   height: 75px;
-
-
   font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 16px;
-    
-
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
 }
 
 #add-review-slider-container input{
   width:200px;
-
-
 }
 
 #add-review-slider-container td{
   padding-left:14px;
   padding-right:14px;
-
-
 }
 
 td.ratings-slider {
-  
   width: 200px;
 }
 
@@ -214,29 +189,22 @@ td.ratings-slider {
   left:25px;
   max-height: 75px;
   padding: 5px;
-
-
 }
 
 .add-review-button {
-  position: absolute;
+  position:absolute;
+  bottom: 20px;
   right: 70px;
-
 }
-
-
 
 #feed-content {
     position: relative;
     width: 900px;
     height: 250px;
-
     margin: 20px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-
     text-decoration: none;
-
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -244,7 +212,6 @@ td.ratings-slider {
 }  
 
 .feed-content-photo {
-   
     width: 200px;
     height: 200px;
     margin: 25px;
@@ -255,16 +222,11 @@ td.ratings-slider {
   margin: 25px;
 }
 
-
-
 #feed-content-overall-rate{
   position: absolute;
   top: 50px;
   right: 50px;
-
-
-  height: auto;
-  
+  height: auto; 
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 5px;
@@ -273,22 +235,16 @@ td.ratings-slider {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-
 }
 
 #feed-content-overall-rate h1{ 
-
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 25px;
   vertical-align: middle;
-
   color: #000000;
-
 }
-
-
 
 h1.restaurant-name {
     /* position: relative;
@@ -305,46 +261,29 @@ h1.restaurant-name {
 }
 
 h1.restaurant-branch {
-    /* position: relative;
-    left: 270px;
-    top: -225px; */
-
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
     line-height: 28px;
-
     color: #000000;
 }
 
 h1.restaurant-type-cuisine {
-
-    /* position: relative;
-    left: 270px;
-    top: -180px; */
-
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 28px;
-
     color: #000000;
 }
 
 h1.restaurant-serves {
-
-    /* position: relative;
-    left: 270px;
-    top: -180px; */
-
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 28px;
-
     color: #000000;
 }
 
@@ -352,10 +291,8 @@ h1.restaurant-serves {
     position: static;
     width: 400px;
     height: 250px;
-    
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-
 }
 
 #ratings-overview table{
@@ -364,35 +301,26 @@ h1.restaurant-serves {
   line-height: 66.666666666px;
   align-items: center;
   text-align: left;
-
 }
 
 table.ratings-overview td {
-
   font-size: 24px;
   width: 250px;
   height: 50px;
-
 }
-
 
 /* for the reviews in restaurant page */
 #reviews {
   width: 1340px;
   height: 775px;
-  
 }
 
 #reviews-entry {
-  
   position: relative;
   width: 900px;
   height: 316.66px;
   left: 20px;
-
   border-radius: 10px;
-
-  
 }
 
 #entryheader {
@@ -400,30 +328,15 @@ table.ratings-overview td {
   height: 100px;
   left: 0px;
   background-color:#9E2121;
-
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-
 }
 
-
-/* #entryheader img{
-  position: relative;
-  width: 66.66px;
-  height: 66.66px;
-  margin: 16.666px;
-
-  background: #C4C4C4;
-  border-radius: 100px;
-} */
-
 .userphoto{
-  
   margin: 16.666px;
   background: #C4C4C4;
   border-radius: 50%;
@@ -439,10 +352,8 @@ table.ratings-overview td {
   height: 66.66px;
 }
 
-
 .btn-edit{
   height: 20px;
-  
 }
 
 .btn-small{
@@ -459,22 +370,14 @@ table.ratings-overview td {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-
   border-radius: 10px;
-
 }
-
 
 #reviews-entry {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
 }
 
-
-
-
-
 .entryheadernameandname  {
-
   position: relative;
   font-family: Roboto;
   font-style: normal;
@@ -482,8 +385,6 @@ table.ratings-overview td {
   font-size: 22.6px;
   line-height: 22.6px;
   /* identical to box height */
-
-
   color: white;
 }
 
@@ -496,7 +397,6 @@ td.entryheadername, .entryheadername a {
   width:260px;
   font-weight: bold;
   color: white;
-  
 }
 
 td.entryheaderdate {
@@ -526,7 +426,6 @@ button.medium-button{
   text-align: center;
   color: black;
   background-color: #f5f5f5;
-
 }
 
 .entryheaderoverallrating p {
@@ -535,19 +434,14 @@ button.medium-button{
   height: 40px;
   left: 150px;
   top: 37px;
-
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 34px;
   line-height: 40px;
   /* identical to box height */
-
-
   color: #000000;
-
 }
-
 
 #updownvotes {
   padding-top:50px;
@@ -556,12 +450,9 @@ button.medium-button{
   background-color: #F5F5F5;
   text-align: center;
   line-height: 25px;
-
   display: inline-block;
   vertical-align: center;
-
   border-bottom-left-radius: 10px;
-  
 }
 
 #updownvotes input{
@@ -595,7 +486,6 @@ button.medium-button{
   margin-left:20px;
   margin-top:10px;
   margin-bottom:10px;
-
   /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); */
   border-bottom: 1px solid gray;
   border-radius: 10px;
@@ -609,217 +499,10 @@ table.review-ratings {
   text-align: center;
   /* border: 1px solid gray; */
   /* border-radius: 10px; */
-
-  
-
 }
-
-#review-text{
-  width: 733.33px;
-  height: 133.33px;
-  margin-right:20px;
-  margin-left:20px;
-  margin-top:10px;
-  margin-bottom:10px;
-  background-color: white;
-
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  align-items: center;
-
-  color: #000000;
-  /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); */
-  
-  /* border-bottom: 1px solid gray; */
-  /* border-radius: 10px; */
-
-}
-
-#review-text p{
-  padding: 10px;
-}
-
-#review-comment-pane {
-  height: 183.33px;
-  width: 733.33px;
-  /* background-color: indigo; */
-  margin-right:20px;
-  margin-left:20px;
-  margin-top:10px;
-  margin-bottom:10px;
-
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-
-}
-
-#view-full-comments {
-  height: 33.33px;
-
-  background: #F5F5F5;
-  /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); */
-
-  border-bottom: 1px solid gainsboro;
-  
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-
-
-  
-}
-
-
-#view-full-comments h2 {
- 
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  width: 100%;
-  font-size: 16px;
-  line-height: 33px;
-  align-items: center;
-  text-align: center;
-  color: #000000;
-  text-decoration: none;
-
-} 
 
 .padding-10 {
   padding: 10px;
-}
-#all-comments{
-  position: relative;
-  height: auto;
-  background: #FFFFFF;
-}
-
-
-#single-comment {
-  height: 83.333px;
-  width: 100%;
-  background: #FFFFFF;
-
-  box-sizing: border-box;
-  border-bottom: 2px solid #f5f5f5;
-
-  position: relative;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-}
-
-#appended-comment {
-  height: 83.333px;
-  width: 100%;
-  background: #FFFFFF;
-
-  box-sizing: border-box;
-  border-bottom: 2px solid #f5f5f5;
-
-  position: relative;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-}
-/* #single-comment img{
-  position: relative;
-  width: 50px;
-  height: 50px;
-  margin: 8.333px;
-
-  background: #C4C4C4;
-  border-radius: 100px;
-} */
-
-
-
-td.review-comment-name {
-  width:150px;
-  
-  font-size: 14px;
-  line-height: 14px;
-  color: black;
-}
-
-td.review-comment-text {
-  width: 430px;
-  font-size: 12px;
-  line-height: 12.5px;
-  color: black;
-
-}
-
-td.review-comment-date{
-  
-  font-size: 12px;
-  line-height: 12px;
-  color: black;
-}
-
-button.small-button {
-  position: relative;
-  left: 5px;
-  width: 50px;
-  height: auto;
-  padding: 0px;
-  font-size: 12px;
-  text-align: center;
-  color: black;
-  background-color: transparent;
-
-
-}
-
-
-#addcomment {
-  height: 66.666px;
-  background: #F5F5F5;
-  /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); */
-
-  padding:20px;
-
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-
-  
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-#addcomment input{
-  width: 585px;
-  height: 29px;
-  background: #FFFFFF;
-
-  font-size: 12px;
-
-}
-
-.add-comment-button{
-  width: 100px;
-  height: 30px;
-  background: #9E2121;
-  color: white;
-
-  font-size: 12px;
-  
-  border-radius:10px;
-}
-
-.add-comment-tf {
-  padding-left: 20px;
-  border-radius: 10px;
 }
 
 #register-header {
@@ -840,10 +523,40 @@ button.small-button {
 {
 	color: #FF0000;
 	font-weight: 700;
-	font-size: 12px;
+	font-size: 14px;
   text-align: left;
   margin-top: -15px;
 	margin-left: 10px;
 }
 
 /* END for the reviews in restaurant page */
+
+/*modal*/
+.bg-modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+#closeBtn {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  font-size: 42px;
+  transform: rotate(45deg);
+  cursor: pointer;
+}

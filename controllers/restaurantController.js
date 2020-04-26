@@ -19,7 +19,12 @@ const ObjectId = require('mongodb').ObjectID;
 const restaurantController = {
 
     getReview: function (req, res) {
-        res.render('restaurant');
+        db.findMany(Reviews, {}, '', function(result) {
+            res.render('restaurant', {
+                restReviews: result
+            });
+        }); // This is to load the page initially
+            // res.render('restaurant'); // This is to load the page initially
     },
 
     postReview: function (req, res) {
@@ -61,7 +66,7 @@ const restaurantController = {
     },
 
     deleteReview: function(req, res){
-        res.redirect('/');
+        res.redirect('/restaurant');
     },
 
     getRestaurant: function (req, res) {

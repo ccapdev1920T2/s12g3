@@ -63,6 +63,11 @@ p
 	position: relative;
 }
 
+/* changes cursor when disabled element is hovered */
+input[disabled]{
+	cursor: not-allowed;
+}
+
 #username
 {
 	position: relative;
@@ -93,6 +98,8 @@ p
     padding: 10px;
 }
 
+
+
 #email
 {
 	position: relative;
@@ -116,6 +123,12 @@ p
 	margin: 0% 5% 0% 5%;
 }
 
+#signup:disabled,
+#signup[disabled]{
+  border: 1px solid #999999;
+  background-color: gray;
+}
+
 #guest
 {
 	width: 90%;
@@ -131,38 +144,42 @@ p
 
 #erroruser
 {
+	height: 12px;
 	color: #FF0000;
 	font-weight: 700;
 	font-size: 12px;
 	text-align: left;
-	margin-left: 10px;
+	margin: 0px 0px 5px 0px;
 }
 
 #erroremail
 {
+	height: 13px;
 	color: #FF0000;
 	font-weight: 700;
 	font-size: 12px;
 	text-align: left;
-	margin-left: 10px;
+	margin: 0px 0px 5px 0px;
 }
 
 #errorpassword
 {
+	height: 12px;
 	color: #FF0000;
 	font-weight: 700;
 	font-size: 12px;
 	text-align: left;
-	margin-left: 10px;
+	margin: 0px 0px 5px 0px;
 }
 
 #errorcpassword
 {
+	height: 12px;
 	color: #FF0000;
 	font-weight: 700;
 	font-size: 12px;
 	text-align: left;
-	margin-left: 10px;
+	margin: 0px 0px 5px 0px;
 }
 
 #or

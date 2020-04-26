@@ -1,216 +1,19 @@
-body{
-    margin: 0px;
-    position: relative;
-    width: 100%;
-    height: 1024px;
-  }
-
-#navbardesign {
-  height: 100px;
-}
-
-/* body line 14*/
-#web-logo{
-  width: 120px;
-  height:120px;
-}
-
-/* body line 15*/
-#web-name{
-  margin-left: 32%;
-  margin-right: 20%;
-  width: 20%;
-  font-size: 40px;
-  font-weight: 500;
-  font-family: Roboto;
-  color: #9E2121; 
-}
-/* body line 25*/
-#header-login {
-  margin-right: 10px;
-  border-color: gray;
-  width: 120px;
-  height: 40px;
-}
-
-#header-login:hover {
-  background-color: #9E2121;
-  color: white;
-  border-color:  #9E2121;
-}
-
-/* body line 26*/
-#header-register {
-  margin-right: 20px;
-  width: 120px;
-  height: 40px;
-  background-color: #9E2121;
-  color: white;
-  border-color:  #9E2121;
-}
-
-#header-register:hover {
-  background-color:#E0321E;
-  color:white;
-  border-color: #E0321E;
-}
-
-/* only matters when a user is signed in or not */
-#login-register-group {
-  visibility: visible;
-}
-
-/*#send-comment:hover {
-  background-color:#E0321E;
-  color:white;
-  border-color: #E0321E;
-}*/
-
-#feed {
-    
-    position: relative;
-    margin-top: 50px;
-    margin-left: 50px;
-    z-index: 999;
-
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-
-} 
-
-#add-review-pane {
+#user-content {
   position: relative;
   width: 900px;
-  height: 300px;
-
+  height: 250px;
   margin: 20px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-
   text-decoration: none;
-
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-
-}  
-
-#add-review-header h2{
-  height:50px;
-  width:900px;
-  padding: 10px;
-  padding-left: 20px;;
-
-  background-color:#9E2121;
-
-  font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 30px;
-    vertical-align: middle;
-  color:white;
-  text-align: center;
-}
-
-#add-review-main {
-  height: 250px;
-  width: 100%;
-  /* background-color: gold; */
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-}
-
-#add-review-left {
-  width: 100px;
-  height:100%;
-
-}
-
-#add-review-right {
-  position: relative;
-  width: 800px;
-  height: 100%;
-
-}
-
-#add-review-slider-container{
-  position: relative;
-  width:750px;
-  left:25px;
-  height: 75px;
-
-
-  font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 16px;
-    
-
-}
-
-#add-review-slider-container input{
-  width:200px;
-
-
-}
-
-#add-review-slider-container td{
-  padding-left:14px;
-  padding-right:14px;
-
-
-}
-
-td.ratings-slider {
-  
-  width: 200px;
-}
-
-
-#add-review-text textarea{
-  margin: 10px;
-  position: relative;
-  width:700px;
-  left:25px;
-  max-height: 75px;
-  padding: 5px;
-
-
-}
-
-.add-review-button {
-  position: absolute;
-  right: 70px;
-
-}
-
-
-
-#user-content {
-    position: relative;
-    width: 900px;
-    height: 250px;
-
-    margin: 20px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-
-    text-decoration: none;
-
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-
-    border-style: solid;
-    border-color: #9E2121;
+  border-style: solid;
+  border-color: #9E2121;
 }  
 
 .user-content-photo {
-   
     width: 200px;
     height: 200px;
     margin: 25px;
@@ -221,16 +24,11 @@ td.ratings-slider {
   margin: 25px;
 }
 
-
-
 #user-content-overall-rate{
   position: absolute;
   top: 50px;
   right: 50px;
-
-
   height: auto;
-  
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 5px;
@@ -239,28 +37,21 @@ td.ratings-slider {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-
 }
 
 #user-content-overall-rate h1{ 
-
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 25px;
   vertical-align: middle;
-
   color: #000000;
-
 }
-
-
 
 h1.user-name {
     /* position: relative;
     left: 270px;
     top:-200px; */
-    
     font-size: 36px;
     line-height: 42px;   
     font-family: Roboto;
@@ -274,43 +65,35 @@ h1.user-location {
     /* position: relative;
     left: 270px;
     top: -225px; */
-
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
     line-height: 28px;
-
     color: #000000;
 }
 
 h1.user-preference {
-
     /* position: relative;
     left: 270px;
     top: -180px; */
-
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 28px;
-
     color: #000000;
 }
 
 h1.user-likes {
-
     /* position: relative;
     left: 270px;
     top: -180px; */
-
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 28px;
-
     color: #000000;
 }
 
@@ -318,103 +101,31 @@ h1.user-likes {
     position: static;
     width: 400px;
     height: 250px;
-  
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-  
     border-style: solid;
     border-color: #9E2121;
-  }
+}
   
-  #user-overview table{
-    margin: 25px;
-    margin-left: 19px;
-    margin-right: -5px;
-    line-height: 66.666666666px;
-    align-items: center;
-    text-align: center;
-  }
-  
-  table.user-overview td {
-    font-size: 24px;
-    width: 250px;
-    height: 50px;
-  }
+#user-overview table{
+  margin: 25px;
+  margin-left: 19px;
+  margin-right: -5px;
+  line-height: 66.666666666px;
+  align-items: center;
+  text-align: center;
+}
 
+table.user-overview td {
+  font-size: 24px;
+  width: 250px;
+  height: 50px;
+}
 
 /* for the reviews in restaurant page */
 #reviews {
   width: 1340px;
   height: 775px;
-  
-}
-
-#reviews-entry {
-  
-  position: relative;
-  height: auto;
-  width: 900px;
-  left: 20px;
-
-  border-radius: 10px;
-  
-}
-
-#entryheader {
-  position: static;
-  height: 100px;
-  left: 0px;
-  background-color:#9E2121;
-
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-
-}
-
-/* #entryheader img{
-  position: relative;
-  width: 66.66px;
-  height: 66.66px;
-  margin: 16.666px;
-
-  background: #C4C4C4;
-  border-radius: 100px;
-} */
-
-.userphoto{
-  
-  margin: 16.666px;
-  background: #C4C4C4;
-  border-radius: 50%;
-}
-
-.up-small{
-  width: 50px;
-  height: 50px;
-}
-
-.up-med{
-  width: 66.66px;
-  height: 66.66px;
-}
-
-
-.btn-edit{
-  height: 20px;
-  
-}
-
-.btn-small{
-  height: 15px;
-}
-
-.invert{
-  filter: invert(100%);
 }
 
 #review-entry-main {
@@ -422,123 +133,12 @@ h1.user-likes {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-
   border-radius: 10px;
-
-}
-
-
-.btn-edit{
-  height: 20px;
-  
-}
-
-.btn-small{
-  height: 15px;
-}
-
-.invert{
-  filter: invert(100%);
-}
-
-#reviews-entry {
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
-}
-
-
-
-
-
-.entryheadernameandname  {
-
-  position: relative;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 22.6px;
-  line-height: 22.6px;
-  /* identical to box height */
-
-
-  color: white;
-}
-
-.entryheadername:hover a{
-  color:white;
-}
-
-
-td.entryheadername, .entryheadername a {
-  width:260px;
-  font-weight: bold;
-  color: white;
-  
 }
 
 td.entryheaderdate {
   width:260px;
   color: white;
-}
-
-td.overall-rating{
-  width:260px;
-  font-weight: bold;
-  color: white;
-}
-
-td.headerbuttons{
-  width:260px;
-  text-align: right;
-}
-
-button.medium-button{
-  position: relative;
-  left: 100px;
-  width: 100px;
-  height: auto;
-  padding: 0px;
-  font-size: 12px;
-  text-align: center;
-  color: black;
-  background-color: #f5f5f5;
-
-}
-
-.entryheaderoverallrating p {
-  position: relative;
-  width: 249px;
-  height: 40px;
-  left: 150px;
-  top: 37px;
-
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 34px;
-  line-height: 40px;
-  /* identical to box height */
-
-
-  color: #000000;
-
-}
-
-
-#updownvotes {
-  padding-top:50px;
-  width: 100px;
-  height: 220px;
-  background-color: white;
-  text-align: center;
-  line-height: 25px;
-
-  display: inline-block;
-  vertical-align: center;
-
-  /* border-right:  1px solid gray; */
-
-  /* border-bottom-left-radius: 10px; */
-  
 }
 
 #updownvotes input{
@@ -550,46 +150,8 @@ button.medium-button{
   width: 800px;
   height: 220px;
   background: #FFFFFF;
-
   /* border-bottom:  1px solid gray; */
   /* border-bottom-right-radius: 10px; */
-}
-
-.middlee{
-  line-height: 40px;
-  align-items: center;
-  text-align: center;
-}
-
-.nav-right-margin{
-  margin-right: 30px;
-}
-
-#ratings {
-  width: 733.33px;
-  height: 60px;
-  /* background-color: green; */
-  margin-right:20px;
-  margin-left:20px;
-  margin-top:10px;
-  margin-bottom:10px;
-
-  /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); */
-  border-bottom: 1px solid gray;
-  border-radius: 10px;
-}
-
-table.review-ratings {
-  position: relative;
-  width:100%;
-  height: 100%;
-  background-color: white;
-  text-align: center;
-  /* border: 1px solid gray; */
-  /* border-radius: 10px; */
-
-  
-
 }
 
 #review-text{
@@ -600,129 +162,19 @@ table.review-ratings {
   margin-top:10px;
   margin-bottom:10px;
   background-color: white;
-
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   align-items: center;
-
   color: #000000;
   /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); */
-  
   /* border-bottom: 1px solid gray; */
   /* border-radius: 10px; */
-
 }
 
 #review-text p{
   padding: 10px;
-}
-
-#review-comment-pane {
-  height: auto;
-  width: 733.33px;
-  /* background-color: indigo; */
-  margin-right:20px;
-  margin-left:20px;
-  margin-top:10px;
-  margin-bottom:10px;
-
-  /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); */
-  border-radius: 10px;
-
-}
-
-#view-full-comments {
-  height: 33.33px;
-
-  background: #F5F5F5;
-  /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); */
-
-  border-bottom: 1px solid gainsboro;
-  
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-
-
-  
-}
-
-
-#view-full-comments h2 {
- 
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  width: 100%;
-  font-size: 16px;
-  line-height: 33px;
-  align-items: center;
-  text-align: center;
-  color: #000000;
-  text-decoration: none;
-
-} 
-
-.padding-10 {
-  padding: 10px;
-}
-
-
-#all-comments{
-  width: 100%;
-  position: relative;
-  background: #FFFFFF;
-
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-#single-comment {
-  height: 83.333px;
-  width: 100%;
-  background: #FFFFFF;
-
-  box-sizing: border-box;
-  border-top: 2px solid #f5f5f5;
-
-  position: relative;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-
-
-
-td.review-comment-name {
-  width:150px;
-  
-  font-size: 14px;
-  line-height: 14px;
-  color: black;
-}
-
-td.review-comment-text {
-  width: 600px;
-  font-size: 12px;
-  line-height: 12.5px;
-  color: black;
-
-}
-
-td.review-comment-date{
-  
-  font-size: 12px;
-  line-height: 12px;
-  color: black;
 }
 
 button.small-button {
@@ -735,62 +187,71 @@ button.small-button {
   text-align: center;
   color: black;
   background-color: transparent;
-
-
-}
-
-
-#addcomment {
-  height: 66.666px;
-  background: #F5F5F5;
-  /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); */
-
-  padding:20px;
-
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-
-  border-top: 1px solid rgb(221, 221, 221);
-  border-bottom: 1px solid rgb(221, 221, 221);
-}
-
-#addcomment input{
-  width: 500px;
-  height: 29px;
-  background: #FFFFFF;
-
-  margin-left:150px;
-  font-size: 12px;
-
-}
-
-.add-comment-button{
-  width: 100px;
-  height: 30px;
-  background: #9E2121;
-  color: white;
-
-  font-size: 12px;
-  
-  border-radius:10px;
-}
-
-.add-comment-tf {
-  padding-left: 20px;
-  border-radius: 10px;
-}
-
-#register-header{
-  margin-top: 5px;
-  background-color: #9E2121; 
-  color: white;
-  border-color: #9E2121; 
-}
-#register-header:hover {
-  background-color:#E0321E;
-  color:white;
-  border-color: #E0321E;
 }
 
 /* END for the reviews in restaurant page */
+
+body{
+  margin: 0px;
+  position: relative;
+  width: 100%;
+  height: 1024px;
+}
+
+#header {
+position: fixed;
+width: 100%;
+height: 100px;
+z-index: 9999;
+
+background : #FFFFFF;
+/* border: 1px solid #000000; */
+box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.2);
+}
+
+#header img{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  height: 80px;
+  width: 80px;
+}
+
+/* only matters when a user is signed in or not */
+#login-register-group {
+visibility: visible;
+}
+/* END for the reviews in restaurant page */
+
+
+/*modal*/
+/* .bg-modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+#closeBtn {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  font-size: 42px;
+  transform: rotate(45deg);
+  cursor: pointer;
+} */
+
+

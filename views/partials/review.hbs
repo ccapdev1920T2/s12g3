@@ -1,0 +1,59 @@
+<div id = "reviews-entry">
+        <!-- the header of the review -->
+            <div id = "entryheader">
+                <img class = "userphoto up-med" src="../img/{{rPhoto}}" />
+                <table name = "review-entry-name-date" class="entryheaderdateandname">
+                <tr>
+                    <td  class = "entryheadername" name="reviewer-name"><a href= "/user">{{rName}}</a></td>
+                    <td  class = "overall-rating" name="overall-rating" rowspan="2">Overall Review: {{rOverallRate}}/10</td>
+                    <td class="headerbuttons"> 
+                      <button type="button" class="btn" onclick="window.open('/editreview/{{_id}}' ,'name','width=1000,height=400');">
+                        <img class = "btn-edit invert"src="../img/edit_icon.png"/> 
+                      </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class = "entryheaderdate" id = "entryheaderdate" name="review-date">{{pubdate}}</td>
+                    <td class="headerbuttons"> 
+                      {{!-- <form method="delete"> --}}
+                        <button type="button" class="btn" onClick="window.location.href = '/restaurant/delete/{{_id}}';" >
+                          <img class = "btn-edit invert"src="../img/delete_icon.png"/> 
+                        </button>
+                      {{!-- </form> --}}
+                      
+                    </td>
+                </tr>
+                </table>
+            </div>
+        <!-- END the header of the review -->
+        
+        <div id = "review-entry-main">
+
+              <div id="updownvotes" class="">
+                <input type="image" src="../img/up-arrow.png" />
+                <p class = "num-votes">{{votes}}</p>
+                <input type="image" src="../img/down-arrow.png" />
+              </div>  
+          
+          <div id ="review-entry-right">
+
+              <!-- the 3 category ratings -->
+              <div id = "ratings">
+                <table name = "review-entry-name-date" class="review-ratings">
+                  <tr>
+                    <td  class = "review-food-rating" name="review-food-rating" >Food: {{foodrate}}/10</td>
+                    <td class = "review-service-rating" name="review-service-rating">Service: {{servicerate}}/10</td>
+                    <td class = "review-environment-rating" name="review-environment-rating">Environment: {{envrate}}/10</td>
+                  </tr>
+                </table>
+              </div>
+              <!-- END the 3 category ratings -->
+
+              <div id = "review-text">
+                {{reviewText}}
+
+            </div>
+        </div>
+
+    </div>
+</div>

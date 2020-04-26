@@ -2,16 +2,13 @@
 
 <head>
 	<title>{{rName}}</title>
-    
   <link rel="stylesheet" type="text/css" href="../css/index.css">
-
+  <link rel="stylesheet" type="text/css" href="../css/reviewPage.css">
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-
-
+  <script src="/js/review.js" type="text/javascript"></script>
 </head>
 
 <body >
@@ -125,96 +122,11 @@
     <div id="reviews"> 
       <h1>Reviews</h1>
       {{#each restReviews}}<br>
-      <div id = "reviews-entry">
-        <!-- the header of the review -->
-            <div id = "entryheader">
-                <img class = "userphoto up-med" src="../img/{{rPhoto}}" />
-                <table name = "review-entry-name-date" class="entryheaderdateandname">
-                <tr>
-                    <td  class = "entryheadername" name="reviewer-name"><a href= "/user">{{rName}}</a></td>
-                    <td  class = "overall-rating" name="overall-rating" rowspan="2">Overall Review: {{rOverallRate}}/10</td>
-                    <td class="headerbuttons"> 
-                      <button type="button" class="btn" onclick="window.open('/editreview/{{_id}}' ,'name','width=1000,height=400');">
-                        <img class = "btn-edit invert"src="../img/edit_icon.png"/> 
-                      </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class = "entryheaderdate" id = "entryheaderdate" name="review-date">{{pubdate}}</td>
-                    <td class="headerbuttons"> 
-                      {{!-- <form method="delete"> --}}
-                        <button type="button" class="btn" onClick="window.location.href = '/restaurant/delete/{{_id}}';" >
-                          <img class = "btn-edit invert"src="../img/delete_icon.png"/> 
-                        </button>
-                      {{!-- </form> --}}
-                      
-                    </td>
-                </tr>
-                </table>
-            </div>
-        <!-- END the header of the review -->
-        
-        <div id = "review-entry-main">
-
-              <div id="updownvotes" class="">
-                <input type="image" src="../img/up-arrow.png" />
-                <p class = "num-votes">{{votes}}</p>
-                <input type="image" src="../img/down-arrow.png" />
-              </div>  
-          
-          <div id ="review-entry-right">
-
-              <!-- the 3 category ratings -->
-              <div id = "ratings">
-                <table name = "review-entry-name-date" class="review-ratings">
-                  <tr>
-                    <td  class = "review-food-rating" name="review-food-rating" >Food: {{foodrate}}/10</td>
-                    <td class = "review-service-rating" name="review-service-rating">Service: {{servicerate}}/10</td>
-                    <td class = "review-environment-rating" name="review-environment-rating">Environment: {{envrate}}/10</td>
-                  </tr>
-                </table>
-              </div>
-              <!-- END the 3 category ratings -->
-
-              <div id = "review-text">
-                {{reviewText}}
-
-              </div>
-          </div>
-
-        </div>
-      </div>
-    {{/each}}
+        {{> review}}
+      {{/each}}
     </div>
     <!-- END container for the reviews-entry (reviews) -->
-
 </div>
-
-<script type = "text/javascript">
-  function validReview(review, val)
-		{
-		valid = val;
-			if (review.val() == ""){
-			valid = false;
-				$('#reviewText').css({
-							'border' : '1.5px solid #FF0000'
-				})
-				$('#errorreview').text('* review is required');
-			}
-			else {
-				$('#reviewText').css({
-							'border' : '1px solid #DDDDDD'
-				})
-				$('#errorreview').text("");
-            }
-            return valid;
-		}
-
-  $("#register-header").click(function(){
-		var valid = true;
-		valid = validReview($("#reviewText"), valid);
-	});
-</script>
 </body>
 </html>
 

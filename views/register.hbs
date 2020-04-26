@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="/js/register.js" type="text/javascript"></script>
+
+
     <title>Register Website</title>
 	<link rel="stylesheet" href="css/RLStyle.css">
 </head>
 <body>
-<form method="post">
+<form method = "post" >
 	<div class = "registeraccount">
 		<a href = "/"> <img src = "img/Logo.png" id = "foodicon"> </a>
 		<h2>CREATE ACCOUNT </h2><br>
@@ -35,7 +38,7 @@
 		<p id="errorcpassword"></p><br><br>
 		<input     type = "submit" 
 		          value = "CREATE ACCOUNT" 
-				     id = "signup"><br>
+				     id = "signup" disabled><br>
 		<p id = "or">or <p>
 		<input 	  type  = "button"
 				  value = "CONTINUE AS GUEST"
@@ -46,153 +49,7 @@
 		<strong><a href = "/login"> Login here</a></strong></p>
 	</div>
 
-	<script type = "text/javascript">
-	
-		function validUsername(usname, val)
-		{
-		var valid = val;
-			if(usname.val() == '') 
-			{
-                valid = false;
-				$('#username').css({
-							'border' : '1.5px solid #FF0000'
-				})
-				$('#erroruser').text('* username is required');
-			}
-			else {
-				$('#username').css({
-							'border' : '1px solid #DDDDDD'
-				})
-				$('#erroruser').text("");
-            }
-            return valid;
-		}
-		
-		function validEmail(emlname, val)
-		{
-		var valid = val;
-			if(emlname.val() == '') 
-			{
-                $('#email').css({
-							'border' : '1.5px solid #FF0000'
-				})
-				$("#erroremail").text('* email is required');
-			}
-			else {
-				$('#email').css({
-							'border' : '1px solid #DDDDDD'
-				})
-				$('#erroremail').text("");
-            }
-            return valid;
-		}
-		
-		function validPassword(pwname, val)
-		{
-		var valid = val;
-			if(pwname.val() == '') 
-			{
-                valid = false;
-				$('#password').css({
-							'border' : '1.5px solid #FF0000'
-				})
-				$('#errorpassword').text('* password is required');
-			}
-			else {
-				$('#password').css({
-							'border' : '1px solid #DDDDDD'
-				})
-				$('#errorpassword').text("");
-            }
-            return valid;
-		}
-		
-		function validCPassword(cpwname, val)
-		{
-		var valid = val;
-			if(cpwname.val() == '') 
-			{
-                valid = false;
-				$('#cpassword').css({
-							'border' : '1.5px solid #FF0000'
-				})
-				$('#errorcpassword').text('* confirmed password is required');
-			}
-			else {
-				$('#cpassword').css({
-							'border' : '1px solid #DDDDDD'
-				})
-				$('#errorcpassword').text("");
-            }
-            return valid;
-		}
-		
-		function checkEmail(chkemail, val) {
-            var valid = val;
-            var atIndex = chkemail.val().indexOf('@');
-            var dotIndex = chkemail.val().lastIndexOf('.');
 
-            if(atIndex == -1 || dotIndex == -1 || atIndex > dotIndex) {
-                valid = false;
-                $('#email').css({
-							'border' : '1.5px solid #FF0000'
-				})
-				$("#erroremail").text('* Invalid email format');
-			}
-			else {
-				$('#email').css({
-							'border' : '1px solid #DDDDDD'
-				})
-				$('#erroremail').text("");
-            }
-            return valid;
-        }
-		
-		function passwordEqual(pword, cpword, val) {
-            var valid = val;
 
-            if(pword.val() != cpword.val()) {
-                valid = false;
-                $('#password').css({
-							'border' : '1.5px solid #FF0000'
-				})
-                $('#cpassword').css({
-							'border' : '1.5px solid #FF0000'
-				})
-                $('#errorcpassword').text('* password and confirmed password do not match');
-            } 
-            return valid;
-        }
-		
-		$("#signup").click(function(){
-		var valid = true;
-		valid = validUsername($("#username"), valid);
-		valid = validEmail($("#email"), valid);
-		valid = validPassword($("#password"), valid);
-		valid = validCPassword($("#cpassword"), valid);
-			if (valid) {
-			valid = checkEmail($("#email"), valid);
-			}
-		valid = passwordEqual($("#password"), $("#cpassword"), valid);
-			if (!valid)
-			{
-				event.preventDefault();
-			}
-		});
-
-		/*$("#signup").click(function(event){
-			event.preventDefault();
-			if ( !(validUsername()
-				&& validEmail()
-				&& validPassword()
-				&& validCPassword()
-				&& checkEmail()
-				&& passwordEqual() ))
-			{
-				event.preventDefault();
-			}
-		});*/
-	
-	</script>
 </body>
 </html>

@@ -67,6 +67,19 @@ const homeController = {
             
             
         });
+    },
+
+    getCurrentUser: function (req, res){
+
+        db.findOne(User, {isLoggedIn: true}, 'uname upic _id', function(result){
+
+            console.log("working");
+
+            res.send(result);
+
+        })
+
+
     }
 }
 
