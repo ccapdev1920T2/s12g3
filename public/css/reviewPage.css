@@ -221,6 +221,48 @@ box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.2);
 #login-register-group {
 visibility: visible;
 }
+
+
+.upvote {
+  display: inline-block;
+  overflow: hidden;
+  width: 40px;
+  height: 25px;
+  cursor: pointer;
+  background: url('http://i.stack.imgur.com/iqN2k.png');
+  background-position: 0px -25px;
+} 
+
+.upvoteon {
+  display: inline-block;
+  overflow: hidden;
+  width: 40px;
+  height: 25px;
+  cursor: pointer;
+  background: url('http://i.stack.imgur.com/iqN2k.png');
+  background-position: 0px 2px;
+}
+
+.downvote {
+  display: inline-block;
+  overflow: hidden;
+  width: 40px;
+  height: 25px;
+  cursor: pointer;
+  background: url('/img/dwnvote.png');
+  background-position: 0px -2px;
+} 
+
+.downvoteon {
+  display: inline-block;
+  overflow: hidden;
+  width: 40px;
+  height: 25px;
+  cursor: pointer;
+  background: url('/img/dwnvote.png');
+  background-position: 0px -30px;
+}
+
 /* END for the reviews in restaurant page */
 
 

@@ -91,7 +91,7 @@ const restaurantController = {
 
 
                 var rOverallRate = (Number(rAveEnvironmentRate) + Number(rAveFoodRate) + Number(rAveServiceRate) )/3 ;
-                
+
                 console.log("rOverallRate: " + rOverallRate);
 
                 var updatedResto = {
@@ -153,6 +153,8 @@ const restaurantController = {
                     var reviewsQuery = {restaurantID: ObjectId(req.params.id)}; 
 
                     db.findMany(Reviews, reviewsQuery, reviewProjection, function(resultreview) {
+
+                        
 
                         
 
@@ -218,7 +220,16 @@ const restaurantController = {
         
         })
         
+    },
+
+    upvoteReview: function(req, res){
+        var votes = req.query.votes;
+        console.log("sampletext");
     }
+
+    // downvoteReview: function(req, res){
+    //     res.redirect('/restaurant');
+    // }
             
      
 }

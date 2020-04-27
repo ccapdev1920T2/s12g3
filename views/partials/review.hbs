@@ -1,5 +1,6 @@
 <div id = "reviews-entry">
         <!-- the header of the review -->
+        <p hidden name="reviewID" class="reviewID">{{_id}}</p>
             <div id = "entryheader">
                 <img class = "userphoto up-med" src="../img/{{rPhoto}}" />
                 <table name = "review-entry-name-date" class="entryheaderdateandname">
@@ -30,9 +31,9 @@
         <div id = "review-entry-main">
 
               <div id="updownvotes" class="">
-                <input type="image" src="../img/up-arrow.png" />
+                <span class="upvote"></span>
                 <p class = "num-votes">{{votes}}</p>
-                <input type="image" src="../img/down-arrow.png" />
+                <span class="downvote"></span>
               </div>  
           
           <div id ="review-entry-right">
@@ -51,6 +52,7 @@
 
               <div id = "review-text">
                 {{reviewText}}
+                
 
             </div>
         </div>

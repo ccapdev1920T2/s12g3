@@ -32,7 +32,7 @@ const homeController = {
                     }
                     // this console.log is for gebugging only
                     // console.log(restaurant);
-                    console.log("result: " +result);
+                    // console.log("result: " +result);
                     res.render('home.hbs', details); 
                 }) 
             }

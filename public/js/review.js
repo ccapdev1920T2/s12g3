@@ -70,6 +70,82 @@ $(document).ready(function () {
        }
     });
 
+    $('#reviews').on('click', '.upvote', function () {
+
+        if ($(this).css("background-position") == "0px -25px")
+        {
+            $(this).css("background-position", "0px 2px");
+
+            var reviewID = $(this).parents("#reviews-entry").find(".reviewID").text();
+
+            $(this).parents("#updownvotes").find(".num-votes").text( parseInt( $(this).parents("#updownvotes").find(".num-votes").text() ) + 1 );
+
+            if($(this).parent().find(".downvote").css("background-position") == "0px -30px")
+            {
+                $(this).parent().find(".downvote").css("background-position", "0px -2px");
+                $(this).parents("#updownvotes").find(".num-votes").text( parseInt( $(this).parents("#updownvotes").find(".num-votes").text() ) + 1 );
+            }
+        }
+
+        else if ($(this).css("background-position") == "0px 2px")
+        {
+            $(this).css("background-position", "0px -25px");
+            $(this).parents("#updownvotes").find(".num-votes").text( parseInt( $(this).parents("#updownvotes").find(".num-votes").text() ) - 1 );
+        }
+
+        //var nvotes = parseInt( $(this).parents("#updownvotes").find(".num-votes").text() );
+        var nvotes = ("sampletext");
+
+        $.get('/upvote', {votes: nvotes}, function(result) {
+            if (result){
+                window.alert("database affected");
+            }
+        });
+     });
+
+
+    $('#reviews').on('click', '.downvote', function () {
+      
+       if ($(this).css("background-position") == "0px -2px"){
+           $(this).css("background-position", "0px -30px");
+
+           var reviewID = $(this).parents("#reviews-entry").find(".reviewID").text();
+
+           $(this).parents("#updownvotes").find(".num-votes").text( parseInt( $(this).parents("#updownvotes").find(".num-votes").text() ) - 1 );
+           
+           if($(this).parent().find(".upvote").css("background-position") == "0px 2px")
+           {
+             $(this).parent().find(".upvote").css("background-position", "0px -25px");
+             $(this).parents("#updownvotes").find(".num-votes").text( parseInt( $(this).parents("#updownvotes").find(".num-votes").text() ) - 1 );
+           }
+
+           var votes = parseInt( $(this).parents("#updownvotes").find(".num-votes").text() );
+       }
+
+       else if ($(this).css("background-position") == "0px -30px")
+       {
+         $(this).css("background-position", "0px -2px");
+         $(this).parents("#updownvotes").find(".num-votes").text( parseInt( $(this).parents("#updownvotes").find(".num-votes").text() ) + 1 );
+       }
+
+        var nvotes = parseInt( $(this).parents("#updownvotes").find(".num-votes").text() );
+        //window.alert("nvotes: " + nvotes);
+
+        $.post('/downvote', {votes: nvotes}, function(result) {
+            if (result){
+                window.alert("database affected");
+            }
+        })
+
+     });
+
+    $('#reviews').on('click', 'button[name="deletebtn"]', function () {
+        var reviewID = $(this).parents("#reviews-entry").find(".reviewID").text();
+
+        $(this).parents("#reviews-entry").remove();
+
+    });
+    
     /*
     TODO:   The code below attaches a `click` event to `.remove` buttons
             inside the `<div>` `#contacts`.
