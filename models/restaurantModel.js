@@ -27,6 +27,18 @@ var RestaurantSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    rAveFoodRate:{
+        type: Number,
+        required: false
+    },
+    rAveServiceRate:{
+        type: Number,
+        required: false
+    },
+    rAveEnvironmentRate:{
+        type: Number,
+        required: false
+    },
     rOverallRate: {
         type: Number,
         required: true

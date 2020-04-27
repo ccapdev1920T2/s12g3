@@ -53,6 +53,10 @@ var ReviewSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    rOverallRate:{
+        type: Number,
+        required: false
+    },
     reviewText: {
         type: String,
         required: true

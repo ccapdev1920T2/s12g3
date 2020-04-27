@@ -21,9 +21,13 @@ const reviewCollection = 'reviews';
 // to perform CRUD (Create, Read, Update, Delete) operations
 const userCollection = 'users';
 
+
+
 // calls the function createDatabase()
 // defined in the `database` object in `./models/db.js`
 mongodb.createDatabase();
+
+
 
 
 // containing Photo name, restaurant name, city location, type of restaurant, Cuisine, Serves and overall rate.
@@ -35,7 +39,10 @@ var restaurant1Details= {
     rType: "Casual Restaurant",
     rCuisine: "Italian",
     rServes: "Pasta, Pizza, Salad, Pastry",
-    rOverallRate: 10.0  
+    rAveFoodRate:10,
+    rAveServiceRate: 9.5 ,
+    rAveEnvironmentRate: 9,
+    rOverallRate: 9.5  
 };
 
 mongodb.insertOne(restaurantCollection, restaurant1Details);
@@ -49,7 +56,10 @@ var restaurant2Details= {
     rType: "Cafe",
     rCuisine: "Italian",
     rServes: "Coffee, Salad, Pastry",
-    rOverallRate: 10.0 
+    rAveFoodRate: 0,
+    rAveServiceRate: 0 ,
+    rAveEnvironmentRate: 0,
+    rOverallRate: 0 
 };
 
 mongodb.insertOne(restaurantCollection, restaurant2Details);
@@ -99,6 +109,7 @@ var review1Details = {
     foodrate: 10,
     servicerate: 9,
     envrate: 8,
+    rOverallRate: 9,
     reviewText: "My wife and I had our last dinner here more than a year ago. My wife and I just remembered the place. The food did not disappoint! Frazzled Cook, especially their Truffle Pasta, is her new favourite. I am from the South but will definitely eat here again!" 
 };
 
@@ -117,6 +128,7 @@ var review2Details = {
     foodrate: 10,
     servicerate: 10,
     envrate: 10,
+    rOverallRate: 10,
     reviewText: " I love everything that has something to do with this restaurant. :)" 
 };
 
