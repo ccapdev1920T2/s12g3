@@ -222,9 +222,17 @@ const restaurantController = {
         
     },
 
-    upvoteReview: function(req, res){
-        var votes = req.query.votes;
-        console.log("sampletext");
+    getIncrementVote: function(req, res){
+        
+        console.log(req.query.reviewID);
+        alert("get from controller");
+
+        // db.findOne(Reviews, {_id: req.query.restaurantID}, 'votes', function(reviewResult){
+
+            res.send(true);
+        // });
+
+
     }
 
     // downvoteReview: function(req, res){

@@ -1,12 +1,14 @@
 <div id = "reviews-entry">
         <!-- the header of the review -->
-        <p hidden name="reviewID" class="reviewID">{{_id}}</p>
+
+        
             <div id = "entryheader">
                 <img class = "userphoto up-med" src="../img/{{rPhoto}}" />
                 <table name = "review-entry-name-date" class="entryheaderdateandname">
                 <tr>
                     <td  class = "entryheadername" name="reviewer-name"><a href= "/user">{{rName}}</a></td>
                     <td  class = "overall-rating" name="overall-rating" rowspan="2">Overall Review: {{rOverallRate}}/10</td>
+                    
                     <td class="headerbuttons"> 
                       <button type="button" class="btn" onclick="window.open('/editreview/{{_id}}' ,'name','width=1000,height=400');">
                         <img class = "btn-edit invert"src="../img/edit_icon.png"/> 
@@ -34,6 +36,8 @@
                 <span class="upvote"></span>
                 <p class = "num-votes">{{votes}}</p>
                 <span class="downvote"></span>
+
+                <p  hidden class="reviewID" id="reviewID">{{_id}}</p>  {{!-- this just stores reviewID for backend part of the upvotes and downvotes --}}
               </div>  
           
           <div id ="review-entry-right">

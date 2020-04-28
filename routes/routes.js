@@ -58,8 +58,8 @@ app.get('/restaurant', restaurantController.getReview);
 app.get('/restaurant/:id', restaurantController.getRestaurant);
 //post to the restaurant page
 app.post('/restaurant', restaurantController.postReview);
-//upvotes a specific review
-app.get('/upvote', restaurantController.upvoteReview);
+//increases vote of a specific review by 1
+app.get('/getIncrementVote', restaurantController.getIncrementVote);
 // //downvotes a specific review
 // app.post('/downvote/:id', restaurantController.downvoteReview);
 

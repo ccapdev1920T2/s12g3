@@ -1,3 +1,7 @@
+// import { ObjectId } from "mongodb";
+
+
+
 $(document).ready(function () {
 
     /*
@@ -72,8 +76,23 @@ $(document).ready(function () {
 
     $('#reviews').on('click', '.upvote', function () {
 
+        // reviewID contains the _id of that review useful for backend
+        var revID = $(this).parent().find('.reviewID');
+        var reviewID = $(revID).text(); 
+        window.alert(reviewID);
+
+        // $.get('/getIncrementVote', {reviewID: 123}, function(result) {
+        //     alert("result: " + result);
+        //     alert("get from review.js");
+        // });
+
+        
+
         if ($(this).css("background-position") == "0px -25px")
         {
+
+            
+
             $(this).css("background-position", "0px 2px");
 
             var reviewID = $(this).parents("#reviews-entry").find(".reviewID").text();
@@ -89,22 +108,26 @@ $(document).ready(function () {
 
         else if ($(this).css("background-position") == "0px 2px")
         {
+           
+
             $(this).css("background-position", "0px -25px");
             $(this).parents("#updownvotes").find(".num-votes").text( parseInt( $(this).parents("#updownvotes").find(".num-votes").text() ) - 1 );
         }
 
         //var nvotes = parseInt( $(this).parents("#updownvotes").find(".num-votes").text() );
-        var nvotes = ("sampletext");
+        // var nvotes = ("sampletext");
 
-        $.get('/upvote', {votes: nvotes}, function(result) {
-            if (result){
-                window.alert("database affected");
-            }
-        });
+        
+
      });
 
 
     $('#reviews').on('click', '.downvote', function () {
+
+        // reviewID contains the _id of that review useful for backend
+        var revID = $(this).parent().find('.reviewID');
+        var reviewID = $(revID).text(); 
+        window.alert(reviewID);
       
        if ($(this).css("background-position") == "0px -2px"){
            $(this).css("background-position", "0px -30px");
