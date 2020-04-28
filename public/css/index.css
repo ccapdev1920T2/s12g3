@@ -197,6 +197,20 @@ td.ratings-slider {
   right: 70px;
 }
 
+#publish-button {
+  margin-top: -20px;
+  background-color: #9E2121; 
+  color: white;
+  border-color: #9E2121;
+}
+
+/* restaurant.hbs */
+#publish-button:hover {
+  background-color:#E0321E;
+  color:white;
+  border-color: #E0321E;
+}
+
 #feed-content {
     position: relative;
     width: 900px;
@@ -353,6 +367,10 @@ table.ratings-overview td {
 }
 
 .btn-edit{
+  height: 20px;
+}
+
+.btn-delete{
   height: 20px;
 }
 
@@ -519,15 +537,20 @@ table.review-ratings {
   border-color: #E0321E;
 }
 
+
 #errorreview
 {
+  position: relative;
 	color: #FF0000;
 	font-weight: 700;
 	font-size: 14px;
   text-align: left;
-  margin-top: -15px;
-	margin-left: 10px;
+  top: 20px;
+  left: 40px;
 }
+
+/* changes cursor when disabled element is hovered */
+
 
 /* END for the reviews in restaurant page */
 

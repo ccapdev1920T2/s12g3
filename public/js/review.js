@@ -4,21 +4,77 @@
 
 $(document).ready(function () {
 
-    /*
-    TODO:   The code below attaches a `keyup` event to `#number` text field.
-            The code checks if the current number entered by the user in the
-            text field does not exist in the database.
 
-            If the current number exists in the database:
-            - `#number` text field background color turns to red
-            - `#error` displays an error message `Number already registered`
-            - `#submit` is disabled
+    // this gets the uname of the logged user. ("Guest" if no one's logged in).
+    // useful for validations for when a user is logged in or not.
+    var helloname = $(this).find('#helloname');
+    var hellonametext = $(helloname).text(); 
 
-            else if the current number does not exist in the database:
-            - `#number` text field background color turns back to `#E3E3E3`
-            - `#error` displays no error message
-            - `#submit` is enabled
-    */
+
+    var unameReview = $("#reviews").parent().find('.entryheadername');
+    var numReviews = unameReview.length; // stores how many reviews are there in the resto
+
+    
+    if(hellonametext == "Guest"){
+
+        //disables upvote and downvote buttons if not logged it
+        $("#reviews").parent().find('.upvote').prop("disabled", true);
+        $("#reviews").parent().find('.upvote').css("cursor", "not-allowed");
+        $("#reviews").parent().find('.downvote').prop("disabled", true);
+        $("#reviews").parent().find('.downvote').css("cursor", "not-allowed");
+        $('.upvote').prop('title', 'You need to be logged in to do this.');
+        $('.downvote').prop('title', 'You need to be logged in to do this.');
+
+            
+        //disables add review form if not logged in
+        $("#publish-button").prop("disabled", true);
+        $("#foodRatingInputID").prop("disabled", true);
+        $("#serviceRatingInputID").prop("disabled", true);
+        $("#environmentRatingInputID").prop("disabled", true);
+        $("#reviewText").prop("disabled", true);
+        $("#errorreview").html("You need to log in to add a review.");
+
+
+
+    }else{
+        //enables upvote and downvote buttons if logged it
+        $("#reviews").parent().find('.upvote').prop("disabled", false);
+        $("#reviews").parent().find('.downvote').prop("disabled", false);
+    }
+
+    // START VALIDATIONS FOR EDIT AND DELETE BUTTON
+    j=0; // for .entrydeadername
+    for(i=0; i< numReviews; i++){
+        // unameRText stores the uname of each review
+        var unameR = $("#reviews").parent().find('.entryheadername')[j];
+        var unameRText = $(unameR).text();
+        j++; 
+
+        // alert("numReviews: " + numReviews + "        i: " + i   + "    " +unameRText + "   " +  hellonametext);
+        
+        // if the uname (author) of the review is NOT EQUAL to the uname of current logged in.
+        if(unameRText != hellonametext){
+
+            $("#reviews").parent().find('.edit')[i].remove();
+            $("#reviews").parent().find('.delete')[i].remove();
+
+            numReviews--;
+            i--;
+        }
+        //else (if the review author is the same as the one logged in)
+        else if( unameRText == hellonametext){
+        }
+    }
+    // END VALIDATIONS FOR EDIT AND DELETE BUTTON
+
+
+
+    
+
+
+
+
+
    // FIXING
    /* $('#reviewText').keyup(function () {
         // your code here
@@ -79,7 +135,7 @@ $(document).ready(function () {
         // reviewID contains the _id of that review useful for backend
         var revID = $(this).parent().find('.reviewID');
         var reviewID = $(revID).text(); 
-        window.alert(reviewID);
+        window.alert("reviewID: " +reviewID);
 
         // $.get('/getIncrementVote', {reviewID: 123}, function(result) {
         //     alert("result: " + result);

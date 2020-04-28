@@ -2,7 +2,7 @@
         <!-- the header of the review -->
 
         
-            <div id = "entryheader">
+            <div id = "entryheader" class = "entryheader">
                 <img class = "userphoto up-med" src="../img/{{rPhoto}}" />
                 <table name = "review-entry-name-date" class="entryheaderdateandname">
                 <tr>
@@ -10,7 +10,7 @@
                     <td  class = "overall-rating" name="overall-rating" rowspan="2">Overall Review: {{rOverallRate}}/10</td>
                     
                     <td class="headerbuttons"> 
-                      <button type="button" class="btn" onclick="window.open('/editreview/{{_id}}' ,'name','width=1000,height=400');">
+                      <button type="button" class="btn edit" id = "btn-edit" onclick="window.open('/editreview/{{_id}}' ,'name','width=1000,height=400');">
                         <img class = "btn-edit invert"src="../img/edit_icon.png"/> 
                       </button>
                     </td>
@@ -19,8 +19,8 @@
                     <td class = "entryheaderdate" id = "entryheaderdate" name="review-date">{{pubdate}}</td>
                     <td class="headerbuttons"> 
                       {{!-- <form method="delete"> --}}
-                        <button type="button" class="btn" onClick="window.location.href = '/restaurant/delete/{{_id}}';" >
-                          <img class = "btn-edit invert"src="../img/delete_icon.png"/> 
+                        <button type="button" class="btn delete" id = "btn-delete" onClick="window.location.href = '/restaurant/delete/{{_id}}';" >
+                          <img class = "btn-delete invert"src="../img/delete_icon.png"/> 
                         </button>
                       {{!-- </form> --}}
                       
