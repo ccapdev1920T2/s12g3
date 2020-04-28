@@ -11,12 +11,15 @@
       </ul>
 
       <ul class="navbar-nav mr-right nav-right-margin">
-          <button class="btn my-2" type="submit" id = "header-login" onclick="window.location.href = '/login';">login</button>     
-          <button class="btn btn-outline-light btn-light my-2" onclick="window.location.href = '/register';" id = "header-register" type="submit" >register</button>
+          {{!-- <div id = "login-register-group"> --}}
+            <button class="btn my-2" type="submit" id = "header-login" onclick="window.location.href = '/login';">login</button>     
+            <button class="btn btn-outline-light btn-light my-2" onclick="window.location.href = '/register';" id = "header-register" type="submit" >register</button>
+          {{!-- </div> --}}
+          
           <li class="nav-item active">
             <div class="dropdown">
-              <a class="nav-link dropdown-toggle middlee" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="hello-uname"> 
-                Hello, <span >{{uname}}</span>!
+              <a class="nav-link dropdown-toggle middlee" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="hello-uname"> 
+                Hello, <span id = "helloname">{{uname}}</span>!
               </a>
               <div class="dropdown-menu " aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="/user">Profile</a>

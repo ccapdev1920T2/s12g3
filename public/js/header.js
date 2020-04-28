@@ -1,39 +1,26 @@
 $(document).ready(function () {
 
 
+    // this gets 
+    var helloname = $(this).find('#helloname');
+    var hellonametext = $(helloname).text(); 
 
-    function preloadFunc()
-    {
-        
-       
-        var isLoggedIn= true;
 
-        // goes to homeController
-        $.get('/getCurrentUser', {isLoggedIn: isLoggedIn}, function (result) {
+    if(hellonametext != "Guest"){
+        $("#header-login").css("visibility", "hidden");
+        $("#header-register").css("visibility", "hidden");
+        $("#hello-uname").prop("disabled", false);
 
-            alert( $("#web-name").val() );
-            if(result){
-                $('#header-login').prop('hidden', true);
-            }
-            
-        
-        });
+    }else{
+        $("#header-login").css("visibility", "visible");
+        $("#header-register").css("visibility", "visible");
+        $("#hello-uname").prop("disabled", true);
 
-        // if($('#hello-uname').val() != "Guest"){
-        //     alert($('#hello-uname').val());
-        //     $('#header-login').prop('hidden', true);
-        // }
+        $("#hello-uname").click(function(){
+            alert("You need to be logged in.");
+          });
 
-       
-       
-    };
-
-    window.onpaint = preloadFunc();
-
-    $(document).onload(function(){
-        alert( $("#web-name").val() );
-    });
-
+    }
 
     
 

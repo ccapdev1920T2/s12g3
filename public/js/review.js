@@ -91,8 +91,6 @@ $(document).ready(function () {
         if ($(this).css("background-position") == "0px -25px")
         {
 
-            
-
             $(this).css("background-position", "0px 2px");
 
             var reviewID = $(this).parents("#reviews-entry").find(".reviewID").text();
