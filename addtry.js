@@ -56,10 +56,10 @@ var restaurant2Details= {
     rType: "Cafe",
     rCuisine: "Italian",
     rServes: "Coffee, Salad, Pastry",
-    rAveFoodRate: 0, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
-    rAveServiceRate: 0 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
-    rAveEnvironmentRate: 0, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
-    rOverallRate: 0 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
+    rAveFoodRate: 10, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
+    rAveServiceRate: 8 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
+    rAveEnvironmentRate: 10, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
+    rOverallRate: 9.3 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
 };
 
 mongodb.insertOne(restaurantCollection, restaurant2Details);
@@ -96,7 +96,7 @@ var user2Details = {
 
 mongodb.insertOne(userCollection, user2Details);
 
-//add review1 created by user1 to restaurant1
+//add review1 created by user2 to restaurant1
 var review1Details = {
     _id: ObjectId(), // this just generates an _id for this object
     authorID: ObjectId(user2Details._id).toString(), // gets _id of user2. this indicates that user2 is the author of the review
@@ -115,7 +115,7 @@ var review1Details = {
 
 mongodb.insertOne(reviewCollection, review1Details);
 
-//add review2 created by user1 to restaurant1
+//add review2 created by user2 to restaurant1
 var review2Details = {
     _id: ObjectId(),
     authorID: ObjectId(user2Details._id).toString(), // gets _id of user2. this indicates that user2 is the author of the review
@@ -130,6 +130,26 @@ var review2Details = {
     envrate: 10,
     rOverallRate: 10, //take note that this should be the average of foodrate, servicerate, envrate
     reviewText: " I love everything that has something to do with this restaurant. :)" 
+};
+
+mongodb.insertOne(reviewCollection, review2Details);
+
+
+//add review3 created by user1 to restaurant2
+var review2Details = {
+    _id: ObjectId(),
+    authorID: ObjectId(user1Details._id).toString(), // gets _id of user2. this indicates that user2 is the author of the review
+    rName: user1Details.uname, // gets uname of user2.
+    rPhoto: user1Details.upic, // gets upic of user2.
+    restaurantID: ObjectId(restaurant2Details._id).toString(), //gets the _id of restaurant1Details. this indicates that the review is for that restaurant
+    restaurantName: "Sunnies Cafe",
+    pubdate: new Date('2020-03-27'),
+    votes: 3,
+    foodrate: 10,
+    servicerate: 8,
+    envrate: 10,
+    rOverallRate: 9.3, //take note that this should be the average of foodrate, servicerate, envrate
+    reviewText: " I love the food and ambiance but the service is slow for a cafe that is relatively not big." 
 };
 
 mongodb.insertOne(reviewCollection, review2Details);
