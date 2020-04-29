@@ -41,7 +41,7 @@ const registerController = {
             // calls the function insertOne()
             // defined in the `database` object in `../models/db.js`
             // this function adds a document to collection `users`
-            db.insertOne(User, user, function(flag){
+            db.insertOneWithCallback(User, user, function(flag){
                 if(flag){
                      res.redirect('/login');
                 };
