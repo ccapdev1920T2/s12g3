@@ -5,6 +5,9 @@ const User = require('../models/userModel.js');
 // defines an object which contains functions executed as callback
 // when a client requests for `signup` paths in the server
 
+// import module `bcrypt`
+const bcrypt = require('bcrypt');
+
 const uasController = {
 
     postUAS: function(req, res){
@@ -32,38 +35,47 @@ const uasController = {
             if((req.body.npword != "" || req.body.cnpword != "") && flikes == "") 
                 flikes = result.ulikes;
 
-            var update = {
-                // left is column/field name; right is value/data
-                upic : upicture,
-                uname : req.body.uname,
-                ucity: fcity,
-                utype: ftype,
-                ulikes: flikes,
-                email : req.body.email,
-                pword : newpword,
-                gender : req.body.gender
-            }
+            
 
             console.log("update: " + result);
 
-            if(result.pword == oldpass){
-                db.updateOne(User, {uname : result.uname}, update);
-                res.redirect('/');
-            }else{
+            console.log("req.body.oldpword: " + req.body.oldpword);
+
+            bcrypt.compare(req.body.oldpword, result.pword, function(err, equal) {
                 var update = {
                     // left is column/field name; right is value/data
-                    upic : req.body.upic,
+                    upic : upicture,
                     uname : req.body.uname,
-                    ucity : req.body.ucity, 
-                    utype : req.body.utype,
-                    ulikes : req.body.ulikes,
+                    ucity: fcity,
+                    utype: ftype,
+                    ulikes: flikes,
                     email : req.body.email,
-                    pword : req.body.npword,
-                    gender : req.body.gender,
-                    errormsg: "Old Password Incorrect"
+                    pword : newpword,
+                    gender : req.body.gender
                 }
-                res.render('useraccountsetting', update );
-            }
+                            
+                if(equal){
+                    db.updateOne(User, {uname : result.uname}, update);
+                    res.redirect('/');
+                }
+                else {
+                    var update = {
+                        // left is column/field name; right is value/data
+                        upic : req.body.upic,
+                        uname : req.body.uname,
+                        ucity : req.body.ucity, 
+                        utype : req.body.utype,
+                        ulikes : req.body.ulikes,
+                        email : req.body.email,
+                        pword : req.body.npword,
+                        gender : req.body.gender,
+                        errormsg: "Old Password Incorrect"
+                    }
+                    res.render('useraccountsetting', update );
+                }
+            });
+
+                        
         })
     },
 
