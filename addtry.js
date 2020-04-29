@@ -72,7 +72,7 @@ var user1Details = {
     uname: "bobjohnson",
     email: "bobjohnson@gmail.com",
     gender: "Male",
-    pword: "pass123",
+    pword: "$2b$10$ui2b9Q8Xi0Vy1jh8ghqLSeufONuXr04wevo23UzAnSxjMtu6NwmUC",
     ucity: "Manila",
     utype: "Italian",
     ulikes: "Pasta, Soup, Barbeque, Seafood"
@@ -88,7 +88,7 @@ var user2Details = {
     uname: "haroldanderson",
     email: "haroldanderson@gmail.com",
     gender: "Male",
-    pword: "pass123",
+    pword: "$2b$10$ui2b9Q8Xi0Vy1jh8ghqLSeufONuXr04wevo23UzAnSxjMtu6NwmUC",
     ucity: "Makati",
     utype: "Indian",
     ulikes: "Curry, Roti"

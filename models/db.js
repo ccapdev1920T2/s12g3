@@ -26,12 +26,22 @@ const database = {
     },
 
     // inserts a single `doc` to the database based on the model `model`
-    insertOne: function(model, doc) {
+    // insertOne: function(model, doc) {
+    //     model.create(doc, function(error, result) {
+    //         if(error) throw error;
+    //         console.log('Added ' + result);
+    //     });
+    // },
+
+    //insertOne WITH CALLBACK
+    insertOne: function(model, doc, callback) {
         model.create(doc, function(error, result) {
-            if(error) throw error;
+            if(error) return callback(false);
             console.log('Added ' + result);
+            return callback(true);
         });
     },
+
 
     // inserts multiple `docs` to the database based on the model `model`
     insertMany: function(model, docs) {

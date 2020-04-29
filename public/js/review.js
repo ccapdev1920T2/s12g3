@@ -137,11 +137,12 @@ $(document).ready(function () {
         var reviewID = $(revID).text(); 
         window.alert("reviewID: " +reviewID);
 
-        // $.get('/getIncrementVote', {reviewID: 123}, function(result) {
-        //     alert("result: " + result);
-        //     alert("get from review.js");
-        // });
+        $.get('/getIncrementVote', {reviewID: 123}, function(result) {
+            // alert("result: " + result);
+            alert("get from review.js");
+        });
 
+        alert("outside the get");
         
 
         if ($(this).css("background-position") == "0px -25px")

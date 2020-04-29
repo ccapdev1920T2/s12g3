@@ -224,8 +224,8 @@ const restaurantController = {
 
     getIncrementVote: function(req, res){
         
-        console.log(req.query.reviewID);
-        alert("get from controller");
+        // console.log(req.query.reviewID);
+        // alert("get from controller");
 
         // db.findOne(Reviews, {_id: req.query.restaurantID}, 'votes', function(reviewResult){
 
