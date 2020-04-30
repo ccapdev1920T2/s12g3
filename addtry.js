@@ -67,7 +67,6 @@ mongodb.insertOne(restaurantCollection, restaurant2Details);
 // add user1
 var user1Details = {
     _id: ObjectId(), // this just generates an _id for this object
-    isLoggedIn: false,
     upic: "BobJohnson.jpg",
     uname: "bobjohnson",
     email: "bobjohnson@gmail.com",
@@ -83,7 +82,6 @@ mongodb.insertOne(userCollection, user1Details);
 // add user2
 var user2Details = {
     _id: ObjectId(), // this just generates an _id for this object
-    isLoggedIn: false,
     upic: "HaroldAnderson.jpg",
     uname: "haroldanderson",
     email: "haroldanderson@gmail.com",

@@ -12,7 +12,7 @@ const uasController = {
 
     postUAS: function(req, res){
         //finds currently logged in user
-        db.findOne(User, {isLoggedIn: true}, 'upic uname pword ucity utype ulikes', function(result) {
+        db.findOne(User, {uname: req.session.uname}, 'upic uname pword ucity utype ulikes', function(result) {
 
             var upicture = req.body.upic;
             if(upicture == "") 
@@ -85,9 +85,9 @@ const uasController = {
         var query = {uname: req.params.username};
         console.log("query: " + query);
         
-        var projection = 'upic uname email gender pword ucity type ulikes';
+        var projection = 'upic uname email gender pword ucity utype ulikes';
         
-        db.findOne(User, {isLoggedIn: true}, projection, function(result) {
+        db.findOne(User, {uname: req.session.uname}, projection, function(result) {
             console.log("result: " + result);
             // if the user exists in the database
             // render the profile page with their details
@@ -102,38 +102,9 @@ const uasController = {
                 res.render('error', {uname: "Guest",errormsg:"No user is logged in. Login first please."});
             }
         });
-    },
-
-    // executed when the client sends an HTTP GET request `/useraccountsetting`
-    // as defined in `../routes/routes.js`
-    oldgetUAS: function (req, res) {
-
-        var query = {uname: req.params.username};
-        console.log("query: " + query);
-        var projection = 'upic';
-        
-        db.findOne(User, query, projection, function(result) {
-            console.log("result: " + result);
-            // if the user exists in the database
-            // render the profile page with their details
-            if(result != null) {
-                var details = {
-                    upic: result.upic,
-                    // ucity: result.email,
-                    // utype: result.pword,
-                    // ulikes: result.cpword
-                };
-                // render `../views/user.hbs`
-                res.render('useraccountsetting', details);
-            }
-            // if the user does not exist in the database
-            // render the error page
-            else {
-                // render `../views/error.hbs`
-                res.render('error');
-            }
-        });
     }
+
+    
     
 }
 

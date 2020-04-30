@@ -28,7 +28,8 @@ const restaurantController = {
     },
 
     postReview: function (req, res) {
-        db.findOne(Users, {isLoggedIn: true}, 'uname upic', function(result) {
+
+        db.findOne(Users, {uname: req.session.uname}, 'uname upic', function(result) {
 
             var authoruname = result.uname;
             var authorID = result._id;
@@ -134,91 +135,112 @@ const restaurantController = {
         // fields to be returned
         var projection = 'rPhoto rName rCity rType rCuisine rServes rAveFoodRate rAveServiceRate rAveEnvironmentRate rOverallRate restReviews';
         
-        db.findOne(Users, {isLoggedIn: true}, 'uname', function(loggedUserResult){
 
-            // console.log("loggedUserResult: " + loggedUserResult);
-            if(loggedUserResult == null){
-                var headername = "Guest";
-            }else{
-                var headername = loggedUserResult.uname;
-            }
+        // console.log("loggedUserResult: " + loggedUserResult);
+        if(req.session.uname == null){
+            var headername = "Guest";
+        }else{
+            var headername = req.session.uname;
+        }
 
-            //for the normal restaurant page // if the search fields doesn't have any value
-            if( req.query.city == null && req.query.restaurant == null){
+        //for the normal restaurant page // if the search fields doesn't have any value
+        if( req.query.city == null && req.query.restaurant == null){
 
-                db.findOne(Restaurant, query, projection, function(result) {
-                    var reviewProjection = '_id authorID restaurantID pubdate votes  foodrate servicerate envrate reviewText rName rPhoto rOverallRate';
-                
-                    //check reviews and check for a review with restaurantID same as the ObjectId(req.params.id)
-                    var reviewsQuery = {restaurantID: ObjectId(req.params.id)}; 
+            db.findOne(Restaurant, query, projection, function(result) {
+                var reviewProjection = '_id authorID restaurantID pubdate votes  foodrate servicerate envrate reviewText rName rPhoto rOverallRate';
+            
+                //check reviews and check for a review with restaurantID same as the ObjectId(req.params.id)
+                var reviewsQuery = {restaurantID: ObjectId(req.params.id)}; 
 
-                    db.findMany(Reviews, reviewsQuery, reviewProjection, function(resultreview) {
+                db.findMany(Reviews, reviewsQuery, reviewProjection, function(resultreview) {
 
-                        
+                    db.findOne(Users, {_id : ObjectId(resultreview.authorID)}, 'rName, rPhoto', function(reviewsResult){
+                        if(resultreview != null && result !=null) {
 
-                        
+                            var restoDetails = {
+                                restoID:  req.params.id,
 
+                                uname: headername,
+                                rPhoto: result.rPhoto,
+                                rName: result.rName,
+                                rCity: result.rCity,
+                                rType: result.rType,
+                                rCuisine: result.rCuisine,
+                                rServes: result.rServes,
+                                rAveEnvironmentRate: result.rAveEnvironmentRate,
+                                rAveFoodRate: result.rAveFoodRate,
+                                rAveServiceRate: result.rAveServiceRate,
+                                rOverallRate: result.rOverallRate,
+                                restReviews: resultreview
+                            };
 
-                        db.findOne(Users, {_id : ObjectId(resultreview.authorID)}, 'rName, rPhoto', function(reviewsResult){
-                            if(resultreview != null && result !=null) {
-
-                                var restoDetails = {
-                                    restoID:  req.params.id,
-
-                                    uname: headername,
-                                    rPhoto: result.rPhoto,
-                                    rName: result.rName,
-                                    rCity: result.rCity,
-                                    rType: result.rType,
-                                    rCuisine: result.rCuisine,
-                                    rServes: result.rServes,
-                                    rAveEnvironmentRate: result.rAveEnvironmentRate,
-                                    rAveFoodRate: result.rAveFoodRate,
-                                    rAveServiceRate: result.rAveServiceRate,
-                                    rOverallRate: result.rOverallRate,
-                                    restReviews: resultreview
-                                };
-
-                                res.render('restaurant', restoDetails);
-                            }
-                            else 
-                            {
-                                res.render('error');
-                            }  
-                        })    
-                    })
-
+                            res.render('restaurant', restoDetails);
+                        }
+                        else 
+                        {
+                            res.render('error');
+                        }  
+                    })    
                 })
-            }
-            // for search
-            else {
 
+            })
+        }
+        // for search
+        else {
+
+            //if someone is logged in
+            if(req.session.uname != null){
                 if(req.query.city != '' && req.query.restaurant != ''){
                     //if both restaurant name and city is entered
                     Restaurant.find({rCity : req.query.city, rName : req.query.restaurant}, function (err, restaurantResult){
                         console.log("restaurantResult: " + restaurantResult);
-                        res.render('home', {uname: loggedUserResult.uname, restaurant: restaurantResult }); 
+                        res.render('home.hbs', {uname: req.session.uname, restaurant: restaurantResult }); 
                     })
                 }else if(req.query.city != ''){
                     //if restaurant city is only entered
                     Restaurant.find({rCity : req.query.city}, function (err, restaurantResult){
                         console.log("restaurantResult: " + restaurantResult);
-                        res.render('home', {uname: loggedUserResult.uname, restaurant: restaurantResult }); 
+                        res.render('home.hbs', {uname: req.session.uname, restaurant: restaurantResult }); 
                     })
                 }else if(req.query.restaurant != ''){
                     //if restaurant name is only entered
                     Restaurant.find({rName : req.query.restaurant}, function (err, restaurantResult){
                         console.log("restaurantResult: " + restaurantResult);
-                        res.render('home', {uname: loggedUserResult.uname, restaurant: restaurantResult }); 
+                        res.render('home.hbs', {uname: req.session.uname, restaurant: restaurantResult }); 
                     })
                 }else{
                     //just refreshes the page if both search fields are blank
                     res.redirect('back');
                 }
-                
             }
-        
-        })
+            //else (if no one is logged in.) // renders pages with "Guest" as uname
+            else{
+                if(req.query.city != '' && req.query.restaurant != ''){
+                    //if both restaurant name and city is entered
+                    Restaurant.find({rCity : req.query.city, rName : req.query.restaurant}, function (err, restaurantResult){
+                        console.log("restaurantResult: " + restaurantResult);
+                        res.render('home.hbs', {uname: "Guest", restaurant: restaurantResult }); 
+                    })
+                }else if(req.query.city != ''){
+                    //if restaurant city is only entered
+                    Restaurant.find({rCity : req.query.city}, function (err, restaurantResult){
+                        console.log("restaurantResult: " + restaurantResult);
+                        res.render('home.hbs', {uname: "Guest", restaurant: restaurantResult }); 
+                    })
+                }else if(req.query.restaurant != ''){
+                    //if restaurant name is only entered
+                    Restaurant.find({rName : req.query.restaurant}, function (err, restaurantResult){
+                        console.log("restaurantResult: " + restaurantResult);
+                        res.render('home.hbs', {uname: "Guest", restaurant: restaurantResult }); 
+                    })
+                }else{
+                    //just refreshes the page if both search fields are blank
+                    res.redirect('back');
+                }
+
+            }
+            
+        }
         
     },
 

@@ -13,14 +13,7 @@ const loginController = {
 
     postLogin: function(req, res) {
 
-        var projection = 'uname';
-        // checks if someone is currently logged in
-        db.findOne(User, {isLoggedIn: true}, projection, function(isLoggedInResult) {
-            
-            // console.log(isLoggedInResult);
-
-            //if no one is currently logged in
-            if(isLoggedInResult == null){
+        
 
                 var projection = 'uname pword';
                 var uname = req.body.uname;
@@ -35,7 +28,11 @@ const loginController = {
                             
                             if(equal){
                                 //if tama credentials, it will set that user's isLoggedIn to true
-                                db.updateOne(User, {uname: uname}, {isLoggedIn: true});
+                                // db.updateOne(User, {uname: uname}, {isLoggedIn: true});
+
+                                //if tama credentials, it will set the session's uname to the uname
+                                req.session.uname = req.body.uname;
+
                                 res.render('loginsuccess',results);
             
                             }
@@ -46,9 +43,7 @@ const loginController = {
                     }
 
                 });
-            }
-
-        });
+         
 
     },
    

@@ -22,9 +22,12 @@ $(document).ready(function () {
 
         $("#hello-uname").click(function(){
             alert("You need to be logged in.");
-          });
+        });
 
     }
+
+
+
 
     
 

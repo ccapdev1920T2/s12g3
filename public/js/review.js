@@ -9,6 +9,7 @@ $(document).ready(function () {
     // useful for validations for when a user is logged in or not.
     var helloname = $(this).find('#helloname');
     var hellonametext = $(helloname).text(); 
+    
 
 
     var unameReview = $("#reviews").parent().find('.entryheadername');
@@ -49,6 +50,8 @@ $(document).ready(function () {
         var unameR = $("#reviews").parent().find('.entryheadername')[j];
         var unameRText = $(unameR).text();
         j++; 
+
+        
 
         // alert("numReviews: " + numReviews + "        i: " + i   + "    " +unameRText + "   " +  hellonametext);
         
@@ -137,10 +140,10 @@ $(document).ready(function () {
         var reviewID = $(revID).text(); 
         window.alert("reviewID: " +reviewID);
 
-        $.get('/getIncrementVote', {reviewID: 123}, function(result) {
-            // alert("result: " + result);
-            alert("get from review.js");
-        });
+        // $.get('/getIncrementVote', {reviewID: 123}, function(result) {
+        //     // alert("result: " + result);
+        //     alert("get from review.js");
+        // });
 
         alert("outside the get");
         

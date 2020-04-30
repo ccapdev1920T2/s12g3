@@ -19,10 +19,10 @@ const homeController = {
             //for the normal homepage // if the search fields doesn't have any value
             if( req.query.city == null && req.query.restaurant == null){
                 Restaurant.find({}, function (err, restaurant){
-                    if(result != null){
+                    if(req.session.uname != null){
                         var details = {
                         restaurant: restaurant,
-                        uname: result.uname
+                        uname: req.session.uname
                         }
                     }else{
                         var details = {
@@ -40,27 +40,56 @@ const homeController = {
             // for search
             else {
 
-                if(req.query.city != '' && req.query.restaurant != ''){
-                    //if both restaurant name and city is entered
-                    Restaurant.find({rCity : req.query.city, rName : req.query.restaurant}, function (err, restaurantResult){
-                        console.log("restaurantResult: " + restaurantResult);
-                        res.render('home.hbs', {uname: result.uname, restaurant: restaurantResult }); 
-                    })
-                }else if(req.query.city != ''){
-                    //if restaurant city is only entered
-                    Restaurant.find({rCity : req.query.city}, function (err, restaurantResult){
-                        console.log("restaurantResult: " + restaurantResult);
-                        res.render('home.hbs', {uname: result.uname, restaurant: restaurantResult }); 
-                    })
-                }else if(req.query.restaurant != ''){
-                    //if restaurant name is only entered
-                    Restaurant.find({rName : req.query.restaurant}, function (err, restaurantResult){
-                        console.log("restaurantResult: " + restaurantResult);
-                        res.render('home.hbs', {uname: result.uname, restaurant: restaurantResult }); 
-                    })
-                }else{
-                    //just refreshes the page if both search fields are blank
-                    res.redirect('back');
+                //if someone is logged in
+                if(req.session.uname != null){
+                    if(req.query.city != '' && req.query.restaurant != ''){
+                        //if both restaurant name and city is entered
+                        Restaurant.find({rCity : req.query.city, rName : req.query.restaurant}, function (err, restaurantResult){
+                            console.log("restaurantResult: " + restaurantResult);
+                            res.render('home.hbs', {uname: req.session.uname, restaurant: restaurantResult }); 
+                        })
+                    }else if(req.query.city != ''){
+                        //if restaurant city is only entered
+                        Restaurant.find({rCity : req.query.city}, function (err, restaurantResult){
+                            console.log("restaurantResult: " + restaurantResult);
+                            res.render('home.hbs', {uname: req.session.uname, restaurant: restaurantResult }); 
+                        })
+                    }else if(req.query.restaurant != ''){
+                        //if restaurant name is only entered
+                        Restaurant.find({rName : req.query.restaurant}, function (err, restaurantResult){
+                            console.log("restaurantResult: " + restaurantResult);
+                            res.render('home.hbs', {uname: req.session.uname, restaurant: restaurantResult }); 
+                        })
+                    }else{
+                        //just refreshes the page if both search fields are blank
+                        res.redirect('back');
+                    }
+                }
+                //else (if no one is logged in.) // renders pages with "Guest" as uname
+                else{
+                    if(req.query.city != '' && req.query.restaurant != ''){
+                        //if both restaurant name and city is entered
+                        Restaurant.find({rCity : req.query.city, rName : req.query.restaurant}, function (err, restaurantResult){
+                            console.log("restaurantResult: " + restaurantResult);
+                            res.render('home.hbs', {uname: "Guest", restaurant: restaurantResult }); 
+                        })
+                    }else if(req.query.city != ''){
+                        //if restaurant city is only entered
+                        Restaurant.find({rCity : req.query.city}, function (err, restaurantResult){
+                            console.log("restaurantResult: " + restaurantResult);
+                            res.render('home.hbs', {uname: "Guest", restaurant: restaurantResult }); 
+                        })
+                    }else if(req.query.restaurant != ''){
+                        //if restaurant name is only entered
+                        Restaurant.find({rName : req.query.restaurant}, function (err, restaurantResult){
+                            console.log("restaurantResult: " + restaurantResult);
+                            res.render('home.hbs', {uname: "Guest", restaurant: restaurantResult }); 
+                        })
+                    }else{
+                        //just refreshes the page if both search fields are blank
+                        res.redirect('back');
+                    }
+
                 }
                 
             }

@@ -7,6 +7,15 @@ const routes = require('./routes/routes.js');
 // import module `hbs`
 const hbs = require('hbs');
 
+// import module `express-session`
+const session = require('express-session');
+
+// import module `connect-mongo`
+const MongoStore = require('connect-mongo')(session);
+
+// import module `mongoose`
+const mongoose = require('mongoose');
+
 // import module `database` from `./model/db.js`
 const db = require('./models/db.js');
 
@@ -18,6 +27,15 @@ app.set('view engine', 'hbs');
 
 // sets `/views/partials` as folder containing partial hbs files
 hbs.registerPartials(__dirname + '/views/partials');
+
+// use `express-session`` middleware and set its options
+// use `MongoStore` as server-side session storage
+app.use(session({
+    'secret': 'ccapdev-session',
+    'resave': false,
+    'saveUninitialized': false,
+    store: new MongoStore({mongooseConnection: mongoose.connection})
+}));
 
 // parses incoming requests with urlencoded payloads
 app.use(express.urlencoded({extended: true}));

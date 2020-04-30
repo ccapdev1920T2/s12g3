@@ -3,11 +3,6 @@ var mongoose = require('mongoose');
 
 // defines the schema for collection `users`
 var UserSchema = new mongoose.Schema({
-    isLoggedIn: {
-        type: Boolean,
-        default: false,
-        required: true
-    },
     upic: {
         type: String,
         required: false,

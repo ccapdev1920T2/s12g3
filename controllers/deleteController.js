@@ -19,8 +19,8 @@ const deleteController = {
 
     deleteReview: function (req, res){
         
-
-        db.findOne(User, {isLoggedIn: true}, 'uname _id', function(loggedUserResult){
+        
+        db.findOne(User, {uname: req.session.uname}, 'uname _id', function(loggedUserResult){
             console.log("enter user");
 
             db.findOne(Review,{_id:req.params.reviewID}, 'authorID restaurantID', function(reviewResult){

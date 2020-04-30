@@ -114,7 +114,23 @@ const reviewEditController = {
 
 
         var id = req.params.reviewID;
-        res.render('reviewedit', {reviewID: id});
+        var reviewProjection = '_id authorID restaurantID pubdate votes foodrate servicerate envrate reviewText rName rPhoto rOverallRate';
+
+        db.findOne(Review, {_id: ObjectId(id)},reviewProjection, function(reviewResult){
+
+            var reviewdetails= {
+                foodrate: reviewResult.foodrate,
+                envrate: reviewResult.envrate,
+                servicerate: reviewResult.servicerate,
+                reviewText: reviewResult.reviewText,
+                reviewID: id
+
+            }
+
+            res.render('reviewedit', reviewdetails);
+        });
+
+        
     },
 
     // executed when the client sends an HTTP GET request `/useraccountsetting`

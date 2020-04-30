@@ -8,9 +8,19 @@ const logoutController = {
 
     getLogout:function(req, res) {
 
-        db.updateOne(User, {isLoggedIn: true}, {isLoggedIn: false});
+        /*
+            logs-out the current user
+            destroys the current values stored in `req.session`
+        */
+       req.session.destroy(function(err) {
+        if(err) throw err;
 
-        res.render('logout', {uname: "Guest"});
+        /*
+            redirects the client to `/profile` using HTTP GET,
+            defined in `../routes/routes.js`
+        */
+        res.redirect('/');
+    });
 
     }
 }
