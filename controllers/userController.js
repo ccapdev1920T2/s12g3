@@ -66,7 +66,7 @@ const userController = {
             
                                     }
                                     // console.log("setRev: " + JSON.stringify(setRev));
-                                    console.log("reviewsResult._id: " + reviewsResult[i]._id);
+                                    // console.log("reviewsResult._id: " + reviewsResult[i]._id);
                                     db.updateOne(Review, {_id: reviewsResult[i]._id}, setRev);
             
                                     reviewsWithAuthor[i] = setRev;
@@ -82,7 +82,7 @@ const userController = {
                                     reviewsRest: reviewsWithAuthor
                                 };
 
-                                console.log("check: " + JSON.stringify(details));
+                                // console.log("check: " + JSON.stringify(details));
 
                                 // render `../views/user.hbs`
                                 res.render('otheruser', details);
@@ -98,19 +98,19 @@ const userController = {
                             if(req.query.city != '' && req.query.restaurant != ''){
                                 //if both restaurant name and city is entered
                                 Restaurant.find({rCity : req.query.city, rName : req.query.restaurant}, function (err, restaurantResult){
-                                    console.log("restaurantResult: " + restaurantResult);
+                                    // console.log("restaurantResult: " + restaurantResult);
                                     res.render('home', {uname: result.uname, restaurant: restaurantResult }); 
                                 })
                             }else if(req.query.city != ''){
                                 //if restaurant city is only entered
                                 Restaurant.find({rCity : req.query.city}, function (err, restaurantResult){
-                                    console.log("restaurantResult: " + restaurantResult);
+                                    // console.log("restaurantResult: " + restaurantResult);
                                     res.render('home', {uname: result.uname, restaurant: restaurantResult }); 
                                 })
                             }else if(req.query.restaurant != ''){
                                 //if restaurant name is only entered
                                 Restaurant.find({rName : req.query.restaurant}, function (err, restaurantResult){
-                                    console.log("restaurantResult: " + restaurantResult);
+                                    // console.log("restaurantResult: " + restaurantResult);
                                     res.render('home', {uname: result.uname, restaurant: restaurantResult }); 
                                 })
                             }else{
@@ -144,7 +144,7 @@ const userController = {
         
                                 }
                                 // console.log("setRev: " + JSON.stringify(setRev));
-                                console.log("reviewsResult._id: " + reviewsResult[i]._id);
+                                // console.log("reviewsResult._id: " + reviewsResult[i]._id);
                                 db.updateOne(Review, {_id: reviewsResult[i]._id}, setRev);
         
                                 reviewsWithAuthor[i] = setRev;
@@ -160,7 +160,7 @@ const userController = {
                                 reviewsRest: reviewsWithAuthor
                             };
 
-                            console.log("check: " + JSON.stringify(details));
+                            // console.log("check: " + JSON.stringify(details));
 
                             // render `../views/user.hbs`
                             res.render('otheruser', details);
@@ -176,19 +176,19 @@ const userController = {
                         if(req.query.city != '' && req.query.restaurant != ''){
                             //if both restaurant name and city is entered
                             Restaurant.find({rCity : req.query.city, rName : req.query.restaurant}, function (err, restaurantResult){
-                                console.log("restaurantResult: " + restaurantResult);
+                                // console.log("restaurantResult: " + restaurantResult);
                                 res.render('home', {uname: result.uname, restaurant: restaurantResult }); 
                             })
                         }else if(req.query.city != ''){
                             //if restaurant city is only entered
                             Restaurant.find({rCity : req.query.city}, function (err, restaurantResult){
-                                console.log("restaurantResult: " + restaurantResult);
+                                // console.log("restaurantResult: " + restaurantResult);
                                 res.render('home', {uname: result.uname, restaurant: restaurantResult }); 
                             })
                         }else if(req.query.restaurant != ''){
                             //if restaurant name is only entered
                             Restaurant.find({rName : req.query.restaurant}, function (err, restaurantResult){
-                                console.log("restaurantResult: " + restaurantResult);
+                                // console.log("restaurantResult: " + restaurantResult);
                                 res.render('home', {uname: result.uname, restaurant: restaurantResult }); 
                             })
                         }else{
@@ -214,7 +214,7 @@ const userController = {
     getUser: function(req, res){
         // fields to be returned
         var projection = '_id isLoggedIn upic uname email gender pword ucity utype ulikes';
-        var reviewProjection = '_id reviewID  authorID restaurantID restaurantName pubdate votes foodrate servicerate envrate reviewText rName rPhoto';//
+        var reviewProjection = '_id reviewID  authorID restaurantID restaurantName pubdate votes foodrate servicerate envrate rOverallRate reviewText rName rPhoto';//
 
 
         db.findOne(User, {uname: req.session.uname}, projection, function(result) {
@@ -237,12 +237,13 @@ const userController = {
                                 foodrate : reviewsResult[i].foodrate,
                                 servicerate : reviewsResult[i].servicerate,
                                 envrate : reviewsResult[i].envrate,
+                                rOverallRate: reviewsResult[i].rOverallRate,
                                 reviewText : reviewsResult[i].reviewText,
                                 reviewID: ObjectId(reviewsResult[i]._id).toString()
     
                             }
                             // console.log("setRev: " + JSON.stringify(setRev));
-                            console.log("reviewsResult._id: " + reviewsResult[i]._id);
+                            // console.log("reviewsResult._id: " + reviewsResult[i]._id);
                             db.updateOne(Review, {_id: reviewsResult[i]._id}, setRev);
     
                             reviewsWithAuthor[i] = setRev;
@@ -257,7 +258,7 @@ const userController = {
                             reviewsRest: reviewsWithAuthor
                         };
 
-                        console.log("check: " + JSON.stringify(details));
+                        // console.log("check: " + JSON.stringify(details));
 
                         // render `../views/user.hbs`
                         res.render('user', details);
@@ -271,7 +272,7 @@ const userController = {
                     if(req.query.city != '' && req.query.restaurant != ''){
                         //if both restaurant name and city is entered
                         Restaurant.find({rCity : req.query.city, rName : req.query.restaurant}, function (err, restaurantResult){
-                            console.log("restaurantResult: " + restaurantResult);
+                            // console.log("restaurantResult: " + restaurantResult);
                             res.render('home', {uname: result.uname, restaurant: restaurantResult }); 
                         })
                     }else if(req.query.city != ''){
