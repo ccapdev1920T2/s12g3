@@ -68,10 +68,10 @@ var restaurant3Details= {
     rType: "Casual Restaurant",
     rCuisine: "Filipino",
     rServes: "Barbeque, Spaghetti, Pastry",
-    rAveFoodRate: 7, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
-    rAveServiceRate: 9 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
-    rAveEnvironmentRate: 8, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
-    rOverallRate: 8 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
+    rAveFoodRate: 10, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
+    rAveServiceRate: 8.3 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
+    rAveEnvironmentRate: 9.3, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
+    rOverallRate: 9.2 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
 };
 
 mongodb.insertOne(restaurantCollection, restaurant3Details);
@@ -87,8 +87,8 @@ var restaurant4Details= {
     rServes: "Bulgogi, Bibimbap, Kimchi",
     rAveFoodRate: 10, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
     rAveServiceRate: 8 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
-    rAveEnvironmentRate: 5, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
-    rOverallRate: 7.3 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
+    rAveEnvironmentRate: 10, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
+    rOverallRate: 9.3 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
 };
 
 mongodb.insertOne(restaurantCollection, restaurant4Details);
@@ -103,9 +103,9 @@ var restaurant5Details= {
     rCuisine: "Bakery",
     rServes: "Brownie, Butter Cake, Blueberry Cheesecake",
     rAveFoodRate: 10, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
-    rAveServiceRate: 6 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
-    rAveEnvironmentRate: 10, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
-    rOverallRate: 6.5 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
+    rAveServiceRate: 8.5 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
+    rAveEnvironmentRate: 9, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
+    rOverallRate: 9.2 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
 };
 
 mongodb.insertOne(restaurantCollection, restaurant5Details);
@@ -119,10 +119,10 @@ var restaurant6Details= {
     rType: "Casual Dining",
     rCuisine: "Asian, European",
     rServes: "Salmon, Roasted Beef, Steak",
-    rAveFoodRate: 10, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
-    rAveServiceRate: 8 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
-    rAveEnvironmentRate: 10, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
-    rOverallRate: 9.3 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
+    rAveFoodRate: 0, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
+    rAveServiceRate: 0 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
+    rAveEnvironmentRate: 0, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
+    rOverallRate: 0 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
 };
 
 mongodb.insertOne(restaurantCollection, restaurant6Details);
@@ -137,9 +137,9 @@ var restaurant7Details= {
     rCuisine: "Coffee",
     rServes: "Coffee, Big Breakfast, Wagyu",
     rAveFoodRate: 10, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
-    rAveServiceRate: 8 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
+    rAveServiceRate: 10 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
     rAveEnvironmentRate: 10, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
-    rOverallRate: 9.3 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
+    rOverallRate: 10 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
 };
 
 mongodb.insertOne(restaurantCollection, restaurant7Details);
@@ -154,9 +154,9 @@ var restaurant8Details= {
     rCuisine: "Filipino",
     rServes: "Sisig, Puto Bumbong, Lechon Kawaii",
     rAveFoodRate: 10, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
-    rAveServiceRate: 8 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
-    rAveEnvironmentRate: 10, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
-    rOverallRate: 9.3 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
+    rAveServiceRate: 9.5 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
+    rAveEnvironmentRate: 9, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
+    rOverallRate: 9.5 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
 };
 
 mongodb.insertOne(restaurantCollection, restaurant8Details);
@@ -170,10 +170,10 @@ var restaurant9Details= {
     rType: "Fine Dining",
     rCuisine: "European",
     rServes: "Foie Gras, Sea Food, Wine",
-    rAveFoodRate: 5, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
-    rAveServiceRate: 8 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
-    rAveEnvironmentRate: 7, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
-    rOverallRate: 6.5 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
+    rAveFoodRate: 0, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
+    rAveServiceRate: 0 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
+    rAveEnvironmentRate: 0, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
+    rOverallRate: 0 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
 };
 
 mongodb.insertOne(restaurantCollection, restaurant9Details);
@@ -187,10 +187,10 @@ var restaurant10Details= {
     rType: "Casual Dining",
     rCuisine: "Japansese",
     rServes: "Tonkatsu, Pork Cutlet, Tuna Salad",
-    rAveFoodRate: 4, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
-    rAveServiceRate: 4 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
-    rAveEnvironmentRate: 4, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
-    rOverallRate: 4 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
+    rAveFoodRate: 0, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
+    rAveServiceRate: 0 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
+    rAveEnvironmentRate: 0, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
+    rOverallRate: 0 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
 };
 
 mongodb.insertOne(restaurantCollection, restaurant10Details);
@@ -204,10 +204,10 @@ var restaurant11Details= {
     rType: "Casual Dining",
     rCuisine: "Italian",
     rServes: "Pasta, Pizza, Pastry",
-    rAveFoodRate:10, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
-    rAveServiceRate: 9.5 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
-    rAveEnvironmentRate: 9, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
-    rOverallRate: 9.5  //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
+    rAveFoodRate:0, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
+    rAveServiceRate: 0 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
+    rAveEnvironmentRate: 0, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
+    rOverallRate: 0  //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
 };
 
 mongodb.insertOne(restaurantCollection, restaurant11Details);
@@ -221,10 +221,10 @@ var restaurant12Details= {
     rType: "Fining Dining",
     rCuisine: "Thai",
     rServes: "Pad Thai, Sweet Pork, Crispy Pork",
-    rAveFoodRate: 8, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
-    rAveServiceRate: 8 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
-    rAveEnvironmentRate: 8, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
-    rOverallRate: 8 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
+    rAveFoodRate: 0, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
+    rAveServiceRate: 0 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
+    rAveEnvironmentRate: 0, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
+    rOverallRate: 0 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
 };
 
 mongodb.insertOne(restaurantCollection, restaurant12Details);
@@ -238,10 +238,10 @@ var restaurant13Details= {
     rType: "French",
     rCuisine: "Italian",
     rServes: "Beek Steak, Salad, Fries",
-    rAveFoodRate: 10, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
-    rAveServiceRate: 8 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
-    rAveEnvironmentRate: 10, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
-    rOverallRate: 9.3 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
+    rAveFoodRate: 0, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
+    rAveServiceRate: 0 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
+    rAveEnvironmentRate: 0, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
+    rOverallRate: 0 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
 };
 
 mongodb.insertOne(restaurantCollection, restaurant13Details);
@@ -255,10 +255,10 @@ var restaurant14Details= {
     rType: "Casual Dining",
     rCuisine: "American",
     rServes: "Pasta, Nachos, Carbonara",
-    rAveFoodRate: 9, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
-    rAveServiceRate: 8 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
-    rAveEnvironmentRate: 10, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
-    rOverallRate: 9 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
+    rAveFoodRate: 0, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
+    rAveServiceRate: 0 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
+    rAveEnvironmentRate: 0, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
+    rOverallRate: 0 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
 };
 
 mongodb.insertOne(restaurantCollection, restaurant14Details);
@@ -272,10 +272,10 @@ var restaurant15Details= {
     rType: "Casual Dining",
     rCuisine: "Korean",
     rServes: "Steak, Kimchi, Pastry",
-    rAveFoodRate: 5, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
+    rAveFoodRate: 10, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
     rAveServiceRate: 8 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
-    rAveEnvironmentRate: 6, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
-    rOverallRate: 7 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
+    rAveEnvironmentRate: 10, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
+    rOverallRate: 9.3 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
 };
 
 mongodb.insertOne(restaurantCollection, restaurant15Details);
@@ -289,10 +289,10 @@ var restaurant16Details= {
     rType: "Quick Bites",
     rCuisine: "Japanse",
     rServes: "Chicken Chops, Salad, Sushi",
-    rAveFoodRate: 10, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
-    rAveServiceRate: 8 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
-    rAveEnvironmentRate: 10, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
-    rOverallRate: 9 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
+    rAveFoodRate: 0, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
+    rAveServiceRate: 0 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
+    rAveEnvironmentRate: 0, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
+    rOverallRate: 0 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
 };
 
 mongodb.insertOne(restaurantCollection, restaurant16Details);
@@ -323,10 +323,10 @@ var restaurant18Details= {
     rType: "Beverage Shop",
     rCuisine: "Beverages",
     rServes: "Fruit Juice, Tea, Cookies",
-    rAveFoodRate: 8, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
-    rAveServiceRate: 7 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
-    rAveEnvironmentRate: 6, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
-    rOverallRate: 7 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
+    rAveFoodRate: 0, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
+    rAveServiceRate: 0 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
+    rAveEnvironmentRate: 0, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
+    rOverallRate: 0 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
 };
 
 mongodb.insertOne(restaurantCollection, restaurant18Details);
@@ -340,10 +340,10 @@ var restaurant19Details= {
     rType: "Casual Dining",
     rCuisine: "Mediterranean",
     rServes: "Bread, Salad, Big Breakfast",
-    rAveFoodRate: 10, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
-    rAveServiceRate: 8 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
-    rAveEnvironmentRate: 10, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
-    rOverallRate: 9.3 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
+    rAveFoodRate: 0, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
+    rAveServiceRate: 0 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
+    rAveEnvironmentRate: 0, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
+    rOverallRate: 0 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
 };
 
 mongodb.insertOne(restaurantCollection, restaurant19Details);
@@ -357,10 +357,10 @@ var restaurant20Details= {
     rType: "Casual DIning",
     rCuisine: "American",
     rServes: "Pizza, Salad, Pastry",
-    rAveFoodRate: 10, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
-    rAveServiceRate: 10 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
-    rAveEnvironmentRate: 10, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
-    rOverallRate: 10 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
+    rAveFoodRate: 0, // take note that this should be the average of all foodratings in review for this particular restuarant (manual computation)
+    rAveServiceRate: 0 , // take note that this should be the average of all rAveServiceRate in review for this particular restuarant (manual computation)
+    rAveEnvironmentRate: 0, // take note that this should be the average of all rAveEnvironmentRate in review for this particular restuarant (manual computation)
+    rOverallRate: 0 //take note that this should be the average of rAveFoodRate, rAveServiceRate, rAveEnvironmentRate
 };
 
 mongodb.insertOne(restaurantCollection, restaurant20Details);
