@@ -537,8 +537,33 @@ table.review-ratings {
   border-color: #E0321E;
 }
 
+#add-review-button {
+  margin-top: -20px;
+  background-color: #9E2121; 
+  color: white;
+  border-color: #9E2121;
+}
+
+/* restaurant.hbs */
+#add-review-button:hover {
+  background-color:#E0321E;
+  color:white;
+  border-color: #E0321E;
+}
+
 
 #errorreview
+{
+  position: relative;
+	color: #FF0000;
+	font-weight: 700;
+	font-size: 14px;
+  text-align: left;
+  top: 20px;
+  left: 40px;
+}
+
+#modalerrorreview
 {
   position: relative;
 	color: #FF0000;
@@ -566,18 +591,37 @@ table.review-ratings {
   align-items: center;
 }
 
-.modal-content {
+
+.modal-contents {
   position: relative;
-  width: 500px;
-  height: 500px;
+  /* width: 900px;
+  height: 300px; */
   background-color: white;
-  border-radius: 4px;
-  padding: 20px;
+  border-radius: 10px;
+  /* padding: 20px; */
+  justify-content: center;
+  align-items: center;
 }
+
+#add-review-pane-modal {
+  position: relative;
+  width: 900px;
+  height: 300px;
+  /* margin: 20px; */
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  text-decoration: none;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}  
 
 #closeBtn {
   position: absolute;
-  top: 0;
+  top: -7px;
+  color: white;
   right: 14px;
   font-size: 42px;
   transform: rotate(45deg);

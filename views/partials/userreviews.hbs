@@ -6,7 +6,7 @@
                 <img class = "userphoto up-med" src="../img/{{rPhoto}}" />
                 <table name = "review-entry-name-date" class="entryheaderdateandname">
                 <tr>
-                    <td  class = "entryheadername" name="reviewer-name"><a href= "/user/{{rName}}">{{rName}}</a></td>
+                    <td  class = "entryheadername" name="reviewer-name"><a href= "/user/{{rName}}">{{rName}} ({{restaurantName}})</a></td>
                     <td  class = "overall-rating" name="overall-rating" rowspan="2">Overall Review: {{rOverallRate}}/10</td>
                     
                     <td class="headerbuttons"> 
@@ -21,7 +21,7 @@
                     <td class = "entryheaderdate" id = "entryheaderdate" name="review-date">{{pubdate}}</td>
                     <td class="headerbuttons"> 
                       {{!-- <form method="delete"> --}}
-                        <button type="button" class="btn delete" id = "btn-delete" onClick="window.location.href = '/restaurant/delete/{{_id}}';" >
+                        <button type="button" class="btn delete" id = "btn-delete" onClick="window.location.href = '/restaurant/delete/{{reviewID}}';" >
                           <img class = "btn-delete invert"src="../img/delete_icon.png"/> 
                         </button>
                       {{!-- </form> --}}
@@ -39,7 +39,7 @@
                 <p class = "num-votes">{{votes}}</p>
                 <span class="downvote"></span>
 
-                <p  hidden class="reviewID" id="reviewID">{{_id}}</p>  {{!-- this just stores reviewID for backend part of the upvotes and downvotes --}}
+                <p  hidden class="reviewID" id="reviewID">{{reviewID}}</p>  {{!-- this just stores reviewID for backend part of the upvotes and downvotes --}}
               </div>  
           
           <div id ="review-entry-right">

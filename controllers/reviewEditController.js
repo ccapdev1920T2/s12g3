@@ -19,7 +19,11 @@ const reviewEditController = {
         //finds currently logged in user
         db.findOne(Users, {isLoggedIn: true}, 'uname', function(result) {
 
+
             db.findOne(Review, {_id: ObjectId(req.body.reviewID)}, 'reviewText foodrate servicerate envrate restaurantID', function(reviewResult){
+
+
+                console.log("req.body.reviewID: " + req.body.reviewID);
 
                 if(reviewResult.reviewText != req.body.reviewText){
 
@@ -88,7 +92,8 @@ const reviewEditController = {
                         console.log("reviewResult.restaurantID: " + reviewSResult[0].restaurantID);
 
                         db.updateOne(Restaurant, {_id: ObjectId(reviewSResult[0].restaurantID)}, updatedResto);
-            
+
+                        res.redirect('back');
                     })
 
                 }

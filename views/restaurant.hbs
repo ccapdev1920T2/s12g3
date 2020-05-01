@@ -132,6 +132,76 @@
     </div>
     <!-- END container for the reviews-entry (reviews) -->
 </div>
+
+{{!-- FOR THE MODAL NG EDIT REVIEW --}}
+<div class = "bg-modal" >
+    <div class = "modal-contents">
+      {{!-- <span id = "closeBtn">+</span> --}}
+      <!-- add review form -->
+      <div id = "add-review-pane-modal">
+        <div id="add-review-header">
+          <h2>Edit a Review</h2>
+          <span id = "closeBtn">+</span>
+        </div>
+        
+        <div id="add-review-main">
+          <div id="add-review-left">
+
+          </div>
+
+
+          <div id="add-review-right">
+
+            <form method = "post" action = "/editreview">
+              <div id="add-review-slider-container" class = "padding-10">
+                  <table>
+                    <tr>
+                      <td><label for="foodRatingInputName">Food Rating</label></td>
+                      <td><output name="foodRatingOutputName" id="modalfoodRatingOutputID" ></output></td>
+                      
+                      <td><label for="foodRatingInputName">Service Rating</label></td>
+                      <td><output name="serviceRatingOutputName" id="modalserviceRatingOutputID"></output></td>
+                      
+                      <td><label for="foodRatingInputName">Environment Rating</label></td>
+                      <td><output name="environmentRatingOutputName" id="modalenvironmentRatingOutputID"></output></td>
+
+                    </tr>
+
+                    <tr>
+                      <td class="ratings-slider" colspan="2">
+                        <input type="range" class = "slider" name="foodrate" id="modalfoodRatingInputID" value="" min="1" max="10" oninput="modalfoodRatingOutputID.value = modalfoodRatingInputID.value">
+                      </td>
+                      <td  class="ratings-slider" colspan="2">
+                        <input type="range" class = "slider" name="servicerate" id="modalserviceRatingInputID" value="" min="1" max="10" oninput="modalserviceRatingOutputID.value = modalserviceRatingInputID.value">
+                      </td>
+                      <td   class="ratings-slider" colspan="2">
+                        <input type="range" class = "slider" name="envrate" id="modalenvironmentRatingInputID" value="" min="1" max="10" oninput="modalenvironmentRatingOutputID.value = modalenvironmentRatingInputID.value">
+                      </td>
+                    </tr>
+
+                </table>
+                      
+
+              </div>
+              <div id = "add-review-text">
+                <textarea rows = "5" cols = "60" name = "reviewText" id = "modalreviewText" placeholder="Describe your experience... ">{{reviewText}}</textarea>
+                <p id = "modalerrorreview"></p>
+              </div>
+              <input type ="hidden" name = "reviewID" id = "modalreviewID" value="" />
+              {{!-- <input type ="text" name = "modalreviewID" id = "modalreviewID" value="" /> --}}
+              <button type="submit" class="btn add-review-button savebutton" id= "register-header">Save Review</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    <!-- END add review form -->
+    </div>
+  <div> 
+  {{!-- END FOR THE MODAL NG EDIT REVIEW --}}
+
+
+
 </body>
 </html>
 

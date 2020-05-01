@@ -31,7 +31,7 @@ const userController = {
         
         // fields to be returned
         var projection = '_id isLoggedIn upic uname email gender pword ucity utype ulikes';
-        var reviewProjection = '_id reviewID  authorID restaurantID restaurantName pubdate votes foodrate servicerate envrate reviewText rName rPhoto';//
+        var reviewProjection = '_id reviewID  authorID restaurantID restaurantName pubdate votes foodrate servicerate envrate rOverallRate reviewText rName rPhoto';//
 
         // just to fix the problem with button validations when user/:username is the same as the session's uname
         // because yung uname ng hbs sa get~~ user/:username, merong name ng restaurant. so yeah.
@@ -49,6 +49,7 @@ const userController = {
                             
                                 var reviewsWithAuthor = reviewsResult;
                                 for(var i=0; i<reviewsResult.length; i++){
+
             
                                     var setRev = {
                                         rPhoto :result.upic,
@@ -61,6 +62,7 @@ const userController = {
                                         foodrate : reviewsResult[i].foodrate,
                                         servicerate : reviewsResult[i].servicerate,
                                         envrate : reviewsResult[i].envrate,
+                                        rOverallRate: reviewsResult[i].rOverallRate.toFixed(1),
                                         reviewText : reviewsResult[i].reviewText,
                                         reviewID: ObjectId(reviewsResult[i]._id).toString()
             

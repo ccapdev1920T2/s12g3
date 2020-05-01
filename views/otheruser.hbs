@@ -11,7 +11,7 @@
 
 	{{!-- ajax for header --}}
   <script src="/js/header.js" type="text/javascript"></script> 
-  <script src="/js/review.js" type="text/javascript"></script> 
+  <script src="/js/userreviews.js" type="text/javascript"></script> 
   
 </head>
 
@@ -81,21 +81,17 @@
                 <img class = "userphoto up-med" src="../img/{{rPhoto}}" />
                 <table name = "review-entry-name-date" class="entryheaderdateandname">
                 <tr>
-                    <td  class = "entryheadername" name="reviewer-name"><a href= "/user">{{rName}} ({{restaurantName}}) </a></td>
+                    <td  class = "entryheadername" name="reviewer-name">{{rName}} ({{restaurantName}})</td>
                     <td  class = "overall-rating" name="overall-rating" rowspan="2">Overall Review: {{rOverallRate}}/10</td>
                     <td class="headerbuttons"> 
-                      <button type="button" class="btn edit" id = "btn-edit" onclick="window.open('/editreview/{{_id}}' ,'name','width=1000,height=400');">
-                        <img class = "btn-edit invert"src="../img/edit_icon.png"/> 
-                      </button>
+                      
                     </td>
                 </tr>
                 <tr>
                     <td class = "entryheaderdate" id = "entryheaderdate" name="review-date">{{pubdate}}</td>
                     <td class="headerbuttons"> 
                       {{!-- <form method="delete"> --}}
-                        <button type="button" class="btn delete" id = "btn-delete" onClick="window.location.href = '/restaurant/delete/{{_id}}';" >
-                          <img class = "btn-delete invert"src="../img/delete_icon.png"/> 
-                        </button>
+                        
                       {{!-- </form> --}}
                       
                     </td>
@@ -107,9 +103,11 @@
         <div id = "review-entry-main">
 
               <div id="updownvotes" class="">
-                <input type="image" src="/img/up-arrow.png" />
+                <span class="upvote"></span>
                 <p class = "num-votes">{{votes}}</p>
-                <input type="image" src="/img/down-arrow.png" />
+                <span class="downvote"></span>
+
+                <p  hidden class="reviewID" id="reviewID">{{_id}}</p>  {{!-- this just stores reviewID for backend part of the upvotes and downvotes --}}
               </div>  
           
           <div id ="review-entry-right">

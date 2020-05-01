@@ -1,0 +1,61 @@
+<!-- add review form -->
+  <div id = "add-review-pane">
+    <div id="add-review-header">
+      <h2>Write a Review</h2>
+    </div>
+    
+    <div id="add-review-main">
+      <div id="add-review-left">
+
+      </div>
+
+
+      <div id="add-review-right">
+
+        <form method = "post" action = "/restaurant">
+          <div id="add-review-slider-container" class = "padding-10">
+              <table>
+                <tr>
+                  <td><label for="foodRatingInputName">Food Rating</label></td>
+                  <td><output name="foodRatingOutputName" id="foodRatingOutputID">1</output></td>
+                  
+                  <td><label for="foodRatingInputName">Service Rating</label></td>
+                  <td><output name="serviceRatingOutputName" id="serviceRatingOutputID">1</output></td>
+                  
+                  <td><label for="foodRatingInputName">Environment Rating</label></td>
+                  <td><output name="environmentRatingOutputName" id="environmentRatingOutputID">1</output></td>
+
+                </tr>
+
+                <tr>
+                  <td class="ratings-slider" colspan="2">
+                    <input type="range" class = "slider" name="foodrate" id="foodRatingInputID" value="1" min="1" max="10" oninput="foodRatingOutputID.value = foodRatingInputID.value" required>
+                  </td>
+                  <td  class="ratings-slider" colspan="2">
+                    <input type="range" class = "slider" name="servicerate" id="serviceRatingInputID" value="1" min="1" max="10" oninput="serviceRatingOutputID.value = serviceRatingInputID.value" required>
+                  </td>
+                  <td   class="ratings-slider" colspan="2">
+                    <input type="range" class = "slider" name="envrate" id="environmentRatingInputID" value="1" min="1" max="10" oninput="environmentRatingOutputID.value = environmentRatingInputID.value" required>
+                  </td>
+                </tr>
+
+            </table>
+                  
+
+          </div>
+          <div id = "add-review-text">
+            <textarea rows = "5" cols = "60" name = "reviewText"  id = "reviewText" placeholder="Describe your experience... " required></textarea>
+            <p id="errorreview"></p><br>
+          </div>
+          {{!-- gets restaurant ID --}}
+          <input type="hidden" name="restaurantID" value="{{restoID}}" />
+          {{!-- gets restaurant name --}}
+          <input type="hidden" name="restaurantName" value="{{rName}}" /> 
+          <button type="submit" class="btn add-review-button" id= "publish-button">Publish Review</button>
+          
+        </form>
+
+      </div>
+    </div>
+  </div>
+<!-- END add review form -->
