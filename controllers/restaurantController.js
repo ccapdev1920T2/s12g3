@@ -10,7 +10,6 @@ const Reviews = require('../models/reviewModel.js');
 // import module `restaurant` from `../models/userModel.js`
 const Users = require('../models/userModel.js');
 
-
 //for ObjectId(_id), used to get the Object type of the retrieved _id
 const ObjectId = require('mongodb').ObjectID;
 
@@ -44,8 +43,6 @@ const restaurantController = {
 
             var rOverallRate = (Number(foodrate)+Number(servicerate)+Number(envrate))/3;
             rOverallRate = rOverallRate.toFixed(1); // converts to 1 decimal only (1.3 instead of 1.3333333333333)
-
-            // console.log("result.upic" + result.upic);
 
             db.insertOne(Reviews, {
                 authorID: authorID,
@@ -90,7 +87,6 @@ const restaurantController = {
                 rAveFoodRate = rAveFoodRate.toFixed(1);
                 rAveServiceRate = rAveServiceRate.toFixed(1);
 
-
                 var rOverallRate = (Number(rAveEnvironmentRate) + Number(rAveFoodRate) + Number(rAveServiceRate) )/3 ;
 
                 console.log("rOverallRate: " + rOverallRate);
@@ -101,21 +97,12 @@ const restaurantController = {
                     rAveServiceRate: rAveServiceRate,
                     rOverallRate: rOverallRate.toFixed(1)
                 }
-
                
                 console.log("updatedResto: " + JSON.stringify(updatedResto));
 
                 db.updateOne(Restaurant, {_id: ObjectId(restaurantID)}, updatedResto);
     
             })
-           
-
-            // console.log(foodrate);
-            // console.log(servicerate);
-            // console.log(envrate);
-            // console.log((foodrate+servicerate+envrate));
-
-            
 
             res.redirect('/restaurant/'+restaurantID);
         });
@@ -128,14 +115,12 @@ const restaurantController = {
 
     getRestaurant: function (req, res) {
 
-        
         // query where `idNum` is equal to URL parameter `idNum`
         var query = {_id: req.params.id};
         
         // fields to be returned
         var projection = 'rPhoto rName rCity rType rCuisine rServes rAveFoodRate rAveServiceRate rAveEnvironmentRate rOverallRate restReviews';
         
-
         // console.log("loggedUserResult: " + loggedUserResult);
         if(req.session.uname == null){
             var headername = "Guest";
@@ -245,23 +230,15 @@ const restaurantController = {
     },
 
     getIncrementVote: function(req, res){
-        
         // console.log(req.query.reviewID);
         // alert("get from controller");
-
         // db.findOne(Reviews, {_id: req.query.restaurantID}, 'votes', function(reviewResult){
-
             res.send(true);
         // });
-
-
     }
-
     // downvoteReview: function(req, res){
     //     res.redirect('/restaurant');
-    // }
-            
-     
+    // }         
 }
 
 // exports the object `controller` (defined above)

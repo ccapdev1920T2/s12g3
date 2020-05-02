@@ -1,11 +1,9 @@
 $(document).ready(function () {
 
-
     // this gets the uname of the logged user. ("Guest" if no one's logged in).
     // useful for validations for when a user is logged in or not.
     var helloname = $(this).find('#helloname');
     var hellonametext = $(helloname).text(); 
-
 
     //if someone is logged in
     if(hellonametext != "Guest"){
@@ -25,12 +23,5 @@ $(document).ready(function () {
         });
 
     }
-
-
-
-
-    
-
-
 
 })

@@ -2,10 +2,6 @@
 
 $(document).ready(function () {
 
-    
-    
-    
-    
     $('#reviews').on('click', '.edit', function () {
 
         // stores the reviewID of the specific review
@@ -46,14 +42,8 @@ $(document).ready(function () {
         $("#modalfoodRatingOutputID").html(foodRatingInputID);
         $("#modalserviceRatingOutputID").html(serviceRatingInputID);
         $("#modalenvironmentRatingOutputID").html(environmentRatingInputID);
-
-
       
     });
-
-    
-    
-
 
     //disable save button of edit review when reviewText is empty while typing
     $('#modalreviewText').keyup(function () {
@@ -73,7 +63,6 @@ $(document).ready(function () {
     });
 
     $('.savebutton').click(function(){
-        // alert(window.location.href);
 
         var url = window.location.href;
         document.querySelector('.bg-modal').style.display = 'none';
@@ -82,7 +71,6 @@ $(document).ready(function () {
         // alert(url);
 
     // window.location.href = url.toString();
-
         
     });
 
@@ -126,9 +114,6 @@ $(document).ready(function () {
 
         //var nvotes = parseInt( $(this).parents("#updownvotes").find(".num-votes").text() );
         // var nvotes = ("sampletext");
-
-        
-
      });
 
 
@@ -178,9 +163,5 @@ $(document).ready(function () {
         $(this).parents("#reviews-entry").remove();
 
     });
-
-
-
-
 
 })

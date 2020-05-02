@@ -266,9 +266,5 @@ $(document).ready(function () {
         
         validCPassword($("#cpassword"));
     });
- 
- 
-
-
 
 })

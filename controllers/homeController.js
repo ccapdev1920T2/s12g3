@@ -11,9 +11,6 @@ const homeController = {
 
     getRestaurants: function(req, res) {
 
-        
-        
-
         db.findOne(User, {isLoggedIn: true}, 'uname', function(result){ 
 
             //for the normal homepage // if the search fields doesn't have any value
@@ -30,9 +27,6 @@ const homeController = {
                             uname: "Guest"
                         }
                     }
-                    // this console.log is for gebugging only
-                    // console.log(restaurant);
-                    // console.log("result: " +result);
                     res.render('home.hbs', details); 
                 }) 
             }
@@ -94,7 +88,6 @@ const homeController = {
                 
             }
             
-            
         });
     },
 
@@ -107,7 +100,6 @@ const homeController = {
             res.send(result);
 
         })
-
 
     }
 }

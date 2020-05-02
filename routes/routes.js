@@ -28,21 +28,13 @@ const reviewEditController = require('../controllers/reviewEditController.js');
 // import module `deleteControllerController` from `../controllers/deleteController.js`
 const deleteController = require('../controllers/deleteController.js');
 
-// import module `searchController` from `../controllers/searchController.js`
-const searchController = require('../controllers/searchController.js');
-
 const app = express();
 
 // set the folder `public` as folder containing static assets
 // such as css, js, and image files
 app.use(express.static('public'));
 
-
-
-//CONTROLLER.JS
-
-
-
+//CONTROLLER
 
 //REVIEWEDITCONTROLLER.JS
 //goes to the edit review page
@@ -60,8 +52,6 @@ app.get('/restaurant/:id', restaurantController.getRestaurant);
 app.post('/restaurant', restaurantController.postReview);
 //increases vote of a specific review by 1
 app.get('/getIncrementVote', restaurantController.getIncrementVote);
-// //downvotes a specific review
-// app.post('/downvote/:id', restaurantController.downvoteReview);
 
 
 //LOGINCONTROLLER.JS

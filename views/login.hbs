@@ -11,6 +11,7 @@
 
 	{{!-- ajax for header --}}
   	<script src="/js/header.js" type="text/javascript"></script> 
+	<script src="/js/login.js" type="text/javascript"></script> 
 
 </head>
 <body>
@@ -45,53 +46,5 @@
 		
 	</div>    
 </form>
-	<script type = "text/javascript">
-		
-		function validUsername(user, val)
-		{
-		valid = val;
-			if (user.val() == ""){
-			valid = false;
-				$('#username').css({
-							'border' : '1.5px solid #FF0000'
-				})
-				$('#erroruser').text('* username is required');
-			}
-			else {
-				$('#username').css({
-							'border' : '1px solid #DDDDDD'
-				})
-				$('#erroruser').text("");
-            }
-            return valid;
-		}
-		
-		function validPassword(pword, val)
-		{
-		var valid = val;
-			if(pword.val() == '') 
-			{
-                valid = false;
-				$('#password').css({
-							'border' : '1.5px solid #FF0000'
-				})
-				$('#errorpassword').text('* password is required');
-			}
-			else {
-				$('#password').css({
-							'border' : '1px solid #DDDDDD'
-				})
-				$('#errorpassword').text("");
-            }
-            return valid;
-		}
-		
-		$("#login").click(function(){
-		var valid = true;
-		valid = validUsername($("#username"), valid);
-		valid = validPassword($("#password"), valid);
-		});
-
-	</script>
 </body>
 </html>

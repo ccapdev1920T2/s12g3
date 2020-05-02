@@ -19,7 +19,6 @@ const deleteController = {
 
     deleteReview: function (req, res){
         
-        
         db.findOne(User, {uname: req.session.uname}, 'uname _id', function(loggedUserResult){
             console.log("enter user");
 
@@ -29,7 +28,6 @@ const deleteController = {
                 if(ObjectId(loggedUserResult._id).toString() == reviewResult.authorID ){
 
                     db.deleteOne(Review, {_id:req.params.reviewID});
-
 
                     var reviewProjection = '_id authorID restaurantID pubdate votes foodrate servicerate envrate reviewText rName rPhoto rOverallRate';
                     db.findMany(Review, {restaurantID: reviewResult.restaurantID}, reviewProjection, function(reviewSResult){
@@ -60,7 +58,6 @@ const deleteController = {
                             rAveFoodRate = rAveFoodRate.toFixed(1);
                             rAveServiceRate = rAveServiceRate.toFixed(1);
 
-
                             var rOverallRate = (Number(rAveEnvironmentRate) + Number(rAveFoodRate) + Number(rAveServiceRate) )/3 ;
                             
                             console.log("rOverallRate: " + rOverallRate);
@@ -79,18 +76,14 @@ const deleteController = {
                                 rAveServiceRate: 0,
                                 rOverallRate: 0
                             }
-
                         }
 
-                    
                         console.log("updatedResto: " + JSON.stringify(updatedResto));
                         console.log("reviewResult.restaurantID: " + reviewResult.restaurantID);
 
                         db.updateOne(Restaurant, {_id: ObjectId(reviewResult.restaurantID)}, updatedResto);
             
                     })
-
-
 
                     //refreshes the page
                     res.redirect('back');
@@ -99,10 +92,7 @@ const deleteController = {
                 else{
                     res.render('error', {errormsg: "You can't delete reviews published by other users!"});
                 }
-
-            } )
-
-
+            })
         })
     }
 }

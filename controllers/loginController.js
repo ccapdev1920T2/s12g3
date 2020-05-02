@@ -13,8 +13,6 @@ const loginController = {
 
     postLogin: function(req, res) {
 
-        
-
                 var projection = 'uname pword';
                 var uname = req.body.uname;
                 var pword = req.body.pword;
@@ -24,7 +22,6 @@ const loginController = {
                     if(results != null){
 
                         bcrypt.compare(pword, results.pword, function(err, equal) {
-
                             
                             if(equal){
                                 //if tama credentials, it will set that user's isLoggedIn to true
@@ -43,8 +40,6 @@ const loginController = {
                     }
 
                 });
-         
-
     },
    
     oldpostLogin: function(req, res) {
@@ -85,7 +80,6 @@ const loginController = {
             }
         });
     }
-
 }
 
 module.exports = loginController;

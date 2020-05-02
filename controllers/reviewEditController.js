@@ -30,8 +30,6 @@ const reviewEditController = {
                     var rOverallRate = (Number(req.body.foodrate) + Number(req.body.servicerate) + Number( req.body.envrate) ) /3;
                     rOverallRate = rOverallRate.toFixed(1);
 
-
-
                     var update = {
                         // left is column/field name; right is value/data
                         foodrate: req.body.foodrate,
@@ -134,8 +132,6 @@ const reviewEditController = {
 
             res.render('reviewedit', reviewdetails);
         });
-
-        
     },
 
     // executed when the client sends an HTTP GET request `/useraccountsetting`

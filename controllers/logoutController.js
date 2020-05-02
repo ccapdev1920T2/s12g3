@@ -7,22 +7,20 @@ const User = require('../models/userModel.js');
 const logoutController = {
 
     getLogout:function(req, res) {
-
         /*
             logs-out the current user
             destroys the current values stored in `req.session`
         */
-       req.session.destroy(function(err) {
+        req.session.destroy(function(err) {
         if(err) throw err;
-
         /*
             redirects the client to `/profile` using HTTP GET,
             defined in `../routes/routes.js`
         */
         res.redirect('/');
-    });
-
+        });
     }
+    
 }
 
 

@@ -268,34 +268,4 @@ visibility: visible;
 /* END for the reviews in restaurant page */
 
 
-/*modal*/
-/* .bg-modal {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  position: fixed;
-  top: 0;
-  display: none;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  position: relative;
-  width: 500px;
-  height: 500px;
-  background-color: white;
-  border-radius: 4px;
-  padding: 20px;
-}
-
-#closeBtn {
-  position: absolute;
-  top: 0;
-  right: 14px;
-  font-size: 42px;
-  transform: rotate(45deg);
-  cursor: pointer;
-} */
-
 
