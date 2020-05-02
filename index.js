@@ -20,7 +20,7 @@ const mongoose = require('mongoose');
 const db = require('./models/db.js');
 
 const app = express();
-const port = 9090;
+const port = 3000;
 
 // set `hbs` as view engine
 app.set('view engine', 'hbs');
