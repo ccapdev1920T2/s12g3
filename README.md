@@ -53,7 +53,7 @@ Note that photos and information are gathered online are used for educational pu
 # Acknowledgments
 1. Sir Arren Antioquia for teaching us the necessary topics to develop a web application.
 2. Stack Overflow community for providing supplemental solutions to code-related problems our brain cells can't solve.
-3. Sean N. wants to thank the devs of SOMA and Hellblade: Senua's Sacrifice. He wouldn't have finished his part if he didn't finish those **great** games first.
+3. Sean N. wants to thank the devs of SOMA and Hellblade: Senua's Sacrifice. He wouldn't have finished his part if he didn't finish these **great** games first.
 4. DLSU for not suspending class amidst the COVID-19 pandemic. This project would've been left unfinished if DLSU suspended the class.
 
 
