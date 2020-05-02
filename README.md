@@ -1,5 +1,6 @@
 # GourMeet
 Gourmeet Web Application for CCAPDEV1920T2 by Group 3
+This project is a restaurant rating website that lets users rate restaurants by food, service, and environment. It allows user to edit and delete their reviews and also to upvote or downvote reviews made by other users. 
 
 ## Follow the steps below to set-up :
 1. Clone the repository either by downloading the contents of the repository [here](https://github.com/ccapdev1920T2/s12g3/archive/master.zip), or using the command below (Note: git should be installed in your system for this to work).
@@ -20,7 +21,8 @@ Connected to: mongodb://localhost:27017/database
 ```
 http://localhost:3000/
 ```
-8. Login using any of the existing use accounts in the table below. OR register. If you choose to register, make sure you edit and enter your details on the account settings page which can be accessed at the top-right dropdown "Hello, [ username ]"
+8. You may now browse through the website. You may choose to register or login in the next step to gain user privileges.
+9. Register or login using any of the existing use accounts in the table below. If you choose to register, make sure you edit and enter your details on the account settings page which can be accessed at the top-right dropdown "Hello, [ username ]"
 
 | Username       | Password |
 |----------------|----------|
@@ -28,6 +30,21 @@ http://localhost:3000/
 | bobjohnson     | secret   |
 | anniekendrick     | secret   |
 | bruceling     | secret   |
+
+
+# Restaurants Included
+Note that photos and information are gathered online are used for educational purposes only. We do not own any of the images used in the project.
+1. Spicy Heat (made-up)
+2. Antonio's Restaurant
+3. Sariwon Restaurant
+4. Becky's Kitchen
+5. Circles Event Caf
+6. Pookaberry Cafe
+7. Balay Dako
+8. Spiral
+9. CoCo Ichibanya
+10. Sunnies Cafe
+
 
 
 
