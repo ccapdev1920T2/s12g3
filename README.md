@@ -26,6 +26,8 @@ http://localhost:3000/
 |----------------|----------|
 | haroldanderson | secret   |
 | bobjohnson     | secret   |
+| anniekendrick     | secret   |
+| bruceling     | secret   |
 
 
 
