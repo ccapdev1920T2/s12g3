@@ -20,7 +20,7 @@ const mongoose = require('mongoose');
 const db = require('./models/db.js');
 
 const app = express();
-const port = 3000;
+// const port = 3000;
 
 // set `hbs` as view engine
 app.set('view engine', 'hbs');
@@ -51,7 +51,14 @@ app.use('/', routes);
 db.connect();
 
 // binds the server to a specific port
+// app.listen(port, function () {
+//     console.log('app listening at port ' + port);
+// });
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
 app.listen(port, function () {
     console.log('app listening at port ' + port);
 });
-
