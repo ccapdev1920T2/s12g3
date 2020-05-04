@@ -7,6 +7,7 @@ const User = require('./userModel.js');
 
 // database is the name of the database
 const url = 'mongodb://localhost:27017/database';
+// const url = 'mongodb://localhost:27017/database';
 
 // additional connection options
 const options = {
