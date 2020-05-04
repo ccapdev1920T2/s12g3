@@ -2,6 +2,10 @@
 Gourmeet Web Application for CCAPDEV1920T2 by Group 3
 This project is a restaurant rating website that lets users rate restaurants by food, service, and environment. It allows user to edit and delete their reviews and also to upvote or downvote reviews made by other users. 
 
+# GourMeet in Hekoru
+1. You can access the app in heroku using this link: https://gourmeet-g3.herokuapp.com/
+
+
 ## Follow the steps below to set-up :
 1. Clone the repository either by downloading the contents of the repository [here](https://github.com/ccapdev1920T2/s12g3/archive/master.zip), or using the command below (Note: git should be installed in your system for this to work).
 ```
